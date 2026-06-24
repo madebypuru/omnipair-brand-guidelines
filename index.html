@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omnipair — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0D0D0D;
+    --ink-soft: #1A1A1A;
+    --muted: #6A6A6A;
+    --muted-light: #9A9A9A;
+    --paper: #F7F6F4;
+    --paper-2: #FFFFFF;
+    --line: #E3E2DF;
+    --line-soft: #EEEDE9;
+    --nav-h: 64px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: rgba(247,246,244,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 0 2.5rem;
+    gap: 2.5rem;
+  }
+
+  .nav-logo {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-logo-dot {
+    width: 7px; height: 7px;
+    background: var(--ink);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 999px;
+    transition: color 0.15s, background 0.15s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links a:hover { color: var(--ink); background: var(--line-soft); }
+
+  .nav-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  /* ─── LAYOUT ─── */
+  .page { padding-top: var(--nav-h); }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 7rem 0 5rem;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid var(--line-soft);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: 40px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--muted);
+  }
+
+  .hero-headline {
+    font-size: clamp(40px, 5.5vw, 70px);
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    max-width: 780px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-headline em {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .hero-meta-item { font-size: 11px; color: var(--muted); letter-spacing: 0.02em; }
+  .hero-meta-item strong { font-weight: 500; color: var(--ink); display: block; font-size: 13px; margin-bottom: 2px; }
+
+  /* ─── SECTIONS ─── */
+  .section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-inner {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .section-aside {
+    position: sticky;
+    top: calc(var(--nav-h) + 2rem);
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title em {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .section-nav-links { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 4px; }
+  .section-nav-link { font-size: 12px; color: var(--muted); text-decoration: none; padding: 4px 0; transition: color 0.15s; }
+  .section-nav-link:hover { color: var(--ink); }
+
+  /* ─── CONTENT BLOCKS ─── */
+  .prose {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    max-width: 660px;
+  }
+
+  .prose strong { font-weight: 500; color: var(--ink); }
+
+  h3.content-title {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.6rem;
+    margin-top: 2rem;
+    color: var(--ink);
+  }
+
+  h3.content-title:first-child { margin-top: 0; }
+
+  /* Persona block */
+  .persona {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 14px;
+    padding: 2rem 2.25rem;
+    margin: 1.5rem 0;
+  }
+
+  .persona-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 1rem;
+  }
+
+  .persona-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+    font-family: 'Instrument Serif', Georgia, serif;
+  }
+
+  /* Prism grid */
+  .prism-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 1.5rem 0;
+  }
+
+  .prism-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .prism-card-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .prism-card-values {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .prism-card-desc {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  /* Callout */
+  .callout {
+    border-left: 2px solid var(--ink);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    background: var(--paper-2);
+    border-radius: 0 10px 10px 0;
+  }
+
+  .callout-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .callout-text {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  /* Principle blocks */
+  .principle {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .principle:last-child { border-bottom: none; }
+
+  .principle-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .principle-name::before {
+    content: '';
+    display: inline-block;
+    width: 5px; height: 5px;
+    background: var(--ink);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .principle-desc {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--muted);
+    padding-left: 15px;
+  }
+
+  /* Example pair */
+  .example-pair { margin: 1.25rem 0; }
+
+  .ex-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .ex-label.avoid { color: #8A3A3A; }
+  .ex-label.use { color: #3A7A4A; }
+
+  .ex-box {
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin-bottom: 6px;
+  }
+
+  .ex-box.avoid { background: #FBF0F0; border: 1px solid #EAC8C8; color: var(--ink-soft); }
+  .ex-box.use { background: #F0F7F1; border: 1px solid #C5DFC9; color: var(--ink); }
+
+  .ex-arrow { text-align: center; font-size: 16px; color: var(--muted-light); line-height: 1; margin: 4px 0; }
+
+  /* Tone spectrums */
+  .spectrum-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .spectrum-row:last-child { border-bottom: none; }
+
+  .spectrum-end {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .spectrum-end.right { text-align: right; }
+
+  .spectrum-track {
+    position: relative;
+    height: 3px;
+    background: var(--line);
+    border-radius: 2px;
+  }
+
+  .spectrum-fill {
+    position: absolute;
+    left: 0; top: 0; height: 100%;
+    background: var(--ink);
+    border-radius: 2px;
+  }
+
+  .spectrum-dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px; height: 14px;
+    background: var(--ink);
+    border-radius: 50%;
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--ink);
+  }
+
+  .spectrum-label-row {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  /* Vocabulary */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 1.5rem 0;
+  }
+
+  .vocab-block {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .vocab-block-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .vocab-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .vocab-tag {
+    font-size: 12px;
+    padding: 4px 11px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .vocab-block.avoid .vocab-tag {
+    background: #FBF0F0;
+    border-color: #EAC8C8;
+    color: #7A2020;
+  }
+
+  /* Compare */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 1.5rem 0;
+  }
+
+  .compare-col {
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .compare-col.yes { background: #F0F7F1; border: 1px solid #C5DFC9; }
+  .compare-col.no { background: #FBF0F0; border: 1px solid #EAC8C8; }
+
+  .compare-col-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .compare-col.yes .compare-col-label { color: #2E6B3A; }
+  .compare-col.no .compare-col-label { color: #7A2020; }
+
+  .compare-item {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 0.6rem;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .compare-item-icon { flex-shrink: 0; font-style: normal; margin-top: 1px; }
+  .compare-col.yes .compare-item-icon { color: #2E6B3A; }
+  .compare-col.no .compare-item-icon { color: #8A2020; }
+
+  /* Templates */
+  .template-block {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .template-head {
+    padding: 0.7rem 1.25rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--paper);
+  }
+
+  .template-context {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .template-body {
+    padding: 1.25rem;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--ink);
+  }
+
+  .template-body .formula {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 14px;
+  }
+
+  .template-body .example {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 13px;
+    display: block;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--paper);
+    border-radius: 6px;
+    border: 1px solid var(--line-soft);
+    font-style: normal;
+  }
+
+  .template-body .note {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* Rules */
+  .rules-list { list-style: none; counter-reset: rule; }
+
+  .rule-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line-soft);
+    counter-increment: rule;
+  }
+
+  .rule-item:last-child { border-bottom: none; }
+
+  .rule-num {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted-light);
+    min-width: 24px;
+    padding-top: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .rule-text {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .rule-text strong { font-weight: 500; color: var(--ink); }
+
+  /* Visual Identity placeholder */
+  .vi-placeholder {
+    background: var(--paper-2);
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+
+  .vi-placeholder-icon {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--line-soft);
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vi-placeholder-icon svg { width: 20px; height: 20px; stroke: var(--muted); fill: none; stroke-width: 1.5; }
+
+  .vi-placeholder-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .vi-placeholder-desc {
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 360px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  .vi-coming {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    padding: 5px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  .vi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 1.5rem 0;
+  }
+
+  .vi-card {
+    background: var(--paper-2);
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .vi-card-placeholder {
+    height: 60px;
+    background: var(--line-soft);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+  }
+
+  .vi-card-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* Footer */
+  footer {
+    padding: 3rem 0;
+    border-top: 1px solid var(--line);
+    margin-top: 2rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    color: var(--muted-light);
+    letter-spacing: 0.02em;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 800px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .container { padding: 0 1.25rem; }
+    .hero { padding: 4rem 0 3rem; }
+    .hero-headline { font-size: 36px; }
+    .section-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .section-aside { position: static; }
+    .prism-grid { grid-template-columns: 1fr; }
+    .compare { grid-template-columns: 1fr; }
+    .vocab-grid { grid-template-columns: 1fr; }
+    .vi-grid { grid-template-columns: 1fr 1fr; }
+    .hero-meta { flex-wrap: wrap; gap: 1.25rem; }
+    .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-dot"></span>
+    Omnipair
+  </a>
+  <ul class="nav-links">
+    <li><a href="#character">Character</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#tone">Tone</a></li>
+    <li><a href="#vocabulary">Vocabulary</a></li>
+    <li><a href="#donts">Dos & Don'ts</a></li>
+    <li><a href="#templates">Templates</a></li>
+    <li><a href="#visual">Visual Identity</a></li>
+  </ul>
+  <span class="nav-tag">Brand Guidelines v1.0</span>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Omnipair Brand Guidelines</div>
+      <h1 class="hero-headline">How Omnipair<br><em>speaks</em> and <em>thinks</em></h1>
+      <p class="hero-sub">A complete reference for voice, tone, vocabulary, and copy. Built from the Brand Prism. Use this before writing anything public.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <strong>v1.0</strong>
+          Brand Prism Edition
+        </div>
+        <div class="hero-meta-item">
+          <strong>6 Sections</strong>
+          Voice · Tone · Copy · Visual
+        </div>
+        <div class="hero-meta-item">
+          <strong>Audience</strong>
+          Team · Agencies · Collaborators
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 BRAND CHARACTER -->
+  <section class="section" id="character">
+    <div class="container">
+      <div class="section-inner">
+        <div class="section-aside">
+          <div class="section-label">Section 01</div>
+          <h2 class="section-title">Brand <em>Character</em></h2>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65; margin-top:0.75rem;">Who Omnipair is. Everything in this guide flows from here.</p>
+          <div class="section-nav-links">
+            <a href="#voice" class="section-nav-link">→ Voice Principles</a>
+            <a href="#tone" class="section-nav-link">→ Tone Calibration</a>
+          </div>
+        </div>
+        <div class="section-content">
+          <p class="prose">Before a single word is written, understand who Omnipair is. The brand prism gives us six dimensions — each one has a direct voice implication.</p>
+
+          <div class="persona">
+            <div class="persona-label">The Omnipair Person — your north star</div>
+            <div class="persona-text">"A sharp, self-assured architect in their early 30s. Shows up in a Porsche wearing a well-cut jacket and unbranded designer pants — premium, but no logos. Calm and precise, never loud. Has strong opinions about how on-chain finance should work and voices them as reasoned arguments, not insults. A quiet rebel rejecting the status quo through what they build rather than how loudly they complain. Doesn't ask for your trust — would rather you verify everything yourself. Ships only what matters."</div>
+          </div>
+
+          <h3 class="content-title">The six dimensions</h3>
+          <div class="prism-grid">
+            <div class="prism-card">
+              <div class="prism-card-label">Physique — How Omnipair looks</div>
+              <div class="prism-card-values">Technical · Refined · Supreme</div>
+              <div class="prism-card-desc">Copy should feel precise and considered. Never rough, never padded. Made by builders, presented with taste.</div>
+            </div>
+            <div class="prism-card">
+              <div class="prism-card-label">Personality — How Omnipair enters a room</div>
+              <div class="prism-card-values">Rational · Confident · Visionary</div>
+              <div class="prism-card-desc">Make claims through logic, not enthusiasm. Conviction without chest-beating. Decisions through reason.</div>
+            </div>
+            <div class="prism-card">
+              <div class="prism-card-label">Culture — What Omnipair believes</div>
+              <div class="prism-card-values">Inventive · Ownership · Transparency</div>
+              <div class="prism-card-desc">Say what something actually does. No vague promises. Transparency is demonstrated, not claimed.</div>
+            </div>
+            <div class="prism-card">
+              <div class="prism-card-label">Relationship — What Omnipair promises</div>
+              <div class="prism-card-values">Control · Reliability · Opportunity</div>
+              <div class="prism-card-desc">Promise access and dependable systems — not outcomes. Doesn't guarantee results, guarantees the infrastructure.</div>
+            </div>
+            <div class="prism-card">
+              <div class="prism-card-label">Reflection — Who Omnipair attracts</div>
+              <div class="prism-card-values">Strategists · Long-Term Thinkers · Early Adopters</div>
+              <div class="prism-card-desc">Write for people who read carefully and think in systems. They will fact-check you. Be glad when they do.</div>
+            </div>
+            <div class="prism-card">
+              <div class="prism-card-label">Self-Image — How users feel</div>
+              <div class="prism-card-values">Independent · Confident · Capable</div>
+              <div class="prism-card-desc">The reader should feel smarter after reading. Never patronize. The user chose this — the copy should affirm that instinct.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 VOICE PRINCIPLES -->
+  <section class="section" id="voice">
+    <div class="container">
+      <div class="section-inner">
+        <div class="section-aside">
+          <div class="section-label">Section 02</div>
+          <h2 class="section-title">Voice <em>Principles</em></h2>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65; margin-top:0.75rem;">Five rules that govern how Omnipair speaks across every medium.</p>
+        </div>
+        <div class="section-content">
+          <p class="prose">These aren't stylistic preferences — they're structural rules that follow directly from the prism. Every piece of copy should be tested against all five.</p>
+
+          <div class="principle">
+            <div class="principle-name">Precision over volume</div>
+            <div class="principle-desc">Say the exact thing, not the approximate thing. Omnipair writes like someone who has thought carefully before opening their mouth. Fewer words, more weight.</div>
+          </div>
+
+          <div class="example-pair">
+            <div class="ex-label avoid">Avoid</div>
+            <div class="ex-box avoid">"Omnipair is an incredibly powerful platform that helps traders and DeFi users unlock their full potential with cutting-edge technology and real-time insights."</div>
+            <div class="ex-arrow">↓</div>
+            <div class="ex-label use">Use instead</div>
+            <div class="ex-box use">"Omnipair gives you the infrastructure to trade on-chain without asking permission. Precise execution. No intermediaries."</div>
+          </div>
+
+          <div class="principle">
+            <div class="principle-name">Logic, not hype</div>
+            <div class="principle-desc">Omnipair makes arguments, not announcements. Every claim should be supportable. If you can't point to what makes it true, don't say it.</div>
+          </div>
+
+          <div class="example-pair">
+            <div class="ex-label avoid">Avoid</div>
+            <div class="ex-box avoid">"The most revolutionary DeFi protocol ever built. Join thousands of users experiencing the future of finance."</div>
+            <div class="ex-arrow">↓</div>
+            <div class="ex-label use">Use instead</div>
+            <div class="ex-box use">"Built for non-custodial execution at institutional speed. The architecture is open — read it, verify it, run it."</div>
+          </div>
+
+          <div class="principle">
+            <div class="principle-name">Confidence without noise</div>
+            <div class="principle-desc">Omnipair is certain of what it's building. That certainty doesn't need to be performed. Avoid exclamation marks, superlatives, and intensity words. The conviction is in the substance.</div>
+          </div>
+
+          <div class="principle">
+            <div class="principle-name">Transparency as a value, not a feature</div>
+            <div class="principle-desc">Don't market openness — demonstrate it. Write like someone who would rather you look at the code than take their word for it. Invite scrutiny. Don't promise trust, make trust beside the point.</div>
+          </div>
+
+          <div class="example-pair">
+            <div class="ex-label avoid">Avoid</div>
+            <div class="ex-box avoid">"You can trust Omnipair. We're committed to full transparency and user safety."</div>
+            <div class="ex-arrow">↓</div>
+            <div class="ex-label use">Use instead</div>
+            <div class="ex-box use">"The contracts are open. The execution is on-chain. Trust is optional — verification is built in."</div>
+          </div>
+
+          <div class="principle">
+            <div class="principle-name">Quiet rebellion, not loud critique</div>
+            <div class="principle-desc">Omnipair rejects the current system by building something better, not by naming what's wrong with competitors. Never punch at rivals. The product is the argument.</div>
+          </div>
+
+          <div class="example-pair">
+            <div class="ex-label avoid">Avoid</div>
+            <div class="ex-box avoid">"Unlike [Competitor], we don't charge hidden fees or lock your assets."</div>
+            <div class="ex-arrow">↓</div>
+            <div class="ex-label use">Use instead</div>
+            <div class="ex-box use">"Your assets remain yours. Every fee is visible before execution. That's the whole model."</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TONE CALIBRATION -->
+  <section class="section" id="tone">
+    <div class="container">
+      <div class="section-inner">
+        <div class="section-aside">
+          <div class="section-label">Section 03</div>
+          <h2 class="section-title">Tone <em>Calibration</em></h2>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65; margin-top:0.75rem;">The same person, speaking in different rooms. The character stays constant — the register adjusts.</p>
+        </div>
+        <div class="section-content">
+          <p class="prose">Omnipair's tone doesn't shift wildly by context. Think of it as one person who knows which room they're in — never performing, always calibrated.</p>
+
+          <div style="margin: 2rem 0;">
+            <div class="spectrum-row">
+              <div>
+                <div style="font-size:11px; font-weight:500; color:var(--ink); margin-bottom:4px;">Formal ↔ Casual</div>
+              </div>
+              <div style="grid-column: 1 / -1; padding: 0;">
+                <div style="display:grid; grid-template-columns: 100px 1fr 100px; gap:1rem; align-items:center;">
+                  <span class="spectrum-end" style="font-size:11px; color:var(--muted);">Clinical</span>
+                  <div class="spectrum-track">
+                    <div class="spectrum-fill" style="width:38%;"></div>
+                    <div class="spectrum-dot" style="left:38%;"></div>
+                  </div>
+                  <span class="spectrum-end right" style="font-size:11px; color:var(--muted);">Colloquial</span>
+                </div>
+                <p style="font-size:12px; color:var(--muted); margin-top:0.6rem; line-height:1.6;">Professional and precise, but not stiff. Technical vocabulary used correctly, not wielded to impress.</p>
+              </div>
+            </div>
+
+            <div style="padding: 1.5rem 0; border-bottom:1px solid var(--line-soft);">
+              <div style="display:grid; grid-template-columns: 100px 1fr 100px; gap:1rem; align-items:center; margin-bottom:0.6rem;">
+                <span style="font-size:11px; font-weight:500; color:var(--ink);">Warm ↔ Cold</span>
+                <div></div>
+                <div></div>
+              </div>
+              <div style="display:grid; grid-template-columns: 100px 1fr 100px; gap:1rem; align-items:center;">
+                <span class="spectrum-end" style="font-size:11px; color:var(--muted);">Friendly</span>
+                <div class="spectrum-track">
+                  <div class="spectrum-fill" style="width:58%;"></div>
+                  <div class="spectrum-dot" style="left:58%;"></div>
+                </div>
+                <span class="spectrum-end right" style="font-size:11px; color:var(--muted);">Distant</span>
+              </div>
+              <p style="font-size:12px; color:var(--muted); margin-top:0.6rem; line-height:1.6;">Slightly cool. Not cold — there's respect for the reader. But Omnipair doesn't try to be likable. It tries to be useful and correct.</p>
+            </div>
+
+            <div style="padding: 1.5rem 0;">
+              <div style="display:grid; grid-template-columns: 100px 1fr 100px; gap:1rem; align-items:center; margin-bottom:0.6rem;">
+                <span style="font-size:11px; font-weight:500; color:var(--ink);">Certain ↔ Tentative</span>
+                <div></div>
+                <div></div>
+              </div>
+              <div style="display:grid; grid-template-columns: 100px 1fr 100px; gap:1rem; align-items:center;">
+                <span class="spectrum-end" style="font-size:11px; color:var(--muted);">Declarative</span>
+                <div class="spectrum-track">
+                  <div class="spectrum-fill" style="width:18%;"></div>
+                  <div class="spectrum-dot" style="left:18%;"></div>
+                </div>
+                <span class="spectrum-end right" style="font-size:11px; color:var(--muted);">Uncertain</span>
+              </div>
+              <p style="font-size:12px; color:var(--muted); margin-top:0.6rem; line-height:1.6;">Very certain. Omnipair doesn't "try to" or "hope to." Weasel words undermine credibility. State the thing.</p>
+            </div>
+          </div>
+
+          <h3 class="content-title">Audience modes</h3>
+          <p class="prose">The depth of technical language and the nature of the argument shifts by reader. Know who you're writing for first.</p>
+
+          <div class="prism-grid">
+            <div class="prism-card">
+              <div class="prism-card-label">The Strategist</div>
+              <div class="prism-card-values" style="font-size:13px;">Long-term thinker</div>
+              <div class="prism-card-desc">Cares about system architecture, protocol integrity, five-year trajectory. Dense is fine. Make the argument fully. Technical precision.</div>
+            </div>
+            <div class="prism-card">
+              <div class="prism-card-label">The Trader</div>
+              <div class="prism-card-values" style="font-size:13px;">Execution-focused</div>
+              <div class="prism-card-desc">Cares about speed, fees, slippage, control. High conviction, low patience for abstraction. Lead with function. Numbers over narrative.</div>
+            </div>
+            <div class="prism-card">
+              <div class="prism-card-label">The Early Adopter</div>
+              <div class="prism-card-values" style="font-size:13px;">Curious and forward-looking</div>
+              <div class="prism-card-desc">Wants to be early to something real. Not easily impressed, wants signal not noise. Show your thinking, not just your product.</div>
+            </div>
+            <div class="prism-card" style="background:var(--ink); border-color:var(--ink);">
+              <div class="prism-card-label" style="color:rgba(255,255,255,0.4);">What they all share</div>
+              <div class="prism-card-values" style="color:#fff; font-size:13px;">Sophisticated readers</div>
+              <div class="prism-card-desc" style="color:rgba(255,255,255,0.6);">None of them responds well to being sold at. Write for people who will fact-check you — and be glad when they do.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 VOCABULARY -->
+  <section class="section" id="vocabulary">
+    <div class="container">
+      <div class="section-inner">
+        <div class="section-aside">
+          <div class="section-label">Section 04</div>
+          <h2 class="section-title">Tone & <em>Vocabulary</em></h2>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65; margin-top:0.75rem;">The words Omnipair reaches for — and the ones it avoids.</p>
+        </div>
+        <div class="section-content">
+          <p class="prose">This isn't an exhaustive list — it's a way to calibrate your instincts. When in doubt, ask: could this word appear on any DeFi protocol's homepage without anyone noticing? If yes, find a better one.</p>
+
+          <div class="vocab-grid">
+            <div class="vocab-block">
+              <div class="vocab-block-label">Use freely</div>
+              <div class="vocab-tags">
+                <span class="vocab-tag">infrastructure</span>
+                <span class="vocab-tag">execution</span>
+                <span class="vocab-tag">on-chain</span>
+                <span class="vocab-tag">architecture</span>
+                <span class="vocab-tag">non-custodial</span>
+                <span class="vocab-tag">precision</span>
+                <span class="vocab-tag">verify</span>
+                <span class="vocab-tag">control</span>
+                <span class="vocab-tag">liquidity</span>
+                <span class="vocab-tag">permissionless</span>
+                <span class="vocab-tag">reliable</span>
+                <span class="vocab-tag">independent</span>
+                <span class="vocab-tag">systematic</span>
+                <span class="vocab-tag">designed</span>
+                <span class="vocab-tag">built</span>
+              </div>
+            </div>
+            <div class="vocab-block">
+              <div class="vocab-block-label">Use with care</div>
+              <div class="vocab-tags">
+                <span class="vocab-tag">ecosystem</span>
+                <span class="vocab-tag">protocol</span>
+                <span class="vocab-tag">decentralized</span>
+                <span class="vocab-tag">community</span>
+                <span class="vocab-tag">yield</span>
+                <span class="vocab-tag">seamless</span>
+                <span class="vocab-tag">powerful</span>
+                <span class="vocab-tag">advanced</span>
+                <span class="vocab-tag">smart</span>
+              </div>
+            </div>
+            <div class="vocab-block avoid">
+              <div class="vocab-block-label">Avoid entirely</div>
+              <div class="vocab-tags">
+                <span class="vocab-tag">revolutionary</span>
+                <span class="vocab-tag">game-changer</span>
+                <span class="vocab-tag">disruption</span>
+                <span class="vocab-tag">unprecedented</span>
+                <span class="vocab-tag">amazing</span>
+                <span class="vocab-tag">cutting-edge</span>
+                <span class="vocab-tag">synergy</span>
+                <span class="vocab-tag">journey</span>
+                <span class="vocab-tag">empower</span>
+                <span class="vocab-tag">leverage</span>
+                <span class="vocab-tag">unlock potential</span>
+                <span class="vocab-tag">paradigm shift</span>
+              </div>
+            </div>
+            <div class="vocab-block avoid">
+              <div class="vocab-block-label">Never in headlines</div>
+              <div class="vocab-tags">
+                <span class="vocab-tag">trusted</span>
+                <span class="vocab-tag">best-in-class</span>
+                <span class="vocab-tag">world-class</span>
+                <span class="vocab-tag">leading</span>
+                <span class="vocab-tag">innovative</span>
+                <span class="vocab-tag">next-gen</span>
+                <span class="vocab-tag">futuristic</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-label">The vocabulary test</div>
+            <div class="callout-text">If a word could appear on any DeFi protocol's homepage without anyone noticing, don't use it. Omnipair earns its adjectives through specificity, not assertion.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 DOS AND DON'TS -->
+  <section class="section" id="donts">
+    <div class="container">
+      <div class="section-inner">
+        <div class="section-aside">
+          <div class="section-label">Section 05</div>
+          <h2 class="section-title">Dos & <em>Don'ts</em></h2>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65; margin-top:0.75rem;">Run any piece of copy through both columns before publishing.</p>
+        </div>
+        <div class="section-content">
+
+          <div class="compare">
+            <div class="compare-col yes">
+              <div class="compare-col-label">Do</div>
+              <div class="compare-item"><span class="compare-item-icon">✓</span>Lead with what the product does, not how it feels</div>
+              <div class="compare-item"><span class="compare-item-icon">✓</span>Use specific numbers when available (latency, uptime, fees)</div>
+              <div class="compare-item"><span class="compare-item-icon">✓</span>Write in the present tense — Omnipair does, not will do</div>
+              <div class="compare-item"><span class="compare-item-icon">✓</span>Make arguments that could be refuted — they earn trust</div>
+              <div class="compare-item"><span class="compare-item-icon">✓</span>Let the reader reach their own conclusion from your facts</div>
+              <div class="compare-item"><span class="compare-item-icon">✓</span>Use short sentences for impact, longer ones for explanation</div>
+              <div class="compare-item"><span class="compare-item-icon">✓</span>Acknowledge complexity — don't oversimplify</div>
+              <div class="compare-item"><span class="compare-item-icon">✓</span>Write headlines that are claims, not slogans</div>
+              <div class="compare-item"><span class="compare-item-icon">✓</span>Invite verification — point to the code, the contract, the data</div>
+            </div>
+            <div class="compare-col no">
+              <div class="compare-col-label">Don't</div>
+              <div class="compare-item"><span class="compare-item-icon">✕</span>Use exclamation marks in product copy</div>
+              <div class="compare-item"><span class="compare-item-icon">✕</span>Promise outcomes you can't guarantee</div>
+              <div class="compare-item"><span class="compare-item-icon">✕</span>Name or shade competitors, even subtly</div>
+              <div class="compare-item"><span class="compare-item-icon">✕</span>Use urgency tactics ("limited time", "don't miss out")</div>
+              <div class="compare-item"><span class="compare-item-icon">✕</span>Add modifiers that add no information ("truly", "really", "very")</div>
+              <div class="compare-item"><span class="compare-item-icon">✕</span>Start with "We believe" or "We think" — just state it</div>
+              <div class="compare-item"><span class="compare-item-icon">✕</span>Use passive voice to avoid accountability</div>
+              <div class="compare-item"><span class="compare-item-icon">✕</span>Pad body copy — if a sentence earns nothing, cut it</div>
+              <div class="compare-item"><span class="compare-item-icon">✕</span>Announce the announcement ("excited to share…")</div>
+            </div>
+          </div>
+
+          <h3 class="content-title" style="margin-top:2rem;">The 10 rules — fast QA checklist</h3>
+          <p class="prose">When in doubt, run your copy against these. If it fails more than one, rewrite it.</p>
+
+          <ol class="rules-list">
+            <li class="rule-item">
+              <span class="rule-num">01</span>
+              <span class="rule-text"><strong>Start with the thing, not the feeling about the thing.</strong> "On-chain execution" before "a seamless experience."</span>
+            </li>
+            <li class="rule-item">
+              <span class="rule-num">02</span>
+              <span class="rule-text"><strong>Cut every word that doesn't earn its place.</strong> If removing it changes nothing, remove it.</span>
+            </li>
+            <li class="rule-item">
+              <span class="rule-num">03</span>
+              <span class="rule-text"><strong>Never claim to be "the best" — demonstrate it.</strong> Superlatives are for the reader to conclude, not the writer to assert.</span>
+            </li>
+            <li class="rule-item">
+              <span class="rule-num">04</span>
+              <span class="rule-text"><strong>Write in the present tense.</strong> Omnipair does, not plans to do or hopes to do.</span>
+            </li>
+            <li class="rule-item">
+              <span class="rule-num">05</span>
+              <span class="rule-text"><strong>No exclamation marks in product copy.</strong> If the copy needs one to feel exciting, the copy isn't strong enough.</span>
+            </li>
+            <li class="rule-item">
+              <span class="rule-num">06</span>
+              <span class="rule-text"><strong>Invite verification.</strong> If you can point to the code, the contract, or the data — do it.</span>
+            </li>
+            <li class="rule-item">
+              <span class="rule-num">07</span>
+              <span class="rule-text"><strong>Don't compete out loud.</strong> The product competes. The copy doesn't need to.</span>
+            </li>
+            <li class="rule-item">
+              <span class="rule-num">08</span>
+              <span class="rule-text"><strong>Use technical language correctly or not at all.</strong> Jargon that's wrong is worse than no jargon.</span>
+            </li>
+            <li class="rule-item">
+              <span class="rule-num">09</span>
+              <span class="rule-text"><strong>Make one argument per paragraph.</strong> "Additionally" is usually a signal to split.</span>
+            </li>
+            <li class="rule-item">
+              <span class="rule-num">10</span>
+              <span class="rule-text"><strong>Read it as your most skeptical user.</strong> If they'd roll their eyes, rewrite it. If they'd nod, ship it.</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 COPY TEMPLATES -->
+  <section class="section" id="templates">
+    <div class="container">
+      <div class="section-inner">
+        <div class="section-aside">
+          <div class="section-label">Section 06</div>
+          <h2 class="section-title">Copy <em>Templates</em></h2>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65; margin-top:0.75rem;">Ready-to-use structures for common contexts. Fill in the specifics — the voice is already set.</p>
+        </div>
+        <div class="section-content">
+
+          <div class="template-block">
+            <div class="template-head"><span class="template-context">Hero Headline</span></div>
+            <div class="template-body">
+              <span class="formula">[Specific capability], without [the thing it removes].</span>
+              <span class="example">e.g. "On-chain execution at institutional speed, without the intermediary."</span>
+              <span class="note">State the real capability + name what it replaces or eliminates. No adjectives in the lead.</span>
+            </div>
+          </div>
+
+          <div class="template-block">
+            <div class="template-head"><span class="template-context">Hero Subheadline</span></div>
+            <div class="template-body">
+              <span class="formula">[What you actually get] + [why it's different in one clause].</span>
+              <span class="example">e.g. "Infrastructure designed for non-custodial trading. The architecture is open — read it, verify it, run it."</span>
+              <span class="note">Two short sentences work better than one long one. The second sentence does the work.</span>
+            </div>
+          </div>
+
+          <div class="template-block">
+            <div class="template-head"><span class="template-context">Feature Description</span></div>
+            <div class="template-body">
+              <span class="formula">[Feature name] — [one-line functional description].</span>
+              <span class="example">e.g. "Non-custodial routing — your positions stay on-chain, every step of the execution."</span>
+              <span class="note">No marketing prefix. Name it, define it, done. Resist the urge to explain why it matters — show it in the product.</span>
+            </div>
+          </div>
+
+          <div class="template-block">
+            <div class="template-head"><span class="template-context">UI Error / Status Message</span></div>
+            <div class="template-body">
+              <span class="formula">State what happened. Say what to do next.</span>
+              <span class="example">e.g. "Transaction failed — insufficient liquidity in this pool at this size. Try a smaller position or a different pair."</span>
+              <span class="note">No apologies. No vagueness. Name the reason, provide the path forward.</span>
+            </div>
+          </div>
+
+          <div class="template-block">
+            <div class="template-head"><span class="template-context">Social — Announcement</span></div>
+            <div class="template-body">
+              <span class="formula">[What was built]. [Why it matters in one sentence]. [Where to verify it.]</span>
+              <span class="example">e.g. "Omnipair now supports [X]. It means [concrete change for the user]. Contracts here: [link]."</span>
+              <span class="note">Never announce that you're announcing. No "excited to share." Start with the thing.</span>
+            </div>
+          </div>
+
+          <div class="template-block">
+            <div class="template-head"><span class="template-context">Social — Thought Piece</span></div>
+            <div class="template-body">
+              <span class="formula">Make a specific, arguable claim. Support it. Don't hedge the conclusion.</span>
+              <span class="example">e.g. "Most liquidity routing optimizes for the protocol's fee capture, not the trader's execution. Here's how the incentives are structured and why they produce this outcome: [thread]."</span>
+              <span class="note">The point of view is the value. The argument is the proof. If the take isn't arguable, it's not interesting.</span>
+            </div>
+          </div>
+
+          <div class="template-block">
+            <div class="template-head"><span class="template-context">Long-Form / Docs Opening</span></div>
+            <div class="template-body">
+              <span class="formula">State the problem precisely. Then say what this document addresses.</span>
+              <span class="example">e.g. "Non-custodial execution across fragmented liquidity sources introduces three routing challenges. This document covers how Omnipair handles each."</span>
+              <span class="note">Skip the preamble. Start with the problem, not with what you're about to explain.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 VISUAL IDENTITY -->
+  <section class="section" id="visual">
+    <div class="container">
+      <div class="section-inner">
+        <div class="section-aside">
+          <div class="section-label">Section 07</div>
+          <h2 class="section-title">Visual <em>Identity</em></h2>
+          <p style="font-size:13px; color:var(--muted); line-height:1.65; margin-top:0.75rem;">Colors, typography, logo, and motion principles. Coming once visual direction is locked.</p>
+        </div>
+        <div class="section-content">
+
+          <p class="prose">Visual identity is currently in progress. This section will be updated with the complete system once brand visuals are finalized — including logo usage, color palette, typography scale, spacing, and motion principles.</p>
+
+          <div class="vi-placeholder">
+            <div class="vi-placeholder-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 12h3m12 0h3M12 3v3m0 12v3m-6.36-2.64 2.12-2.12m8.48 0 2.12 2.12M5.64 5.64l2.12 2.12m8.48 0 2.12-2.12"/></svg>
+            </div>
+            <div class="vi-placeholder-title">Visual identity in progress</div>
+            <div class="vi-placeholder-desc">Colors, logo, typography, spacing, and motion rules will be documented here once the visual direction is confirmed.</div>
+            <span class="vi-coming">Coming in v2.0</span>
+          </div>
+
+          <div class="vi-grid">
+            <div class="vi-card">
+              <div class="vi-card-placeholder"></div>
+              <div class="vi-card-label">Color Palette</div>
+            </div>
+            <div class="vi-card">
+              <div class="vi-card-placeholder"></div>
+              <div class="vi-card-label">Typography Scale</div>
+            </div>
+            <div class="vi-card">
+              <div class="vi-card-placeholder"></div>
+              <div class="vi-card-label">Logo & Lockups</div>
+            </div>
+            <div class="vi-card">
+              <div class="vi-card-placeholder"></div>
+              <div class="vi-card-label">Spacing System</div>
+            </div>
+            <div class="vi-card">
+              <div class="vi-card-placeholder"></div>
+              <div class="vi-card-label">Motion Principles</div>
+            </div>
+            <div class="vi-card">
+              <div class="vi-card-placeholder"></div>
+              <div class="vi-card-label">Component Library</div>
+            </div>
+          </div>
+
+          <div class="callout">
+            <div class="callout-label">What will be documented</div>
+            <div class="callout-text">Primary and secondary color palette with usage rules · Typography stack with scale and weights · Logo usage — clear space, minimum sizes, do's and don'ts · Spacing and layout grid · Motion language and animation principles · Component reference for UI patterns</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <span class="nav-logo-dot"></span>
+          Omnipair
+        </div>
+        <div class="footer-meta">Brand Guidelines v1.0 · Built from Brand Prism · For team, agencies & collaborators</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
