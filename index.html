@@ -4,1556 +4,203 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>omnipair — brand guidelines</title>
-<meta name="description" content="Omnipair brand guidelines — foundation, voice, copy, and visual system.">
+<meta name="description" content="Omnipair brand guidelines — choose your reading experience.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2322C97F'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='20' fill='white'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/lockups/symbol-black-light.png">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --paper: #FBFBF9;
-    --surface: #FFFFFF;
-    --ink: #121217;
-    --ink-soft: #2A2A32;
-    --muted: #70707C;
-    --muted-light: #A3A3AC;
-    --line: #E8E8E4;
-    --line-soft: #F0F0EC;
-    --trade: #2E7CF6;
-    --borrow: #F5A623;
-    --leverage: #22C97F;
-    --side-w: 264px;
+    --ink: #0B0B0D;
+    --paper: #F5F4F1;
+    --hair-d: rgba(255,255,255,0.12);
+    --orange: #F08A12;
   }
-
-  html { scroll-behavior: smooth; }
-
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 380;
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--ink);
-    background: var(--paper);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  ::selection { background: var(--trade); color: #fff; }
-  :focus-visible { outline: 2px solid var(--trade); outline-offset: 2px; }
-
-  .mono { font-family: 'JetBrains Mono', monospace; }
-
-  /* ─── grain overlay used by orbs & washes ─── */
-  .grain::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-    mix-blend-mode: overlay;
-    opacity: 0.55;
-    border-radius: inherit;
-    pointer-events: none;
-  }
-
-  /* ─── SIDEBAR ─── */
-  .side {
-    position: fixed;
-    top: 0; left: 0; bottom: 0;
-    width: var(--side-w);
-    border-right: 1px solid var(--line);
-    background: var(--paper);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 2rem 1.5rem 1.5rem;
-    z-index: 50;
-    overflow-y: auto;
+    background: var(--ink);
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
   }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  a { text-decoration: none; color: inherit; }
+  :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
 
-  .side-logo {
+  header {
+    padding: 1.5rem 2rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 9px;
-    text-decoration: none;
-    color: var(--ink);
-    font-size: 17px;
-    font-weight: 550;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.4rem;
+  }
+  header img { width: 116px; }
+  .head-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
   }
 
-  .mark {
-    width: 22px; height: 22px;
-    flex-shrink: 0;
+  .choose {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 0 2rem 2rem;
   }
 
-  .side-tagline {
-    font-size: 11px;
-    color: var(--muted-light);
-    line-height: 1.5;
-    margin-bottom: 2.5rem;
-    letter-spacing: 0.01em;
+  .opt {
+    border-radius: 26px;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s;
   }
+  .opt:hover { transform: translateY(-6px); }
 
-  .side-nav { flex: 1; }
+  .opt.simple { background: var(--paper); color: var(--ink); }
+  .opt.expressive {
+    background: #101014;
+    border: 1px solid var(--hair-d);
+  }
+  .opt.expressive::before {
+    content: '';
+    position: absolute;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #4D95FA 0%, transparent 70%);
+    filter: blur(60px);
+    opacity: 0.35;
+    top: -120px; right: -80px;
+    transition: opacity 0.4s;
+  }
+  .opt.expressive::after {
+    content: '';
+    position: absolute;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #FFAA3E 0%, transparent 70%);
+    filter: blur(70px);
+    opacity: 0.28;
+    bottom: -120px; left: -60px;
+  }
+  .opt.expressive:hover::before { opacity: 0.55; }
 
-  .side-group { margin-bottom: 1.75rem; }
+  .opt-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    margin-bottom: auto;
+    opacity: 0.5;
+  }
+  .opt-star { width: 64px; margin-bottom: 1.5rem; position: relative; z-index: 1; transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
+  .opt:hover .opt-star { transform: rotate(72deg); }
+  .opt-title { font-size: clamp(28px, 3.6vw, 44px); font-weight: 520; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+  .opt-desc { font-size: 14px; line-height: 1.65; max-width: 380px; margin-bottom: 2rem; position: relative; z-index: 1; }
+  .opt.simple .opt-desc { color: rgba(0,0,0,0.55); }
+  .opt.expressive .opt-desc { color: rgba(255,255,255,0.55); }
 
-  .side-group-head {
+  .opt-cta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .opt-cta .arrow { transition: transform 0.3s; }
+  .opt:hover .opt-cta .arrow { transform: translateX(4px); }
+
+  footer {
+    padding: 0 2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .remember {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 11px;
-    font-weight: 550;
-    letter-spacing: 0.02em;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-    text-decoration: none;
-  }
-
-  .side-group-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .side-links { list-style: none; border-left: 1px solid var(--line); margin-left: 3px; }
-
-  .side-links a {
-    display: block;
-    font-size: 12.5px;
-    color: var(--muted);
-    text-decoration: none;
-    padding: 4px 0 4px 16px;
-    margin-left: -1px;
-    border-left: 1px solid transparent;
-    transition: color 0.15s, border-color 0.15s;
-    letter-spacing: 0.005em;
-  }
-
-  .side-links a:hover { color: var(--ink); }
-  .side-links a.active { color: var(--ink); font-weight: 500; border-left-color: var(--ink); }
-
-  .side-foot {
-    font-size: 10.5px;
-    color: var(--muted-light);
-    line-height: 1.6;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--line);
-  }
-
-  /* ─── MAIN ─── */
-  main { margin-left: var(--side-w); }
-
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 4rem; }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 92vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(0.5px);
-    animation: drift 14s ease-in-out infinite alternate;
-  }
-  .orb.trade {
-    width: 300px; height: 300px;
-    top: 8%; right: 22%;
-    background: radial-gradient(circle at 38% 38%, #9CC8FF 0%, #4D95FA 34%, #1F5AE0 72%, #1747B8 100%);
-  }
-  .orb.borrow {
-    width: 210px; height: 210px;
-    top: 46%; right: 8%;
-    background: radial-gradient(circle at 40% 35%, #FFDf9E 0%, #FFB93E 40%, #F08A12 78%, #D97706 100%);
-    animation-delay: -5s;
-  }
-  .orb.leverage {
-    width: 250px; height: 250px;
-    bottom: 6%; right: 30%;
-    background: radial-gradient(circle at 40% 36%, #B8F5CF 0%, #3FE08F 38%, #17BE84 70%, #0FA98F 100%);
-    animation-delay: -9s;
-  }
-
-  @keyframes drift {
-    from { transform: translate(0, 0); }
-    to { transform: translate(-14px, 18px); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .orb { animation: none; }
-    html { scroll-behavior: auto; }
-  }
-
-  .hero-content { position: relative; z-index: 2; }
-
-  .hero-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    margin-bottom: 2rem;
-  }
-
-  .hero-word {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 2rem;
-  }
-  .hero-word .mark { width: clamp(36px, 4.5vw, 54px); height: auto; }
-  .hero-word span {
-    font-size: clamp(48px, 7vw, 88px);
-    font-weight: 480;
-    letter-spacing: -0.045em;
-    line-height: 1;
-  }
-
-  .hero-tag {
-    font-size: clamp(19px, 2.2vw, 26px);
-    font-weight: 380;
-    letter-spacing: -0.02em;
-    color: var(--ink-soft);
-    max-width: 480px;
-    line-height: 1.4;
-    margin-bottom: 3rem;
-  }
-
-  .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
-
-  .pill {
-    position: relative;
-    padding: 9px 22px;
-    border-radius: 999px;
-    font-size: 13.5px;
-    font-weight: 500;
-    color: #fff;
-    letter-spacing: -0.01em;
-    overflow: hidden;
-    text-decoration: none;
-    transition: transform 0.18s;
-  }
-  .pill:hover { transform: translateY(-1px); }
-  .pill.trade { background: linear-gradient(135deg, #6FAAFB 0%, #2E7CF6 55%, #1B54D9 100%); }
-  .pill.borrow { background: linear-gradient(135deg, #FFC963 0%, #F5A623 55%, #E08508 100%); }
-  .pill.leverage { background: linear-gradient(135deg, #5FE3A4 0%, #22C97F 55%, #0EA57A 100%); }
-
-  /* ─── SECTIONS ─── */
-  .chapter {
-    padding: 6rem 0 2rem;
-  }
-
-  .chapter-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 0.75rem;
-  }
-
-  .chapter-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-  }
-
-  .chapter-dot { width: 9px; height: 9px; border-radius: 50%; }
-
-  .chapter-title {
-    font-size: clamp(30px, 3.6vw, 42px);
-    font-weight: 460;
-    letter-spacing: -0.035em;
-    line-height: 1.1;
-    margin-bottom: 0.75rem;
-  }
-
-  .chapter-intro {
-    font-size: 15.5px;
-    color: var(--muted);
-    max-width: 560px;
-    margin-bottom: 1rem;
-  }
-
-  .sect {
-    padding: 3.5rem 0;
-    border-bottom: 1px solid var(--line-soft);
-    scroll-margin-top: 2.5rem;
-  }
-  .sect:last-of-type { border-bottom: none; }
-
-  .sect-title {
-    font-size: 21px;
-    font-weight: 520;
-    letter-spacing: -0.025em;
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .sect-title .ast { font-size: 15px; line-height: 1; }
-
-  .wip-pill {
     font-family: 'JetBrains Mono', monospace;
     font-size: 9.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 3px 9px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    font-weight: 400;
-  }
-
-  .prose {
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--ink-soft);
-    margin-bottom: 1.25rem;
-    max-width: 620px;
-  }
-  .prose strong { font-weight: 550; color: var(--ink); }
-
-  h4.sub {
-    font-size: 14px;
-    font-weight: 550;
-    letter-spacing: -0.01em;
-    margin: 2rem 0 0.75rem;
-  }
-
-  /* stance */
-  .stance { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1.75rem 0; }
-  .stance-col {
-    border-radius: 18px;
-    padding: 1.75rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .stance-col.is {
-    background: linear-gradient(140deg, #EAF2FF 0%, #FDF4E2 50%, #E7F9EF 100%);
-    border: 1px solid var(--line);
-  }
-  .stance-col.against { background: var(--ink); color: #fff; }
-  .stance-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1.1rem;
-    position: relative; z-index: 1;
-  }
-  .stance-col.against .stance-label { color: rgba(255,255,255,0.45); }
-  .stance-item {
-    font-size: 21px;
-    font-weight: 480;
-    letter-spacing: -0.025em;
-    line-height: 1.35;
-    position: relative; z-index: 1;
-  }
-  .stance-hint { font-size: 12.5px; color: var(--muted); margin-top: 1.1rem; line-height: 1.6; position: relative; z-index: 1; }
-  .stance-col.against .stance-hint { color: rgba(255,255,255,0.55); }
-
-  /* persona */
-  .persona {
-    background: var(--ink);
-    color: #fff;
-    border-radius: 18px;
-    padding: 2rem 2.25rem;
-    margin: 1.5rem 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .persona::before {
-    content: '';
-    position: absolute;
-    width: 260px; height: 260px;
-    border-radius: 50%;
-    right: -80px; top: -110px;
-    background: radial-gradient(circle at 40% 40%, rgba(77,149,250,0.5), rgba(23,71,184,0.08) 70%);
-  }
-  .persona-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.4);
-    margin-bottom: 1rem;
-    position: relative;
+    cursor: pointer;
+    user-select: none;
   }
-  .persona-text { font-size: 14.5px; line-height: 1.85; color: rgba(255,255,255,0.8); position: relative; }
+  .remember input { accent-color: var(--orange); }
+  .foot-meta { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
 
-  /* prism grid */
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.5rem 0; }
-  .tile {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 1.25rem 1.35rem;
+  @media (max-width: 800px) {
+    .choose { grid-template-columns: 1fr; }
+    .opt { padding: 2.25rem 1.75rem; min-height: 320px; }
+    footer { flex-direction: column; }
   }
-  .tile-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted-light);
-    margin-bottom: 0.5rem;
-  }
-  .tile-value { font-size: 13.5px; font-weight: 550; letter-spacing: -0.01em; margin-bottom: 0.4rem; }
-  .tile-desc { font-size: 12.5px; line-height: 1.6; color: var(--muted); }
-
-  /* callout */
-  .callout {
-    border-radius: 14px;
-    padding: 1.25rem 1.5rem;
-    margin: 1.5rem 0;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--leverage);
-  }
-  .callout-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.4rem;
-  }
-  .callout-text { font-size: 13.5px; line-height: 1.7; color: var(--ink-soft); }
-
-  /* principles */
-  .principle { padding: 1.4rem 0; border-bottom: 1px solid var(--line-soft); }
-  .principle:last-of-type { border-bottom: none; }
-  .principle-name {
-    font-size: 14px;
-    font-weight: 550;
-    margin-bottom: 0.3rem;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-  }
-  .principle-name .ast { font-size: 12px; }
-  .principle-desc { font-size: 13.5px; color: var(--muted); padding-left: 21px; }
-
-  /* examples */
-  .example-pair { margin: 1.25rem 0 1.75rem 21px; max-width: 600px; }
-  .ex-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-  }
-  .ex-label.avoid { color: #C25353; }
-  .ex-label.use { color: #17A06A; }
-  .ex-box {
-    border-radius: 10px;
-    padding: 0.9rem 1.15rem;
-    font-size: 13px;
-    line-height: 1.65;
-    margin-bottom: 8px;
-  }
-  .ex-box.avoid { background: #FCF1F0; border: 1px solid #F0D5D2; color: var(--ink-soft); }
-  .ex-box.use { background: #EEFAF3; border: 1px solid #CDEEDC; color: var(--ink); }
-
-  /* spectrum */
-  .spectrum-row { padding: 1.4rem 0; border-bottom: 1px solid var(--line-soft); }
-  .spectrum-row:last-child { border-bottom: none; }
-  .row-label { font-size: 12.5px; font-weight: 550; margin-bottom: 0.7rem; }
-  .track-wrap { display: grid; grid-template-columns: 90px 1fr 90px; gap: 1rem; align-items: center; }
-  .track-end { font-size: 11px; color: var(--muted); }
-  .track-end.r { text-align: right; }
-  .track { position: relative; height: 4px; border-radius: 2px; background: var(--line); }
-  .track-fill {
-    position: absolute; left: 0; top: 0; height: 100%;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--trade), var(--leverage));
-  }
-  .track-dot {
-    position: absolute; top: 50%;
-    transform: translate(-50%,-50%);
-    width: 15px; height: 15px;
-    border-radius: 50%;
-    background: var(--ink);
-    border: 3px solid var(--paper);
-    box-shadow: 0 0 0 1px var(--ink);
-  }
-  .track-note { font-size: 12px; color: var(--muted); margin-top: 0.6rem; line-height: 1.6; }
-
-  /* vocab */
-  .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.5rem 0; }
-  .vocab-block { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem; }
-  .vocab-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted-light);
-    margin-bottom: 0.75rem;
-  }
-  .vocab-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .vtag {
-    font-size: 12px;
-    padding: 4px 12px;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-  }
-  .vocab-block.no .vtag { background: #FCF1F0; border-color: #F0D5D2; color: #963D3D; }
-
-  /* phrases */
-  .phrase-list { list-style: none; }
-  .phrase-item {
-    display: flex;
-    gap: 1rem;
-    align-items: baseline;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .phrase-item:last-child { border-bottom: none; }
-  .phrase-num { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted-light); min-width: 22px; }
-  .phrase-text { font-size: 15px; font-weight: 460; letter-spacing: -0.015em; }
-
-  /* templates */
-  .template { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-bottom: 12px; }
-  .template-head {
-    padding: 0.65rem 1.25rem;
-    border-bottom: 1px solid var(--line-soft);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    background: var(--paper);
-  }
-  .template-body { padding: 1.15rem 1.25rem; font-size: 13.5px; line-height: 1.7; }
-  .template-body .formula { font-weight: 550; display: block; margin-bottom: 0.7rem; }
-  .template-body .example {
-    display: block;
-    color: var(--muted);
-    font-size: 12.5px;
-    padding: 0.7rem 1rem;
-    background: var(--paper);
-    border: 1px solid var(--line-soft);
-    border-radius: 8px;
-    margin-bottom: 0.7rem;
-  }
-  .template-body .note { font-size: 12px; color: var(--muted); }
-
-  /* ─── VISUAL SYSTEM ─── */
-  .logo-stage {
-    border-radius: 18px;
-    border: 1px solid var(--line);
-    background:
-      radial-gradient(60% 90% at 20% 10%, rgba(77,149,250,0.13), transparent 60%),
-      radial-gradient(50% 80% at 80% 20%, rgba(245,166,35,0.13), transparent 60%),
-      radial-gradient(60% 90% at 60% 100%, rgba(34,201,127,0.13), transparent 60%),
-      var(--surface);
-    padding: 4.5rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin: 1.5rem 0;
-    position: relative;
-  }
-  .logo-stage .mark { width: 40px; height: 40px; }
-  .logo-stage span { font-size: 44px; font-weight: 500; letter-spacing: -0.045em; }
-
-  .orb-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 1.5rem 0; }
-  .orb-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 1.5rem;
-    text-align: center;
-  }
-  .orb-swatch {
-    width: 92px; height: 92px;
-    border-radius: 50%;
-    margin: 0 auto 1.1rem;
-    position: relative;
-  }
-  .orb-swatch.trade { background: radial-gradient(circle at 38% 38%, #9CC8FF 0%, #4D95FA 34%, #1F5AE0 72%, #1747B8 100%); }
-  .orb-swatch.borrow { background: radial-gradient(circle at 40% 35%, #FFDF9E 0%, #FFB93E 40%, #F08A12 78%, #D97706 100%); }
-  .orb-swatch.leverage { background: radial-gradient(circle at 40% 36%, #B8F5CF 0%, #3FE08F 38%, #17BE84 70%, #0FA98F 100%); }
-  .orb-name { font-size: 13.5px; font-weight: 550; letter-spacing: -0.01em; margin-bottom: 0.25rem; }
-  .orb-hex { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); }
-  .orb-role { font-size: 12px; color: var(--muted); margin-top: 0.5rem; line-height: 1.55; }
-
-  .swatch-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 1.25rem 0; }
-  .swatch { border-radius: 12px; border: 1px solid var(--line); overflow: hidden; background: var(--surface); }
-  .swatch-chip { height: 56px; }
-  .swatch-meta { padding: 0.6rem 0.8rem; }
-  .swatch-name { font-size: 11.5px; font-weight: 550; }
-  .swatch-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); }
-
-  .pill-demo {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding: 2.25rem;
-    border-radius: 16px;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    margin: 1.25rem 0;
-    align-items: center;
-  }
-  .pill-demo.dark { background: var(--ink); border-color: var(--ink); }
-
-  .rule-list { list-style: none; margin: 1rem 0; max-width: 620px; }
-  .rule-list li {
-    display: flex;
-    gap: 10px;
-    padding: 0.6rem 0;
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    border-bottom: 1px solid var(--line-soft);
-    line-height: 1.6;
-  }
-  .rule-list li:last-child { border-bottom: none; }
-  .rule-list .ok { color: #17A06A; flex-shrink: 0; }
-  .rule-list .no { color: #C25353; flex-shrink: 0; }
-
-  /* logo variants */
-  .variant-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 1rem 0 1.5rem; }
-  .variant {
-    border-radius: 14px;
-    padding: 2.25rem 1rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.4rem;
-  }
-  .variant .mark { width: 30px; height: 30px; }
-  .variant-name { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; }
-
-  /* token table */
-  .token-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 13px; }
-  .token-table th {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted-light);
-    text-align: left;
-    font-weight: 500;
-    padding: 0 10px 8px;
-    border-bottom: 1px solid var(--line);
-  }
-  .token-table td { padding: 9px 10px; border-bottom: 1px solid var(--line-soft); vertical-align: middle; color: var(--ink-soft); }
-  .token-table tr:last-child td { border-bottom: none; }
-  .token-table .mono { font-size: 11.5px; }
-  .tk-chip { display: inline-block; width: 22px; height: 22px; border-radius: 7px; vertical-align: middle; }
-  .scale-table td:first-child { color: var(--ink); }
-
-  [data-copy] { cursor: pointer; position: relative; transition: color 0.15s; }
-  [data-copy]:hover { color: var(--trade); }
-  .copy-toast {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(8px);
-    background: var(--ink);
-    color: #fff;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.04em;
-    padding: 7px 16px;
-    border-radius: 999px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s, transform 0.2s;
-    z-index: 200;
-  }
-  .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-  /* motion preview rows */
-  .ease-row {
-    display: grid;
-    grid-template-columns: minmax(220px, 300px) 1fr;
-    gap: 2rem;
-    align-items: center;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .ease-row:last-of-type { border-bottom: none; }
-  .ease-name { font-size: 13px; font-weight: 550; }
-  .ease-val { font-size: 11px; color: var(--muted); margin: 2px 0; }
-  .ease-use { font-size: 11.5px; color: var(--muted-light); }
-  .ease-track {
-    position: relative;
-    height: 26px;
-    border-radius: 999px;
-    background: var(--line-soft);
-  }
-  .ease-ball {
-    position: absolute;
-    top: 3px; left: 3px;
-    width: 20px; height: 20px;
-    border-radius: 50%;
-  }
-  .ease-row.play .ease-ball { transform: translateX(var(--travel, 300px)); }
-
-  footer {
-    border-top: 1px solid var(--line);
-    padding: 2.5rem 0 3rem;
-  }
-  .foot-inner { display: flex; align-items: center; justify-content: space-between; }
-  .foot-logo { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 550; letter-spacing: -0.02em; }
-  .foot-logo .mark { width: 16px; height: 16px; }
-  .foot-meta { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted-light); }
-
-  /* mobile */
-  .mobile-bar { display: none; }
-
-  @media (max-width: 980px) {
-    .side { display: none; }
-    main { margin-left: 0; }
-    .wrap { padding: 0 1.5rem; }
-    .mobile-bar {
-      display: flex;
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      background: rgba(251,251,249,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-      padding: 0.9rem 1.5rem;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 550;
-      letter-spacing: -0.02em;
-    }
-    .mobile-bar .mark { width: 18px; height: 18px; }
-    .hero { min-height: 70vh; }
-    .orb.trade { width: 180px; height: 180px; right: -40px; }
-    .orb.borrow { width: 120px; height: 120px; }
-    .orb.leverage { width: 150px; height: 150px; right: 10%; }
-    .stance, .grid2, .vocab-grid { grid-template-columns: 1fr; }
-    .orb-row { grid-template-columns: 1fr; }
-    .swatch-row { grid-template-columns: 1fr 1fr; }
-    .track-wrap { grid-template-columns: 70px 1fr 70px; }
-    .foot-inner { flex-direction: column; gap: 0.75rem; }
-    .variant-grid { grid-template-columns: 1fr 1fr; }
-    .ease-row { grid-template-columns: 1fr; gap: 0.75rem; }
-    .token-table { display: block; overflow-x: auto; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.001s !important; }
   }
 </style>
 </head>
 <body>
 
-<!-- asterisk mark, reused via <use> -->
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <g id="ast-mark">
-      <path d="M50 8 L50 92 M8 50 L92 50 M20 20 L80 80 M80 20 L20 80"
-            stroke="currentColor" stroke-width="14" stroke-linecap="round" fill="none"/>
-    </g>
-  </defs>
-</svg>
+<header>
+  <img src="assets/lockups/horizontal-white-dark.png" alt="omnipair">
+  <span class="head-tag">brand guidelines · v3.0</span>
+</header>
 
-<div class="mobile-bar">
-  <svg class="mark" viewBox="0 0 100 100"><use href="#ast-mark"/></svg>
-  omnipair <span style="color:var(--muted-light); font-weight:400; font-size:12px;">brand guidelines</span>
+<div class="choose">
+  <a class="opt simple" href="simple.html" data-choice="simple">
+    <span class="opt-num">OPTION 01</span>
+    <img class="opt-star" src="assets/lockups/symbol-black-light.png" alt="">
+    <span class="opt-title">the document</span>
+    <span class="opt-desc">Clean, quiet, reference-first. A sidebar, a scroll, and every rule where you expect it. Built for daily use.</span>
+    <span class="opt-cta">Enter <span class="arrow">→</span></span>
+  </a>
+
+  <a class="opt expressive" href="expressive.html" data-choice="expressive">
+    <span class="opt-num">OPTION 02</span>
+    <img class="opt-star" src="assets/lockups/symbol-white-dark.png" alt="">
+    <span class="opt-title">the experience</span>
+    <span class="opt-desc">Glass, glow, and motion. The brand demonstrated, not just described — full-bleed chapters that radiate from one point.</span>
+    <span class="opt-cta">Enter <span class="arrow">→</span></span>
+  </a>
 </div>
 
-<!-- ─── SIDEBAR ─── -->
-<aside class="side">
-  <a href="#top" class="side-logo">
-    <svg class="mark" viewBox="0 0 100 100"><use href="#ast-mark"/></svg>
-    omnipair
-  </a>
-  <div class="side-tagline">everything your money can do,<br>radiating from one point.</div>
-
-  <nav class="side-nav">
-    <div class="side-group">
-      <a class="side-group-head" href="#foundation"><span class="side-group-dot" style="background:var(--ink)"></span>01 · foundation</a>
-      <ul class="side-links">
-        <li><a href="#hero-enemy">Hero & Enemy</a></li>
-        <li><a href="#narrative">Core Narrative</a></li>
-        <li><a href="#problem">Problem We Solve</a></li>
-        <li><a href="#positioning">Positioning</a></li>
-        <li><a href="#character">Brand Character</a></li>
-      </ul>
-    </div>
-    <div class="side-group">
-      <a class="side-group-head" href="#voice"><span class="side-group-dot" style="background:var(--trade)"></span>02 · voice</a>
-      <ul class="side-links">
-        <li><a href="#tone">Tone of Voice</a></li>
-        <li><a href="#calibration">Tone Calibration</a></li>
-        <li><a href="#vocabulary">Brand Vocabulary</a></li>
-      </ul>
-    </div>
-    <div class="side-group">
-      <a class="side-group-head" href="#copy"><span class="side-group-dot" style="background:var(--borrow)"></span>03 · copy</a>
-      <ul class="side-links">
-        <li><a href="#phrases">Signature Phrases</a></li>
-        <li><a href="#templates">Copy Templates</a></li>
-      </ul>
-    </div>
-    <div class="side-group">
-      <a class="side-group-head" href="#visual"><span class="side-group-dot" style="background:var(--leverage)"></span>04 · visual</a>
-      <ul class="side-links">
-        <li><a href="#logo">Mark & Wordmark</a></li>
-        <li><a href="#color">Color & Orbs</a></li>
-        <li><a href="#texture">Gradient & Grain</a></li>
-        <li><a href="#components">Pills & Components</a></li>
-        <li><a href="#type">Typography</a></li>
-        <li><a href="#numbers">Numbers</a></li>
-      </ul>
-    </div>
-    <div class="side-group">
-      <a class="side-group-head" href="#motion"><span class="side-group-dot" style="background:linear-gradient(135deg, var(--trade), var(--leverage))"></span>05 · motion</a>
-      <ul class="side-links">
-        <li><a href="#motion-principles">Principles</a></li>
-        <li><a href="#easing">Easing & Duration</a></li>
-      </ul>
-    </div>
-    <div class="side-group">
-      <a class="side-group-head" href="#applications"><span class="side-group-dot" style="background:linear-gradient(135deg, var(--borrow), var(--trade))"></span>06 · applications</a>
-      <ul class="side-links">
-        <li><a href="#app-contexts">In Context</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="side-foot">
-    omnipair.fi<br>
-    brand guidelines · v2.1<br>
-    living document
-  </div>
-</aside>
-
-<main id="top">
-
-  <!-- ─── HERO ─── -->
-  <header class="hero">
-    <div class="orb trade grain"></div>
-    <div class="orb borrow grain"></div>
-    <div class="orb leverage grain"></div>
-    <div class="wrap hero-content">
-      <div class="hero-eyebrow">BRAND GUIDELINES — V2.1</div>
-      <div class="hero-word">
-        <svg class="mark" viewBox="0 0 100 100" style="color:var(--ink)"><use href="#ast-mark"/></svg>
-        <span>omnipair</span>
-      </div>
-      <p class="hero-tag">everything your money can do, radiating from one point.</p>
-      <div class="hero-pills">
-        <a class="pill trade grain" href="#voice">trade</a>
-        <a class="pill borrow grain" href="#copy">borrow</a>
-        <a class="pill leverage grain" href="#visual">leverage</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ─── 01 FOUNDATION ─── -->
-  <div class="wrap">
-    <section class="chapter" id="foundation">
-      <div class="chapter-head">
-        <span class="chapter-dot" style="background:var(--ink)"></span>
-        <span class="chapter-num">01</span>
-      </div>
-      <h1 class="chapter-title">foundation</h1>
-      <p class="chapter-intro">Who Omnipair is, what it stands against, and the character behind every word. Everything downstream traces back here.</p>
-    </section>
-
-    <section class="sect" id="hero-enemy">
-      <h2 class="sect-title"><span class="ast">✳</span>Hero & Enemy</h2>
-      <p class="prose">Every strong brand stands for something — and against something. Omnipair's identity is defined by what it builds and what it refuses to accept.</p>
-      <div class="stance">
-        <div class="stance-col is grain">
-          <div class="stance-label">Omnipair is</div>
-          <div class="stance-item">Money Market</div>
-          <div class="stance-item">Permissionless Finance Layer</div>
-          <div class="stance-hint">A market for every asset. A layer anyone can build on. No approvals required.</div>
-        </div>
-        <div class="stance-col against">
-          <div class="stance-label">Omnipair stands against</div>
-          <div class="stance-item">Complexity</div>
-          <div class="stance-item">Closed Markets</div>
-          <div class="stance-hint">Layered abstractions that exclude. Gatekept systems where access is the product. We reject both.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sect" id="narrative">
-      <h2 class="sect-title"><span class="ast">✳</span>Core Narrative</h2>
-      <p class="prose">The financial system is full of gatekeepers. Listings. Oracles. Governance committees. Approvals.</p>
-      <p class="prose"><strong>Omnipair removes them.</strong></p>
-      <p class="prose">By enabling permissionless borrowing, lending, and leverage through a unified market structure, Omnipair gives every asset access to financial utility.</p>
-      <div class="callout">
-        <div class="callout-label">The goal</div>
-        <div class="callout-text">Not to improve existing markets — to build a better standard.</div>
-      </div>
-    </section>
-
-    <section class="sect" id="problem">
-      <h2 class="sect-title"><span class="ast">✳</span>Problem We Solve <span class="wip-pill">draft copy</span></h2>
-      <p class="prose"><strong>Most assets have no financial utility.</strong> Listings decide what can be traded. Oracles decide what can be priced. Committees decide what can be collateral. If your asset isn't on the list, it doesn't exist — no borrowing, no lending, no leverage.</p>
-      <div class="stance">
-        <div class="stance-col against">
-          <div class="stance-label">Before Omnipair</div>
-          <div class="stance-hint" style="margin-top:0; font-size:13.5px; color:rgba(255,255,255,0.75); line-height:1.75;">Apply for a listing. Wait for an oracle. Petition governance. Long-tail assets locked out of financial utility by default.</div>
-        </div>
-        <div class="stance-col is grain">
-          <div class="stance-label">With Omnipair</div>
-          <div class="stance-hint" style="margin-top:0; font-size:13.5px; color:var(--ink-soft); line-height:1.75; position:relative; z-index:1;">Any pair, permissionless. Pricing derived from the market itself — no external oracle. Borrow, lend, and leverage from day one.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sect" id="positioning">
-      <h2 class="sect-title"><span class="ast">✳</span>Positioning <span class="wip-pill">draft copy</span></h2>
-      <div class="persona" style="margin-top:0.5rem;">
-        <div class="persona-label">The one-line position</div>
-        <div class="persona-text" style="font-size:20px; font-style:normal; letter-spacing:-0.02em;">"Every asset. Every utility. One market."</div>
-      </div>
-      <h4 class="sub">What makes it defensible</h4>
-      <ul class="rule-list">
-        <li><span class="ok">✓</span><strong>Unified market structure</strong> — trading, borrowing, lending, and leverage in one pair, not stitched across protocols.</li>
-        <li><span class="ok">✓</span><strong>No gatekeepers</strong> — no listings, no oracles, no governance approvals between an asset and its utility.</li>
-        <li><span class="ok">✓</span><strong>Built for the long tail</strong> — the assets everyone else ignores are the ones Omnipair is designed for.</li>
-      </ul>
-    </section>
-
-    <section class="sect" id="character">
-      <h2 class="sect-title"><span class="ast">✳</span>Brand Character</h2>
-      <p class="prose">Before a single word is written, understand who Omnipair is. The brand prism gives us six dimensions — each one has a direct voice implication.</p>
-
-      <div class="persona">
-        <div class="persona-label">The Omnipair person — your north star</div>
-        <div class="persona-text">"A sharp, self-assured architect in their early 30s. Shows up in a Porsche wearing a well-cut jacket and unbranded designer pants — premium, but no logos. Calm and precise, never loud. Has strong opinions about how on-chain finance should work and voices them as reasoned arguments, not insults. A quiet rebel rejecting the status quo through what they build rather than how loudly they complain. Doesn't ask for your trust — would rather you verify everything yourself. Ships only what matters."</div>
-      </div>
-
-      <h4 class="sub">The six dimensions</h4>
-      <div class="grid2">
-        <div class="tile">
-          <div class="tile-label">Physique — how it looks</div>
-          <div class="tile-value">Technical · Refined · Supreme</div>
-          <div class="tile-desc">Copy should feel precise and considered. Never rough, never padded.</div>
-        </div>
-        <div class="tile">
-          <div class="tile-label">Personality — how it enters a room</div>
-          <div class="tile-value">Rational · Confident · Visionary</div>
-          <div class="tile-desc">Make claims through logic, not enthusiasm. Conviction without chest-beating.</div>
-        </div>
-        <div class="tile">
-          <div class="tile-label">Culture — what it believes</div>
-          <div class="tile-value">Inventive · Ownership · Transparency</div>
-          <div class="tile-desc">Say what something actually does. Transparency demonstrated, not claimed.</div>
-        </div>
-        <div class="tile">
-          <div class="tile-label">Relationship — what it promises</div>
-          <div class="tile-value">Control · Reliability · Opportunity</div>
-          <div class="tile-desc">Promise access and dependable systems — not outcomes.</div>
-        </div>
-        <div class="tile">
-          <div class="tile-label">Reflection — who it attracts</div>
-          <div class="tile-value">Strategists · Long-Term Thinkers · Early Adopters</div>
-          <div class="tile-desc">Write for people who read carefully and think in systems.</div>
-        </div>
-        <div class="tile">
-          <div class="tile-label">Self-image — how users feel</div>
-          <div class="tile-value">Independent · Confident · Capable</div>
-          <div class="tile-desc">The reader should feel smarter after reading. Never patronize.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── 02 VOICE ─── -->
-    <section class="chapter" id="voice">
-      <div class="chapter-head">
-        <span class="chapter-dot" style="background:var(--trade)"></span>
-        <span class="chapter-num">02</span>
-      </div>
-      <h1 class="chapter-title">voice</h1>
-      <p class="chapter-intro">How Omnipair sounds — the principles, the register, and the words it reaches for in any room.</p>
-    </section>
-
-    <section class="sect" id="tone">
-      <h2 class="sect-title"><span class="ast" style="color:var(--trade)">✳</span>Tone of Voice</h2>
-
-      <div class="principle">
-        <div class="principle-name"><span class="ast" style="color:var(--trade)">✳</span>Confident</div>
-        <div class="principle-desc">We speak with conviction.</div>
-      </div>
-      <div class="example-pair">
-        <div class="ex-label avoid">Avoid</div>
-        <div class="ex-box avoid">"Omnipair is an incredibly powerful platform that helps traders and DeFi users unlock their full potential with cutting-edge technology and real-time insights."</div>
-        <div class="ex-label use">Use instead</div>
-        <div class="ex-box use">"Omnipair gives you the infrastructure to trade on-chain without asking permission. Precise execution. No intermediaries."</div>
-      </div>
-
-      <div class="principle">
-        <div class="principle-name"><span class="ast" style="color:var(--trade)">✳</span>Rational</div>
-        <div class="principle-desc">Arguments over emotions. Evidence over hype.</div>
-      </div>
-      <div class="example-pair">
-        <div class="ex-label avoid">Avoid</div>
-        <div class="ex-box avoid">"The most revolutionary DeFi protocol ever built. Join thousands of users experiencing the future of finance."</div>
-        <div class="ex-label use">Use instead</div>
-        <div class="ex-box use">"Built for non-custodial execution at institutional speed. The architecture is open — read it, verify it, run it."</div>
-      </div>
-
-      <div class="principle">
-        <div class="principle-name"><span class="ast" style="color:var(--trade)">✳</span>Precise</div>
-        <div class="principle-desc">Clear language. No unnecessary complexity.</div>
-      </div>
-
-      <div class="principle">
-        <div class="principle-name"><span class="ast" style="color:var(--trade)">✳</span>Independent</div>
-        <div class="principle-desc">We challenge assumptions without attacking people.</div>
-      </div>
-      <div class="example-pair">
-        <div class="ex-label avoid">Avoid</div>
-        <div class="ex-box avoid">"Unlike [Competitor], we don't charge hidden fees or lock your assets."</div>
-        <div class="ex-label use">Use instead</div>
-        <div class="ex-box use">"Your assets remain yours. Every fee is visible before execution. That's the whole model."</div>
-      </div>
-
-      <div class="principle">
-        <div class="principle-name"><span class="ast" style="color:var(--trade)">✳</span>Visionary</div>
-        <div class="principle-desc">Focused on where markets are heading. Not where they are today.</div>
-      </div>
-    </section>
-
-    <section class="sect" id="calibration">
-      <h2 class="sect-title"><span class="ast" style="color:var(--trade)">✳</span>Tone Calibration</h2>
-      <p class="prose">Omnipair's tone doesn't shift wildly by context. Think of it as one person who knows which room they're in — never performing, always calibrated.</p>
-
-      <div class="spectrum-row">
-        <div class="row-label">Formal ↔ Casual</div>
-        <div class="track-wrap">
-          <span class="track-end">Clinical</span>
-          <div class="track"><div class="track-fill" style="width:38%"></div><div class="track-dot" style="left:38%"></div></div>
-          <span class="track-end r">Colloquial</span>
-        </div>
-        <div class="track-note">Professional and precise, but not stiff. Technical vocabulary used correctly, not wielded to impress.</div>
-      </div>
-
-      <div class="spectrum-row">
-        <div class="row-label">Warm ↔ Cold</div>
-        <div class="track-wrap">
-          <span class="track-end">Friendly</span>
-          <div class="track"><div class="track-fill" style="width:58%"></div><div class="track-dot" style="left:58%"></div></div>
-          <span class="track-end r">Distant</span>
-        </div>
-        <div class="track-note">Slightly cool. Not cold — there's respect for the reader. Omnipair doesn't try to be likable. It tries to be useful and correct.</div>
-      </div>
-
-      <div class="spectrum-row">
-        <div class="row-label">Certain ↔ Tentative</div>
-        <div class="track-wrap">
-          <span class="track-end">Declarative</span>
-          <div class="track"><div class="track-fill" style="width:18%"></div><div class="track-dot" style="left:18%"></div></div>
-          <span class="track-end r">Uncertain</span>
-        </div>
-        <div class="track-note">Very certain. Omnipair doesn't "try to" or "hope to." Weasel words undermine credibility. State the thing.</div>
-      </div>
-    </section>
-
-    <section class="sect" id="vocabulary">
-      <h2 class="sect-title"><span class="ast" style="color:var(--trade)">✳</span>Brand Vocabulary</h2>
-      <p class="prose">The words Omnipair reaches for — and the ones it avoids.</p>
-      <div class="vocab-grid">
-        <div class="vocab-block">
-          <div class="vocab-label">We say</div>
-          <div class="vocab-tags">
-            <span class="vtag">Open Markets</span><span class="vtag">Permissionless</span><span class="vtag">Verifiable</span><span class="vtag">Financial Utility</span><span class="vtag">Access</span><span class="vtag">Market Infrastructure</span><span class="vtag">Unified Liquidity</span><span class="vtag">Long-Tail Assets</span><span class="vtag">Builders</span><span class="vtag">Market Participants</span><span class="vtag">Open Finance</span>
-          </div>
-        </div>
-        <div class="vocab-block no">
-          <div class="vocab-label">We avoid</div>
-          <div class="vocab-tags">
-            <span class="vtag">Degen</span><span class="vtag">Moon</span><span class="vtag">100x</span><span class="vtag">Revolutionary</span><span class="vtag">Disruptive</span><span class="vtag">Trust Us</span><span class="vtag">Next Generation</span><span class="vtag">Yield Farming Paradise</span><span class="vtag">Guaranteed</span>
-          </div>
-        </div>
-      </div>
-      <div class="callout">
-        <div class="callout-label">The vocabulary test</div>
-        <div class="callout-text">If a word could appear on any DeFi protocol's homepage without anyone noticing, don't use it. Omnipair earns its adjectives through specificity, not assertion.</div>
-      </div>
-    </section>
-
-    <!-- ─── 03 COPY ─── -->
-    <section class="chapter" id="copy">
-      <div class="chapter-head">
-        <span class="chapter-dot" style="background:var(--borrow)"></span>
-        <span class="chapter-num">03</span>
-      </div>
-      <h1 class="chapter-title">copy</h1>
-      <p class="chapter-intro">Signature lines and reusable structures. The voice, applied.</p>
-    </section>
-
-    <section class="sect" id="phrases">
-      <h2 class="sect-title"><span class="ast" style="color:var(--borrow)">✳</span>Signature Phrases</h2>
-      <p class="prose">Lines that capture how Omnipair sounds. Reuse, remix, or use as north stars when writing fresh copy.</p>
-      <ol class="phrase-list">
-        <li class="phrase-item"><span class="phrase-num">01</span><span class="phrase-text">Financial utility should be permissionless.</span></li>
-        <li class="phrase-item"><span class="phrase-num">02</span><span class="phrase-text">Every asset deserves access.</span></li>
-        <li class="phrase-item"><span class="phrase-num">03</span><span class="phrase-text">Verify. Don't trust.</span></li>
-        <li class="phrase-item"><span class="phrase-num">04</span><span class="phrase-text">Built for the assets everyone else ignores.</span></li>
-        <li class="phrase-item"><span class="phrase-num">05</span><span class="phrase-text">Open markets win.</span></li>
-        <li class="phrase-item"><span class="phrase-num">06</span><span class="phrase-text">No approvals. No gatekeepers. No waiting.</span></li>
-        <li class="phrase-item"><span class="phrase-num">07</span><span class="phrase-text">The infrastructure layer for open markets.</span></li>
-        <li class="phrase-item"><span class="phrase-num">08</span><span class="phrase-text">One market. More utility.</span></li>
-        <li class="phrase-item"><span class="phrase-num">09</span><span class="phrase-text">Built by builders. Verified by anyone.</span></li>
-        <li class="phrase-item"><span class="phrase-num">10</span><span class="phrase-text">The future of finance is permissionless.</span></li>
-      </ol>
-    </section>
-
-    <section class="sect" id="templates">
-      <h2 class="sect-title"><span class="ast" style="color:var(--borrow)">✳</span>Copy Templates <span class="wip-pill">work in progress</span></h2>
-      <p class="prose">Ready-to-use structures for common contexts. Fill in the specifics — the voice is already set.</p>
-
-      <div class="template">
-        <div class="template-head">Hero headline</div>
-        <div class="template-body">
-          <span class="formula">[Specific capability], without [the thing it removes].</span>
-          <span class="example">"On-chain execution at institutional speed, without the intermediary."</span>
-          <span class="note">State the real capability + name what it replaces. No adjectives in the lead.</span>
-        </div>
-      </div>
-      <div class="template">
-        <div class="template-head">Hero subheadline</div>
-        <div class="template-body">
-          <span class="formula">[What you actually get] + [why it's different in one clause].</span>
-          <span class="example">"Infrastructure designed for non-custodial trading. The architecture is open — read it, verify it, run it."</span>
-          <span class="note">Two short sentences work better than one long one. The second sentence does the work.</span>
-        </div>
-      </div>
-      <div class="template">
-        <div class="template-head">Feature description</div>
-        <div class="template-body">
-          <span class="formula">[Feature name] — [one-line functional description].</span>
-          <span class="example">"Non-custodial routing — your positions stay on-chain, every step of the execution."</span>
-          <span class="note">No marketing prefix. Name it, define it, done.</span>
-        </div>
-      </div>
-      <div class="template">
-        <div class="template-head">UI error / status</div>
-        <div class="template-body">
-          <span class="formula">State what happened. Say what to do next.</span>
-          <span class="example">"Transaction failed — insufficient liquidity in this pool at this size. Try a smaller position or a different pair."</span>
-          <span class="note">No apologies. No vagueness. Name the reason, provide the path forward.</span>
-        </div>
-      </div>
-      <div class="template">
-        <div class="template-head">Social — announcement</div>
-        <div class="template-body">
-          <span class="formula">[What was built]. [Why it matters in one sentence]. [Where to verify it.]</span>
-          <span class="example">"Omnipair now supports [X]. It means [concrete change for the user]. Contracts here: [link]."</span>
-          <span class="note">Never announce that you're announcing. Start with the thing.</span>
-        </div>
-      </div>
-      <div class="template">
-        <div class="template-head">Long-form / docs opening</div>
-        <div class="template-body">
-          <span class="formula">State the problem precisely. Then say what this document addresses.</span>
-          <span class="example">"Non-custodial execution across fragmented liquidity sources introduces three routing challenges. This document covers how Omnipair handles each."</span>
-          <span class="note">Skip the preamble. Start with the problem.</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── 04 VISUAL ─── -->
-    <section class="chapter" id="visual">
-      <div class="chapter-head">
-        <span class="chapter-dot" style="background:var(--leverage)"></span>
-        <span class="chapter-num">04</span>
-      </div>
-      <h1 class="chapter-title">visual</h1>
-      <p class="chapter-intro">One point, radiating. The asterisk, the orbs, the grain, and the pills — how Omnipair looks everywhere it shows up.</p>
-    </section>
-
-    <section class="sect" id="logo">
-      <h2 class="sect-title"><span class="ast" style="color:var(--leverage)">✳</span>Mark & Wordmark</h2>
-      <p class="prose">The Omnipair mark is an asterisk — one point radiating in every direction. It is the brand's whole thesis in a glyph: unified structure, many utilities. The wordmark is always lowercase: <strong>omnipair</strong>, never "OmniPair" or "Omni Pair".</p>
-
-      <div class="logo-stage">
-        <svg class="mark" viewBox="0 0 100 100" style="color:var(--ink)"><use href="#ast-mark"/></svg>
-        <span>omnipair</span>
-      </div>
-
-      <h4 class="sub">Variants <span class="wip-pill">final renders pending</span></h4>
-      <div class="variant-grid">
-        <div class="variant" style="background:var(--paper); border:1px solid var(--line);">
-          <svg class="mark" viewBox="0 0 100 100" style="color:var(--ink)"><use href="#ast-mark"/></svg>
-          <div class="variant-name" style="color:var(--muted);">Primary — ink on paper</div>
-        </div>
-        <div class="variant" style="background:var(--ink);">
-          <svg class="mark" viewBox="0 0 100 100" style="color:#fff"><use href="#ast-mark"/></svg>
-          <div class="variant-name" style="color:rgba(255,255,255,0.5);">Inverted — white on ink</div>
-        </div>
-        <div class="variant" style="background:linear-gradient(135deg,#EAF2FF,#FDF4E2 50%,#E7F9EF); border:1px solid var(--line);">
-          <svg class="mark" viewBox="0 0 100 100" style="color:var(--ink)"><use href="#ast-mark"/></svg>
-          <div class="variant-name" style="color:var(--muted);">Prismatic — brand moments</div>
-        </div>
-        <div class="variant" style="background:var(--surface); border:1px solid var(--line);">
-          <svg class="mark" viewBox="0 0 100 100" style="color:var(--muted-light)"><use href="#ast-mark"/></svg>
-          <div class="variant-name" style="color:var(--muted);">Monochrome — watermark</div>
-        </div>
-      </div>
-
-      <div class="callout">
-        <div class="callout-label">Clear space</div>
-        <div class="callout-text">Minimum clear space around the mark equals 1× the height of the mark on all sides. Nothing enters that zone — not even the tagline.</div>
-      </div>
-
-      <ul class="rule-list">
-        <li><span class="ok">✓</span>Lowercase wordmark, always. In prose, "Omnipair" capitalizes normally.</li>
-        <li><span class="ok">✓</span>The mark works alone as favicon, app icon, and social avatar.</li>
-        <li><span class="ok">✓</span>Glass / prismatic 3D treatments of the asterisk are encouraged for hero art.</li>
-        <li><span class="no">✕</span>Don't rotate, skew, or change the mark's stroke proportions.</li>
-        <li><span class="no">✕</span>Don't recreate the wordmark in another typeface.</li>
-        <li><span class="no">✕</span>Don't place the mark on busy imagery without a glass or solid backing.</li>
-      </ul>
-    </section>
-
-    <section class="sect" id="color">
-      <h2 class="sect-title"><span class="ast" style="color:var(--leverage)">✳</span>Color & Orbs</h2>
-      <p class="prose">Three grain-gradient orbs carry the palette — one per core utility. Color in the Omnipair system is never flat: it glows from a bright core to a deep edge, like light through glass.</p>
-
-      <div class="orb-row">
-        <div class="orb-card">
-          <div class="orb-swatch trade grain"></div>
-          <div class="orb-name">Trade Blue</div>
-          <div class="orb-hex">#2E7CF6 · core #9CC8FF · deep #1747B8</div>
-          <div class="orb-role">Trading, swaps, execution. The most-used accent.</div>
-        </div>
-        <div class="orb-card">
-          <div class="orb-swatch borrow grain"></div>
-          <div class="orb-name">Borrow Amber</div>
-          <div class="orb-hex">#F5A623 · core #FFDF9E · deep #D97706</div>
-          <div class="orb-role">Borrowing and lending. Warm, deliberate.</div>
-        </div>
-        <div class="orb-card">
-          <div class="orb-swatch leverage grain"></div>
-          <div class="orb-name">Leverage Green</div>
-          <div class="orb-hex">#22C97F · core #B8F5CF · deep #0FA98F</div>
-          <div class="orb-role">Leverage and growth. Confident, never loud.</div>
-        </div>
-      </div>
-
-      <h4 class="sub">Tokens</h4>
-      <p class="prose" style="font-size:13px; color:var(--muted);">Click any value to copy it.</p>
-      <table class="token-table">
-        <thead><tr><th></th><th>Token</th><th>Value</th><th>Role</th></tr></thead>
-        <tbody>
-          <tr><td><span class="tk-chip" style="background:#2E7CF6"></span></td><td class="mono" data-copy="--trade">--trade</td><td class="mono" data-copy="#2E7CF6">#2E7CF6</td><td>Trade. Primary accent, links, active states</td></tr>
-          <tr><td><span class="tk-chip" style="background:#F5A623"></span></td><td class="mono" data-copy="--borrow">--borrow</td><td class="mono" data-copy="#F5A623">#F5A623</td><td>Borrow. Secondary accent</td></tr>
-          <tr><td><span class="tk-chip" style="background:#22C97F"></span></td><td class="mono" data-copy="--leverage">--leverage</td><td class="mono" data-copy="#22C97F">#22C97F</td><td>Leverage. Tertiary accent, confirmations</td></tr>
-          <tr><td><span class="tk-chip" style="background:#FBFBF9; border:1px solid var(--line)"></span></td><td class="mono" data-copy="--paper">--paper</td><td class="mono" data-copy="#FBFBF9">#FBFBF9</td><td>Base background</td></tr>
-          <tr><td><span class="tk-chip" style="background:#FFFFFF; border:1px solid var(--line)"></span></td><td class="mono" data-copy="--surface">--surface</td><td class="mono" data-copy="#FFFFFF">#FFFFFF</td><td>Cards, elevated surfaces</td></tr>
-          <tr><td><span class="tk-chip" style="background:#121217"></span></td><td class="mono" data-copy="--ink">--ink</td><td class="mono" data-copy="#121217">#121217</td><td>Primary text, dark surfaces</td></tr>
-          <tr><td><span class="tk-chip" style="background:#70707C"></span></td><td class="mono" data-copy="--muted">--muted</td><td class="mono" data-copy="#70707C">#70707C</td><td>Secondary text</td></tr>
-          <tr><td><span class="tk-chip" style="background:#E8E8E4"></span></td><td class="mono" data-copy="--line">--line</td><td class="mono" data-copy="#E8E8E4">#E8E8E4</td><td>Borders, dividers</td></tr>
-        </tbody>
-      </table>
-
-      <h4 class="sub">Functional <span class="wip-pill">proposed</span></h4>
-      <table class="token-table">
-        <tbody>
-          <tr><td><span class="tk-chip" style="background:#22C97F"></span></td><td class="mono" data-copy="--success">--success</td><td class="mono" data-copy="#22C97F">#22C97F</td><td>Confirmations, filled orders (shares leverage green)</td></tr>
-          <tr><td><span class="tk-chip" style="background:#E5484D"></span></td><td class="mono" data-copy="--error">--error</td><td class="mono" data-copy="#E5484D">#E5484D</td><td>Errors, liquidation warnings, destructive actions</td></tr>
-          <tr><td><span class="tk-chip" style="background:#F5A623"></span></td><td class="mono" data-copy="--warning">--warning</td><td class="mono" data-copy="#F5A623">#F5A623</td><td>Caution, pending states (shares borrow amber)</td></tr>
-        </tbody>
-      </table>
-
-      <div class="callout">
-        <div class="callout-label">Usage rule</div>
-        <div class="callout-text">Neutrals do the work; the orb colors are earned moments. One utility color per composition where possible — all three appear together only when the message is the full system.</div>
-      </div>
-    </section>
-
-    <section class="sect" id="texture">
-      <h2 class="sect-title"><span class="ast" style="color:var(--leverage)">✳</span>Gradient & Grain</h2>
-      <p class="prose">Two textures define the system. <strong>Grain</strong> — every gradient carries fine noise, so color feels physical, like pigment rather than plastic. <strong>Glass</strong> — 3D renders of the mark are translucent and prismatic, refracting the utility colors through them.</p>
-      <p class="prose">Prismatic washes (all three colors bleeding softly on paper white) are reserved for brand-level moments: social cards, hero backgrounds, the favicon environment. Product UI stays neutral.</p>
-      <div class="logo-stage" style="padding:3rem 2rem;">
-        <span style="font-size:14px; color:var(--muted); position:relative; z-index:1;">← this backdrop is the prismatic wash in use</span>
-      </div>
-    </section>
-
-    <section class="sect" id="components">
-      <h2 class="sect-title"><span class="ast" style="color:var(--leverage)">✳</span>Pills & Components</h2>
-      <p class="prose">Actions live in capsule pills — soft, dimensional, one utility color each. Lowercase labels, always the verb: <strong>trade</strong>, <strong>borrow</strong>, <strong>leverage</strong>, <strong>swap</strong>.</p>
-      <div class="pill-demo">
-        <span class="pill trade grain">trade</span>
-        <span class="pill borrow grain">borrow</span>
-        <span class="pill leverage grain">leverage</span>
-      </div>
-      <div class="pill-demo dark">
-        <span class="pill trade grain">swap</span>
-        <span class="pill leverage grain">borrow</span>
-      </div>
-      <ul class="rule-list">
-        <li><span class="ok">✓</span>Pills work on both paper and ink backgrounds.</li>
-        <li><span class="ok">✓</span>The gradient direction is consistent: light source top-left.</li>
-        <li><span class="no">✕</span>Don't mix two utility colors in one pill.</li>
-        <li><span class="no">✕</span>Don't use pills for non-action labels — they always do something.</li>
-      </ul>
-    </section>
-
-    <section class="sect" id="type">
-      <h2 class="sect-title"><span class="ast" style="color:var(--leverage)">✳</span>Typography <span class="wip-pill">work in progress</span></h2>
-      <p class="prose">Working stack: <strong>Inter</strong> for everything, set tight (-0.02 to -0.045em) with lowercase display headings echoing the wordmark. <strong>JetBrains Mono</strong> for labels, data, and addresses. Final licensed typeface selection pending.</p>
-      <div class="grid2">
-        <div class="tile">
-          <div class="tile-label">Display / headings</div>
-          <div class="tile-value" style="font-size:22px; letter-spacing:-0.04em;">lowercase, tight, calm</div>
-          <div class="tile-desc">Inter 460–550. Lowercase for brand-level headlines; sentence case in product UI.</div>
-        </div>
-        <div class="tile">
-          <div class="tile-label">Data / labels</div>
-          <div class="tile-value mono" style="font-size:13px;">0x4F2A…E9 · 12.4% · #2E7CF6</div>
-          <div class="tile-desc">JetBrains Mono 400–500 for anything exact: numbers, addresses, tokens.</div>
-        </div>
-      </div>
-
-      <h4 class="sub">Type scale</h4>
-      <table class="token-table scale-table">
-        <thead><tr><th>Style</th><th>Size</th><th>Weight</th><th>Leading</th><th>Tracking</th><th>Use</th></tr></thead>
-        <tbody>
-          <tr><td style="font-size:22px; font-weight:480; letter-spacing:-0.045em;">display</td><td class="mono">72–88px</td><td class="mono">480</td><td class="mono">1.0</td><td class="mono">-0.045em</td><td>Hero wordmark moments</td></tr>
-          <tr><td style="font-size:19px; font-weight:460; letter-spacing:-0.035em;">h1</td><td class="mono">36–42px</td><td class="mono">460</td><td class="mono">1.1</td><td class="mono">-0.035em</td><td>Chapter titles, lowercase</td></tr>
-          <tr><td style="font-size:16px; font-weight:520; letter-spacing:-0.025em;">h2</td><td class="mono">21px</td><td class="mono">520</td><td class="mono">1.25</td><td class="mono">-0.025em</td><td>Section titles</td></tr>
-          <tr><td style="font-size:14px; font-weight:550;">h3</td><td class="mono">14px</td><td class="mono">550</td><td class="mono">1.3</td><td class="mono">-0.01em</td><td>Sub-heads, card titles</td></tr>
-          <tr><td style="font-size:14px; font-weight:380;">body</td><td class="mono">15px</td><td class="mono">380</td><td class="mono">1.7</td><td class="mono">0</td><td>Paragraphs</td></tr>
-          <tr><td style="font-size:12px; color:var(--muted);">small</td><td class="mono">12.5px</td><td class="mono">400</td><td class="mono">1.6</td><td class="mono">0.005em</td><td>Captions, descriptions</td></tr>
-          <tr><td class="mono" style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted);">micro</td><td class="mono">10px</td><td class="mono">500</td><td class="mono">1.4</td><td class="mono">0.08em</td><td>Labels, overlines — always mono, uppercase</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="sect" id="numbers">
-      <h2 class="sect-title"><span class="ast" style="color:var(--leverage)">✳</span>Numbers</h2>
-      <p class="prose">Omnipair is a market — numbers are the product. Anything exact renders in <strong>JetBrains Mono</strong> with <span class="mono" data-copy="font-variant-numeric: tabular-nums">tabular-nums</span>, so columns of figures align and nothing jitters as values update.</p>
-      <div class="grid2">
-        <div class="tile">
-          <div class="tile-label">Amounts & rates</div>
-          <div class="tile-value mono" style="font-size:16px; font-variant-numeric:tabular-nums;">1,240.50 · 12.4% · 3.2x</div>
-          <div class="tile-desc">Thousands separators. One consistent decimal precision per context. The unit never wraps away from its number.</div>
-        </div>
-        <div class="tile">
-          <div class="tile-label">Addresses & hashes</div>
-          <div class="tile-value mono" style="font-size:16px;">0x4F2A…E9C1</div>
-          <div class="tile-desc">Truncate middle with an ellipsis: first 6, last 4. Full value on click-to-copy, never on hover-only.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── 05 MOTION ─── -->
-    <section class="chapter" id="motion">
-      <div class="chapter-head">
-        <span class="chapter-dot" style="background:linear-gradient(135deg, var(--trade), var(--leverage))"></span>
-        <span class="chapter-num">05</span>
-      </div>
-      <h1 class="chapter-title">motion</h1>
-      <p class="chapter-intro">Calm, precise, physical. Motion in the Omnipair system behaves like the orbs — smooth drift, never bounce.</p>
-    </section>
-
-    <section class="sect" id="motion-principles">
-      <h2 class="sect-title"><span class="ast" style="color:var(--trade)">✳</span>Principles</h2>
-      <div class="principle">
-        <div class="principle-name"><span class="ast" style="color:var(--trade)">✳</span>Purposeful</div>
-        <div class="principle-desc">Every motion communicates a state change, guides attention, or confirms an action. Nothing moves without a reason.</div>
-      </div>
-      <div class="principle">
-        <div class="principle-name"><span class="ast" style="color:var(--trade)">✳</span>Smooth</div>
-        <div class="principle-desc">Ease-out for entries, ease-in-out for transitions. Linear only for loading. Never bounce — conviction doesn't wobble.</div>
-      </div>
-      <div class="principle">
-        <div class="principle-name"><span class="ast" style="color:var(--trade)">✳</span>Fast</div>
-        <div class="principle-desc">Micro-interactions 120–200ms, transitions 300–500ms, nothing over 600ms. A market interface respects the user's time.</div>
-      </div>
-      <div class="principle">
-        <div class="principle-name"><span class="ast" style="color:var(--trade)">✳</span>Subtle</div>
-        <div class="principle-desc">If the user notices the animation itself, it's too much. Motion is felt as quality, not seen as decoration.</div>
-      </div>
-    </section>
-
-    <section class="sect" id="easing">
-      <h2 class="sect-title"><span class="ast" style="color:var(--trade)">✳</span>Easing & Duration</h2>
-      <p class="prose" style="font-size:13px; color:var(--muted);">Hover any row to preview it. Click a value to copy.</p>
-
-      <div class="ease-row" data-ease="cubic-bezier(0.22, 1, 0.36, 1)" data-dur="400">
-        <div class="ease-meta"><div class="ease-name">Default</div><div class="mono ease-val" data-copy="cubic-bezier(0.22, 1, 0.36, 1)">cubic-bezier(0.22, 1, 0.36, 1)</div><div class="ease-use">Most transitions</div></div>
-        <div class="ease-track"><span class="ease-ball grain" style="background: radial-gradient(circle at 38% 38%, #9CC8FF, #1F5AE0 80%);"></span></div>
-      </div>
-      <div class="ease-row" data-ease="cubic-bezier(0, 0, 0.2, 1)" data-dur="400">
-        <div class="ease-meta"><div class="ease-name">Enter</div><div class="mono ease-val" data-copy="cubic-bezier(0, 0, 0.2, 1)">cubic-bezier(0, 0, 0.2, 1)</div><div class="ease-use">Elements appearing</div></div>
-        <div class="ease-track"><span class="ease-ball grain" style="background: radial-gradient(circle at 40% 36%, #B8F5CF, #0FA98F 80%);"></span></div>
-      </div>
-      <div class="ease-row" data-ease="cubic-bezier(0.4, 0, 1, 1)" data-dur="400">
-        <div class="ease-meta"><div class="ease-name">Exit</div><div class="mono ease-val" data-copy="cubic-bezier(0.4, 0, 1, 1)">cubic-bezier(0.4, 0, 1, 1)</div><div class="ease-use">Elements leaving</div></div>
-        <div class="ease-track"><span class="ease-ball grain" style="background: radial-gradient(circle at 40% 35%, #FFDF9E, #D97706 80%);"></span></div>
-      </div>
-
-      <h4 class="sub">Durations</h4>
-      <div class="ease-row" data-ease="cubic-bezier(0.22, 1, 0.36, 1)" data-dur="80">
-        <div class="ease-meta"><div class="ease-name">Instant</div><div class="mono ease-val" data-copy="80ms">80ms</div><div class="ease-use">Color, opacity</div></div>
-        <div class="ease-track"><span class="ease-ball grain" style="background: radial-gradient(circle at 38% 38%, #9CC8FF, #1F5AE0 80%);"></span></div>
-      </div>
-      <div class="ease-row" data-ease="cubic-bezier(0.22, 1, 0.36, 1)" data-dur="150">
-        <div class="ease-meta"><div class="ease-name">Fast</div><div class="mono ease-val" data-copy="150ms">150ms</div><div class="ease-use">Hover states, toggles</div></div>
-        <div class="ease-track"><span class="ease-ball grain" style="background: radial-gradient(circle at 40% 36%, #B8F5CF, #0FA98F 80%);"></span></div>
-      </div>
-      <div class="ease-row" data-ease="cubic-bezier(0.22, 1, 0.36, 1)" data-dur="250">
-        <div class="ease-meta"><div class="ease-name">Normal</div><div class="mono ease-val" data-copy="250ms">250ms</div><div class="ease-use">Cards, reveals</div></div>
-        <div class="ease-track"><span class="ease-ball grain" style="background: radial-gradient(circle at 40% 35%, #FFDF9E, #D97706 80%);"></span></div>
-      </div>
-      <div class="ease-row" data-ease="cubic-bezier(0.22, 1, 0.36, 1)" data-dur="400">
-        <div class="ease-meta"><div class="ease-name">Slow</div><div class="mono ease-val" data-copy="400ms">400ms</div><div class="ease-use">Page transitions, modals</div></div>
-        <div class="ease-track"><span class="ease-ball grain" style="background: radial-gradient(circle at 38% 38%, #9CC8FF, #1F5AE0 80%);"></span></div>
-      </div>
-
-      <h4 class="sub">Rules</h4>
-      <ul class="rule-list">
-        <li><span class="ok">✓</span>Consistent easing across similar elements; stagger siblings 40–60ms.</li>
-        <li><span class="ok">✓</span>Animate transform and opacity only — GPU-friendly, layout-stable.</li>
-        <li><span class="no">✕</span>Don't animate layout properties (width, height, top, left).</li>
-        <li><span class="no">✕</span>Don't use bounce or elastic easing anywhere in product UI.</li>
-        <li><span class="no">✕</span>Don't exceed 600ms for any single animation.</li>
-      </ul>
-    </section>
-
-    <!-- ─── 06 APPLICATIONS ─── -->
-    <section class="chapter" id="applications">
-      <div class="chapter-head">
-        <span class="chapter-dot" style="background:linear-gradient(135deg, var(--borrow), var(--trade))"></span>
-        <span class="chapter-num">06</span>
-      </div>
-      <h1 class="chapter-title">applications</h1>
-      <p class="chapter-intro">How the system comes together in real contexts. Mocks below are indicative — real captures land with the branding drop.</p>
-    </section>
-
-    <section class="sect" id="app-contexts">
-      <h2 class="sect-title"><span class="ast" style="color:var(--borrow)">✳</span>In Context <span class="wip-pill">mocks — captures pending</span></h2>
-
-      <div class="grid2" style="grid-template-columns:1fr;">
-
-        <div class="tile" style="padding:0; overflow:hidden;">
-          <div class="app-mock" style="background:linear-gradient(140deg,#EAF2FF 0%,#FDF4E2 45%,#E7F9EF 100%); padding:3rem 2.5rem;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:1.5rem;">
-              <svg class="mark" viewBox="0 0 100 100" style="width:16px; height:16px; color:var(--ink)"><use href="#ast-mark"/></svg>
-              <span style="font-weight:550; letter-spacing:-0.03em; font-size:14px;">omnipair</span>
-            </div>
-            <div style="font-size:22px; font-weight:460; letter-spacing:-0.03em; line-height:1.3; max-width:340px;">everything your money can do, radiating from one point.</div>
-          </div>
-          <div style="padding:1rem 1.35rem;">
-            <div class="tile-label">Social / announcement card</div>
-            <div class="tile-desc">Prismatic wash on paper, wordmark top-left, one statement. No CTA clutter — the line is the content.</div>
-          </div>
-        </div>
-
-        <div class="tile" style="padding:0; overflow:hidden;">
-          <div class="app-mock" style="background:var(--ink); padding:2.5rem;">
-            <div style="display:flex; gap:10px; margin-bottom:1.5rem;">
-              <span class="pill trade grain" style="font-size:12px; padding:7px 18px;">swap</span>
-              <span class="pill leverage grain" style="font-size:12px; padding:7px 18px;">borrow</span>
-            </div>
-            <div class="mono" style="color:rgba(255,255,255,0.85); font-size:15px; font-variant-numeric:tabular-nums;">1,240.50 USDC → 0.4821 SOL</div>
-            <div class="mono" style="color:rgba(255,255,255,0.35); font-size:11px; margin-top:6px;">rate 12.4% · health 3.2x · 0x4F2A…E9C1</div>
-          </div>
-          <div style="padding:1rem 1.35rem;">
-            <div class="tile-label">Product UI</div>
-            <div class="tile-desc">Neutral ink surfaces; utility colors only on actions. All data in mono with tabular figures.</div>
-          </div>
-        </div>
-
-        <div class="tile" style="padding:0; overflow:hidden;">
-          <div class="app-mock" style="background:var(--surface); border-bottom:1px solid var(--line); padding:2.5rem;">
-            <div class="mono" style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:0.75rem;">docs / pair-creation</div>
-            <div style="font-size:16px; font-weight:520; letter-spacing:-0.02em; margin-bottom:0.5rem;">Creating a pair</div>
-            <div style="font-size:13px; color:var(--muted); line-height:1.7; max-width:420px;">Permissionless pair creation introduces three pricing challenges. This document covers how Omnipair handles each.</div>
-          </div>
-          <div style="padding:1rem 1.35rem;">
-            <div class="tile-label">Documentation</div>
-            <div class="tile-desc">Paper white, mono breadcrumbs, problem-first openings per the copy templates.</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </div>
-
-  <footer>
-    <div class="wrap foot-inner">
-      <div class="foot-logo">
-        <svg class="mark" viewBox="0 0 100 100"><use href="#ast-mark"/></svg>
-        omnipair
-      </div>
-      <div class="foot-meta">omnipair.fi · brand guidelines v2.1 · living document</div>
-    </div>
-  </footer>
-
-</main>
+<footer>
+  <label class="remember">
+    <input type="checkbox" id="remember">
+    remember my choice
+  </label>
+  <span class="foot-meta">omnipair.fi · living document</span>
+</footer>
 
 <script>
-  // scroll-spy
-  const links = [...document.querySelectorAll('.side-links a')];
-  const ids = links.map(a => a.getAttribute('href').slice(1));
-  const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
-
-  function spy() {
-    let current = sections[0];
-    for (const s of sections) {
-      if (s.getBoundingClientRect().top <= 120) current = s;
-    }
-    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+  // honor remembered choice, unless ?choose is present
+  const params = new URLSearchParams(location.search);
+  const saved = localStorage.getItem('op-ui');
+  if (saved && !params.has('choose')) {
+    location.replace(saved + '.html');
   }
-  window.addEventListener('scroll', spy, { passive: true });
-  spy();
+  if (params.has('choose')) localStorage.removeItem('op-ui');
 
-  // click-to-copy
-  const toast = document.createElement('div');
-  toast.className = 'copy-toast';
-  document.body.appendChild(toast);
-  let toastTimer;
-  document.addEventListener('click', e => {
-    const el = e.target.closest('[data-copy]');
-    if (!el) return;
-    navigator.clipboard.writeText(el.dataset.copy).then(() => {
-      toast.textContent = 'copied · ' + el.dataset.copy;
-      toast.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toast.classList.remove('show'), 1400);
+  document.querySelectorAll('.opt').forEach(a => {
+    a.addEventListener('click', () => {
+      if (document.getElementById('remember').checked) {
+        localStorage.setItem('op-ui', a.dataset.choice);
+      }
     });
   });
-
-  // motion previews
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reduced) {
-    document.querySelectorAll('.ease-row').forEach(row => {
-      const ball = row.querySelector('.ease-ball');
-      const track = row.querySelector('.ease-track');
-      const dur = parseInt(row.dataset.dur, 10);
-      const ease = row.dataset.ease;
-      ball.style.transition = `transform ${dur}ms ${ease}`;
-      function play() {
-        row.style.setProperty('--travel', (track.offsetWidth - 26) + 'px');
-        row.classList.add('play');
-      }
-      function reset() { row.classList.remove('play'); }
-      row.addEventListener('mouseenter', play);
-      row.addEventListener('mouseleave', reset);
-      row.addEventListener('click', e => {
-        if (e.target.closest('[data-copy]')) return;
-        row.classList.contains('play') ? reset() : play();
-      });
-    });
-  }
 </script>
 
 </body>

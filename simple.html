@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>omnipair — brand guidelines</title>
+<meta name="description" content="Omnipair brand guidelines — foundation, verbal identity, logo system, and the full visual system in progress.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/lockups/symbol-black-light.png">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #F7F7F5;
+    --surface: #FFFFFF;
+    --ink: #121214;
+    --ink-soft: #2A2A2E;
+    --muted: #70707A;
+    --muted-light: #A3A3AA;
+    --line: #E7E7E3;
+    --line-soft: #EFEFEB;
+    --accent: #F08A12;
+    --side-w: 272px;
+  }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 380;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent); color: #fff; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  img { max-width: 100%; display: block; }
+
+  /* ─── SIDEBAR ─── */
+  .side {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: var(--side-w);
+    border-right: 1px solid var(--line);
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem 1.5rem;
+    z-index: 50;
+    overflow-y: auto;
+  }
+
+  .side-logo { display: block; margin-bottom: 0.75rem; }
+  .side-logo img { width: 128px; height: auto; }
+
+  .side-tagline {
+    font-size: 11px;
+    color: var(--muted-light);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    letter-spacing: 0.01em;
+  }
+
+  .side-nav { flex: 1; }
+
+  .side-item { margin-bottom: 2px; }
+
+  .side-item > a {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 12.5px;
+    font-weight: 480;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 7px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .side-item > a:hover { background: var(--line-soft); color: var(--ink); }
+  .side-item > a.active { background: var(--surface); color: var(--ink); font-weight: 550; box-shadow: 0 0 0 1px var(--line); }
+
+  .side-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    color: var(--muted-light);
+    min-width: 18px;
+  }
+
+  .side-item .side-wip {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+  }
+  .side-item .side-done { margin-left: auto; color: var(--accent); font-size: 10px; }
+
+  .side-sub { list-style: none; margin: 2px 0 8px 26px; border-left: 1px solid var(--line); }
+  .side-sub a {
+    display: block;
+    font-size: 11.5px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 3px 0 3px 12px;
+    margin-left: -1px;
+    border-left: 1px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .side-sub a:hover { color: var(--ink); }
+  .side-sub a.active { color: var(--ink); font-weight: 500; border-left-color: var(--accent); }
+
+  .side-foot {
+    font-size: 10.5px;
+    color: var(--muted-light);
+    line-height: 1.6;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+    margin-top: 1rem;
+  }
+
+  /* ─── MAIN ─── */
+  main { margin-left: var(--side-w); }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 4rem; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-lockup { max-width: 560px; margin: 0 0 2.5rem -2rem; }
+
+  .hero-tag {
+    font-size: clamp(18px, 2.1vw, 24px);
+    font-weight: 380;
+    letter-spacing: -0.02em;
+    color: var(--ink-soft);
+    max-width: 460px;
+    line-height: 1.45;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    max-width: 560px;
+  }
+  .hero-meta-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+  }
+  .hero-meta-item strong { display: block; font-size: 12px; color: var(--ink); font-weight: 500; margin-bottom: 3px; letter-spacing: 0; text-transform: none; font-family: 'Inter', sans-serif; }
+
+  /* ─── CHAPTERS & SECTIONS ─── */
+  .chapter { padding: 5.5rem 0 1.5rem; scroll-margin-top: 1rem; }
+
+  .chapter-head { display: flex; align-items: center; gap: 12px; margin-bottom: 0.75rem; }
+  .chapter-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+  .chapter-title {
+    font-size: clamp(28px, 3.4vw, 40px);
+    font-weight: 460;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+  }
+  .chapter-intro { font-size: 15px; color: var(--muted); max-width: 560px; }
+
+  .sect {
+    padding: 3.25rem 0;
+    border-bottom: 1px solid var(--line-soft);
+    scroll-margin-top: 2rem;
+  }
+  .sect:last-of-type { border-bottom: none; }
+
+  .sect-title {
+    font-size: 20px;
+    font-weight: 520;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .wip-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 3px 9px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-weight: 400;
+    background: var(--surface);
+  }
+  .done-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--accent);
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .prose {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 1.25rem;
+    max-width: 620px;
+  }
+  .prose strong { font-weight: 550; color: var(--ink); }
+
+  h4.sub {
+    font-size: 14px;
+    font-weight: 550;
+    letter-spacing: -0.01em;
+    margin: 2.25rem 0 0.9rem;
+  }
+
+  /* WIP placeholder */
+  .wip-block {
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin: 1.25rem 0;
+  }
+  .wip-block-title { font-size: 14px; font-weight: 520; margin-bottom: 0.4rem; }
+  .wip-block-desc { font-size: 12.5px; color: var(--muted); max-width: 420px; margin: 0 auto; line-height: 1.65; }
+  .wip-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 1.1rem; }
+  .wip-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    padding: 3px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+  }
+
+  /* stance */
+  .stance { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1.75rem 0; }
+  .stance-col { border-radius: 16px; padding: 1.75rem; }
+  .stance-col.is { background: var(--surface); border: 1px solid var(--line); }
+  .stance-col.against { background: var(--ink); color: #fff; }
+  .stance-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.1rem;
+  }
+  .stance-col.against .stance-label { color: rgba(255,255,255,0.45); }
+  .stance-item { font-size: 20px; font-weight: 480; letter-spacing: -0.02em; line-height: 1.4; }
+  .stance-hint { font-size: 12.5px; color: var(--muted); margin-top: 1.1rem; line-height: 1.65; }
+  .stance-col.against .stance-hint { color: rgba(255,255,255,0.55); }
+
+  /* persona */
+  .persona {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 16px;
+    padding: 2rem 2.25rem;
+    margin: 1.5rem 0;
+  }
+  .persona-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1rem;
+  }
+  .persona-text { font-size: 14.5px; line-height: 1.85; color: rgba(255,255,255,0.8); }
+
+  /* tiles */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.5rem 0; }
+  .tile { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem 1.35rem; }
+  .tile-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    margin-bottom: 0.5rem;
+  }
+  .tile-value { font-size: 13.5px; font-weight: 550; letter-spacing: -0.01em; margin-bottom: 0.4rem; }
+  .tile-desc { font-size: 12.5px; line-height: 1.6; color: var(--muted); }
+
+  /* callout */
+  .callout {
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+  }
+  .callout-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+  .callout-text { font-size: 13.5px; line-height: 1.7; color: var(--ink-soft); }
+
+  /* principles */
+  .principle { padding: 1.35rem 0; border-bottom: 1px solid var(--line-soft); }
+  .principle:last-of-type { border-bottom: none; }
+  .principle-name {
+    font-size: 14px;
+    font-weight: 550;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .principle-name::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .principle-desc { font-size: 13.5px; color: var(--muted); padding-left: 15px; }
+
+  /* examples */
+  .example-pair { margin: 1.25rem 0 1.75rem 15px; max-width: 600px; }
+  .ex-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .ex-label.avoid { color: #C25353; }
+  .ex-label.use { color: #178A5E; }
+  .ex-box {
+    border-radius: 10px;
+    padding: 0.9rem 1.15rem;
+    font-size: 13px;
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+  .ex-box.avoid { background: #FCF1F0; border: 1px solid #F0D5D2; color: var(--ink-soft); }
+  .ex-box.use { background: #EFF8F2; border: 1px solid #CFE9DB; color: var(--ink); }
+
+  /* spectrum */
+  .spectrum-row { padding: 1.4rem 0; border-bottom: 1px solid var(--line-soft); }
+  .spectrum-row:last-child { border-bottom: none; }
+  .row-label { font-size: 12.5px; font-weight: 550; margin-bottom: 0.7rem; }
+  .track-wrap { display: grid; grid-template-columns: 90px 1fr 90px; gap: 1rem; align-items: center; }
+  .track-end { font-size: 11px; color: var(--muted); }
+  .track-end.r { text-align: right; }
+  .track { position: relative; height: 4px; border-radius: 2px; background: var(--line); }
+  .track-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 2px; background: var(--accent); }
+  .track-dot {
+    position: absolute; top: 50%;
+    transform: translate(-50%,-50%);
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--ink);
+  }
+  .track-note { font-size: 12px; color: var(--muted); margin-top: 0.6rem; line-height: 1.6; }
+
+  /* vocab */
+  .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.5rem 0; }
+  .vocab-block { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem; }
+  .vocab-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    margin-bottom: 0.75rem;
+  }
+  .vocab-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .vtag { font-size: 12px; padding: 4px 12px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; }
+  .vocab-block.no .vtag { background: #FCF1F0; border-color: #F0D5D2; color: #963D3D; }
+
+  /* phrases */
+  .phrase-list { list-style: none; }
+  .phrase-item {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .phrase-item:last-child { border-bottom: none; }
+  .phrase-num { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted-light); min-width: 22px; }
+  .phrase-text { font-size: 15px; font-weight: 460; letter-spacing: -0.015em; }
+
+  /* templates */
+  .template { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-bottom: 12px; }
+  .template-head {
+    padding: 0.65rem 1.25rem;
+    border-bottom: 1px solid var(--line-soft);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--paper);
+  }
+  .template-body { padding: 1.15rem 1.25rem; font-size: 13.5px; line-height: 1.7; }
+  .template-body .formula { font-weight: 550; display: block; margin-bottom: 0.7rem; }
+  .template-body .example {
+    display: block;
+    color: var(--muted);
+    font-size: 12.5px;
+    padding: 0.7rem 1rem;
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    border-radius: 8px;
+    margin-bottom: 0.7rem;
+  }
+  .template-body .note { font-size: 12px; color: var(--muted); }
+
+  /* lockup gallery */
+  .lockup-hero {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    margin: 1.5rem 0;
+  }
+  .lockup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1rem 0 1.5rem; }
+  .lockup-grid.three { grid-template-columns: repeat(3, 1fr); }
+  .lockup-card { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+  .lockup-card img { width: 100%; height: auto; }
+  .lockup-cap {
+    padding: 0.7rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-top: 1px solid var(--line-soft);
+  }
+
+  /* rules */
+  .rule-list { list-style: none; margin: 1rem 0; max-width: 620px; }
+  .rule-list li {
+    display: flex;
+    gap: 10px;
+    padding: 0.6rem 0;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--line-soft);
+    line-height: 1.6;
+  }
+  .rule-list li:last-child { border-bottom: none; }
+  .rule-list .ok { color: #178A5E; flex-shrink: 0; }
+  .rule-list .no { color: #C25353; flex-shrink: 0; }
+
+  footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; }
+  .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .foot-logo img { width: 110px; height: auto; }
+  .foot-meta { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted-light); }
+
+  /* mobile */
+  .mobile-bar { display: none; }
+
+  @media (max-width: 980px) {
+    .side { display: none; }
+    main { margin-left: 0; }
+    .wrap { padding: 0 1.5rem; }
+    .mobile-bar {
+      display: flex;
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(247,247,245,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 0.8rem 1.5rem;
+      align-items: center;
+      gap: 10px;
+    }
+    .mobile-bar img { width: 96px; height: auto; }
+    .mobile-bar span { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-light); }
+    .hero { min-height: 60vh; }
+    .hero-lockup { margin-left: -1rem; }
+    .stance, .grid2, .vocab-grid, .lockup-grid, .lockup-grid.three { grid-template-columns: 1fr; }
+    .track-wrap { grid-template-columns: 70px 1fr 70px; }
+    .hero-meta { flex-wrap: wrap; gap: 1.25rem; }
+    .foot-inner { flex-direction: column; }
+  }
+
+  /* lightbox */
+  .lb {
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(10,10,12,0.82);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    display: grid; place-items: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.25s ease;
+    padding: 3vh 3vw;
+    cursor: zoom-out;
+  }
+  .lb.open { opacity: 1; pointer-events: auto; }
+  .lb img {
+    max-width: 94vw; max-height: 88vh;
+    width: auto; height: auto;
+    border-radius: 14px;
+    box-shadow: 0 40px 120px -20px rgba(0,0,0,0.6);
+    transform: scale(0.96);
+    transition: transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  }
+  .lb.open img { transform: scale(1); }
+  .lb-hint {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .zoomable { cursor: zoom-in; }
+</style>
+</head>
+<body>
+
+<div class="mobile-bar">
+  <img src="assets/lockups/horizontal-black-light.png" alt="omnipair">
+  <span>brand guidelines</span>
+</div>
+
+<!-- ─── SIDEBAR ─── -->
+<aside class="side">
+  <a href="#top" class="side-logo">
+    <img src="assets/lockups/horizontal-black-light.png" alt="omnipair">
+  </a>
+  <div class="side-tagline">everything your money can do,<br>radiating from one point.</div>
+
+  <nav class="side-nav">
+    <div class="side-item"><a href="#introduction"><span class="side-num">00</span>Introduction<span class="side-wip">wip</span></a></div>
+
+    <div class="side-item">
+      <a href="#foundation"><span class="side-num">01</span>Brand Foundation</a>
+      <ul class="side-sub">
+        <li><a href="#hero-enemy">Hero & Enemy</a></li>
+        <li><a href="#narrative">Core Narrative</a></li>
+        <li><a href="#problem">The Problem</a></li>
+        <li><a href="#positioning">Positioning</a></li>
+        <li><a href="#character">Brand Character</a></li>
+        <li><a href="#foundation-wip">In Progress</a></li>
+      </ul>
+    </div>
+
+    <div class="side-item">
+      <a href="#verbal"><span class="side-num">02</span>Verbal Identity</a>
+      <ul class="side-sub">
+        <li><a href="#tone">Tone of Voice</a></li>
+        <li><a href="#calibration">Voice Spectrum</a></li>
+        <li><a href="#vocabulary">Terminology</a></li>
+        <li><a href="#phrases">Signature Phrases</a></li>
+        <li><a href="#templates">Example Copy</a></li>
+        <li><a href="#verbal-wip">In Progress</a></li>
+      </ul>
+    </div>
+
+    <div class="side-item">
+      <a href="#logo"><span class="side-num">03</span>Logo System<span class="side-done">●</span></a>
+      <ul class="side-sub">
+        <li><a href="#lockups">Primary Lockups</a></li>
+        <li><a href="#symbol">The Symbol</a></li>
+        <li><a href="#logo-wip">Still Required</a></li>
+      </ul>
+    </div>
+
+    <div class="side-item"><a href="#colour"><span class="side-num">04</span>Colour<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#typography"><span class="side-num">05</span>Typography<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#layout"><span class="side-num">06</span>Layout System<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#graphic"><span class="side-num">07</span>Graphic System<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#glass"><span class="side-num">08</span>Engineered Glass<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#diagrams"><span class="side-num">09</span>Technical Diagrams<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#iconography"><span class="side-num">10</span>Iconography<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#photography"><span class="side-num">11</span>Photography<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#motion"><span class="side-num">12</span>Motion<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#product"><span class="side-num">13</span>Product Identity<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#applications"><span class="side-num">14</span>Applications<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#assets"><span class="side-num">15</span>Asset Library<span class="side-wip">wip</span></a></div>
+  </nav>
+
+  <div class="side-foot">
+    omnipair.fi<br>
+    brand guidelines · v3.0<br>
+    living document<br><br>
+    <a href="index.html?choose" style="color:var(--accent); text-decoration:none;">switch ui →</a>
+  </div>
+</aside>
+
+<main id="top">
+
+  <!-- ─── HERO ─── -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow">BRAND GUIDELINES — V3.0</div>
+      <img class="hero-lockup" src="assets/lockups/horizontal-black-light.png" alt="omnipair logo — horizontal lockup">
+      <p class="hero-tag">everything your money can do, radiating from one point.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><strong>16 sections</strong>structure</div>
+        <div class="hero-meta-item"><strong>Logo lockups</strong>complete</div>
+        <div class="hero-meta-item"><strong>Living document</strong>status</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <!-- ─── 00 INTRODUCTION ─── -->
+    <section class="chapter" id="introduction">
+      <div class="chapter-head"><span class="chapter-num">00</span></div>
+      <h1 class="chapter-title">introduction</h1>
+      <p class="chapter-intro">What this guideline is, who it's for, and how to use it.</p>
+    </section>
+
+    <section class="sect">
+      <p class="prose">This is the working brand guideline for <strong>Omnipair</strong> — the reference for anyone writing, designing, or building in the brand's name. It is a living document: sections marked <span class="wip-pill">wip</span> are reserved and will be filled as each part of the system is finalised.</p>
+      <div class="wip-block">
+        <div class="wip-block-title">Introduction — in progress</div>
+        <div class="wip-block-desc">Cover, welcome, how to use this guide (what is fixed / what can adapt), and asset download locations.</div>
+        <div class="wip-tags">
+          <span class="wip-tag">cover</span><span class="wip-tag">welcome</span><span class="wip-tag">how to use</span><span class="wip-tag">contents</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 01 BRAND FOUNDATION ─── -->
+    <section class="chapter" id="foundation">
+      <div class="chapter-head"><span class="chapter-num">01</span></div>
+      <h1 class="chapter-title">brand foundation</h1>
+      <p class="chapter-intro">The logic behind the identity. Who Omnipair is, what it stands against, and the character behind every word.</p>
+    </section>
+
+    <section class="sect" id="hero-enemy">
+      <h2 class="sect-title">Hero & Enemy</h2>
+      <p class="prose">Every strong brand stands for something — and against something. Omnipair's identity is defined by what it builds and what it refuses to accept.</p>
+      <div class="stance">
+        <div class="stance-col is">
+          <div class="stance-label">Omnipair is</div>
+          <div class="stance-item">Money Market</div>
+          <div class="stance-item">Permissionless Finance Layer</div>
+          <div class="stance-hint">A market for every asset. A layer anyone can build on. No approvals required.</div>
+        </div>
+        <div class="stance-col against">
+          <div class="stance-label">Omnipair stands against</div>
+          <div class="stance-item">Complexity</div>
+          <div class="stance-item">Closed Markets</div>
+          <div class="stance-hint">Poor UX, fragmented capital, and reliance on unnecessary intermediaries. We reject them all.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sect" id="narrative">
+      <h2 class="sect-title">Core Narrative</h2>
+      <p class="prose">The financial system is full of gatekeepers. Listings. Oracles. Governance committees. Approvals.</p>
+      <p class="prose"><strong>Omnipair removes them.</strong></p>
+      <p class="prose">By enabling permissionless borrowing, lending, and leverage through a unified market structure, Omnipair gives every asset access to financial utility.</p>
+      <div class="callout">
+        <div class="callout-label">The goal</div>
+        <div class="callout-text">Not to improve existing markets — to build a better standard.</div>
+      </div>
+    </section>
+
+    <section class="sect" id="problem">
+      <h2 class="sect-title">The Problem <span class="wip-pill">draft copy</span></h2>
+      <p class="prose"><strong>Most assets have no financial utility.</strong> Listings decide what can be traded. Oracles decide what can be priced. Committees decide what can be collateral. Liquidity fragments across separate protocols and use cases — and the user experience fragments with it.</p>
+      <div class="stance">
+        <div class="stance-col against">
+          <div class="stance-label">Before Omnipair</div>
+          <div class="stance-hint" style="margin-top:0; font-size:13.5px; color:rgba(255,255,255,0.75); line-height:1.75;">Apply for a listing. Wait for an oracle. Petition governance. Capital spread thin across disconnected protocols.</div>
+        </div>
+        <div class="stance-col is">
+          <div class="stance-label">With Omnipair</div>
+          <div class="stance-hint" style="margin-top:0; font-size:13.5px; color:var(--ink-soft); line-height:1.75;">Any pair, permissionless. Pricing derived from the market itself. Spot, lending and leverage from one unified pool.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sect" id="positioning">
+      <h2 class="sect-title">Positioning <span class="wip-pill">draft copy</span></h2>
+      <div class="persona" style="margin-top:0.5rem;">
+        <div class="persona-label">The one-line position</div>
+        <div class="persona-text" style="font-size:20px; letter-spacing:-0.02em;">"Every asset. Every use case. One unified pool."</div>
+      </div>
+      <h4 class="sub">What makes it defensible</h4>
+      <ul class="rule-list">
+        <li><span class="ok">✓</span><strong>Unified market structure</strong> — spot, lending and leverage in one pool, not stitched across protocols.</li>
+        <li><span class="ok">✓</span><strong>No gatekeepers</strong> — no listings, no oracles, no governance approvals between an asset and its utility.</li>
+        <li><span class="ok">✓</span><strong>Built for the long tail</strong> — the assets everyone else ignores are the ones Omnipair is designed for.</li>
+      </ul>
+    </section>
+
+    <section class="sect" id="character">
+      <h2 class="sect-title">Brand Character</h2>
+      <p class="prose">Before a single word is written, understand who Omnipair is. Personality: <strong>Rational · Confident · Visionary</strong>. Character: <strong>Technical · Refined · Independent</strong>.</p>
+
+      <div class="persona">
+        <div class="persona-label">The Omnipair person — your north star</div>
+        <div class="persona-text">"A sharp, self-assured architect in their early 30s. Shows up in a Porsche wearing a well-cut jacket and unbranded designer pants — premium, but no logos. Calm and precise, never loud. Has strong opinions about how on-chain finance should work and voices them as reasoned arguments, not insults. A quiet rebel rejecting the status quo through what they build rather than how loudly they complain. Doesn't ask for your trust — would rather you verify everything yourself. Ships only what matters."</div>
+      </div>
+
+      <h4 class="sub">How Omnipair challenges the market</h4>
+      <ul class="rule-list">
+        <li><span class="ok">✓</span>Not rebellious for attention.</li>
+        <li><span class="ok">✓</span>Finds structural gaps.</li>
+        <li><span class="ok">✓</span>Quietly builds what others assume cannot work.</li>
+      </ul>
+
+      <h4 class="sub">Brand principles</h4>
+      <div class="grid2">
+        <div class="tile"><div class="tile-value">Make complexity legible</div><div class="tile-desc">The system is sophisticated; the explanation never should be.</div></div>
+        <div class="tile"><div class="tile-value">Let engineering create confidence</div><div class="tile-desc">Proof over adjectives. The architecture is the argument.</div></div>
+        <div class="tile"><div class="tile-value">Show the system, not merely the interface</div><div class="tile-desc">Omnipair's depth is a feature. Reveal how it works.</div></div>
+        <div class="tile"><div class="tile-value">Be ambitious without sounding inflated</div><div class="tile-desc">Big claims, stated plainly, backed by structure.</div></div>
+      </div>
+    </section>
+
+    <section class="sect" id="foundation-wip">
+      <h2 class="sect-title">In Progress <span class="wip-pill">wip</span></h2>
+      <div class="wip-block">
+        <div class="wip-block-title">Foundation pages to come</div>
+        <div class="wip-block-desc">Reserved per the master page list — content will be added as it's approved.</div>
+        <div class="wip-tags">
+          <span class="wip-tag">what is omnipair</span><span class="wip-tag">brand belief</span><span class="wip-tag">mission</span><span class="wip-tag">vision</span><span class="wip-tag">brand promise</span><span class="wip-tag">audience</span><span class="wip-tag">audience priorities</span><span class="wip-tag">brand essence</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 02 VERBAL IDENTITY ─── -->
+    <section class="chapter" id="verbal">
+      <div class="chapter-head"><span class="chapter-num">02</span></div>
+      <h1 class="chapter-title">verbal identity</h1>
+      <p class="chapter-intro">How Omnipair sounds — the principles, the register, the words it reaches for, and the words it never uses.</p>
+    </section>
+
+    <section class="sect" id="tone">
+      <h2 class="sect-title">Tone of Voice</h2>
+
+      <div class="principle">
+        <div class="principle-name">Confident</div>
+        <div class="principle-desc">We speak with conviction.</div>
+      </div>
+      <div class="example-pair">
+        <div class="ex-label avoid">Avoid</div>
+        <div class="ex-box avoid">"Omnipair is an incredibly powerful platform that helps traders and DeFi users unlock their full potential with cutting-edge technology and real-time insights."</div>
+        <div class="ex-label use">Use instead</div>
+        <div class="ex-box use">"Omnipair gives you the infrastructure to trade on-chain without asking permission. Precise execution. No intermediaries."</div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-name">Rational</div>
+        <div class="principle-desc">Arguments over emotions. Evidence over hype.</div>
+      </div>
+      <div class="example-pair">
+        <div class="ex-label avoid">Avoid</div>
+        <div class="ex-box avoid">"The most revolutionary DeFi protocol ever built. Join thousands of users experiencing the future of finance."</div>
+        <div class="ex-label use">Use instead</div>
+        <div class="ex-box use">"Built for non-custodial execution at institutional speed. The architecture is open — read it, verify it, run it."</div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-name">Precise</div>
+        <div class="principle-desc">Clear language. No unnecessary complexity.</div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-name">Independent</div>
+        <div class="principle-desc">We challenge assumptions without attacking people.</div>
+      </div>
+      <div class="example-pair">
+        <div class="ex-label avoid">Avoid</div>
+        <div class="ex-box avoid">"Unlike [Competitor], we don't charge hidden fees or lock your assets."</div>
+        <div class="ex-label use">Use instead</div>
+        <div class="ex-box use">"Your assets remain yours. Every fee is visible before execution. That's the whole model."</div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-name">Visionary</div>
+        <div class="principle-desc">Focused on where markets are heading. Not where they are today.</div>
+      </div>
+    </section>
+
+    <section class="sect" id="calibration">
+      <h2 class="sect-title">Voice Spectrum</h2>
+      <p class="prose">Omnipair's tone doesn't shift wildly by context. Think of it as one person who knows which room they're in — never performing, always calibrated.</p>
+
+      <div class="spectrum-row">
+        <div class="row-label">Formal ↔ Casual</div>
+        <div class="track-wrap">
+          <span class="track-end">Clinical</span>
+          <div class="track"><div class="track-fill" style="width:38%"></div><div class="track-dot" style="left:38%"></div></div>
+          <span class="track-end r">Colloquial</span>
+        </div>
+        <div class="track-note">Professional and precise, but not stiff. Technical vocabulary used correctly, not wielded to impress.</div>
+      </div>
+
+      <div class="spectrum-row">
+        <div class="row-label">Warm ↔ Cold</div>
+        <div class="track-wrap">
+          <span class="track-end">Friendly</span>
+          <div class="track"><div class="track-fill" style="width:58%"></div><div class="track-dot" style="left:58%"></div></div>
+          <span class="track-end r">Distant</span>
+        </div>
+        <div class="track-note">Slightly cool. Not cold — there's respect for the reader. Omnipair doesn't try to be likable. It tries to be useful and correct.</div>
+      </div>
+
+      <div class="spectrum-row">
+        <div class="row-label">Certain ↔ Tentative</div>
+        <div class="track-wrap">
+          <span class="track-end">Declarative</span>
+          <div class="track"><div class="track-fill" style="width:18%"></div><div class="track-dot" style="left:18%"></div></div>
+          <span class="track-end r">Uncertain</span>
+        </div>
+        <div class="track-note">Very certain. Omnipair doesn't "try to" or "hope to." Weasel words undermine credibility. State the thing.</div>
+      </div>
+    </section>
+
+    <section class="sect" id="vocabulary">
+      <h2 class="sect-title">Terminology</h2>
+      <p class="prose">The words Omnipair reaches for — and the ones it avoids.</p>
+      <div class="vocab-grid">
+        <div class="vocab-block">
+          <div class="vocab-label">We say</div>
+          <div class="vocab-tags">
+            <span class="vtag">Open Markets</span><span class="vtag">Permissionless</span><span class="vtag">Verifiable</span><span class="vtag">Financial Utility</span><span class="vtag">Access</span><span class="vtag">Market Infrastructure</span><span class="vtag">Unified Liquidity</span><span class="vtag">Long-Tail Assets</span><span class="vtag">Builders</span><span class="vtag">Market Participants</span><span class="vtag">Open Finance</span>
+          </div>
+        </div>
+        <div class="vocab-block no">
+          <div class="vocab-label">We avoid</div>
+          <div class="vocab-tags">
+            <span class="vtag">Degen</span><span class="vtag">Moon</span><span class="vtag">100x</span><span class="vtag">Revolutionary</span><span class="vtag">Disruptive</span><span class="vtag">Trust Us</span><span class="vtag">Next Generation</span><span class="vtag">Yield Farming Paradise</span><span class="vtag">Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">The vocabulary test</div>
+        <div class="callout-text">If a word could appear on any DeFi protocol's homepage without anyone noticing, don't use it. Omnipair earns its adjectives through specificity, not assertion.</div>
+      </div>
+    </section>
+
+    <section class="sect" id="phrases">
+      <h2 class="sect-title">Signature Phrases</h2>
+      <p class="prose">Lines that capture how Omnipair sounds. Reuse, remix, or use as north stars when writing fresh copy.</p>
+      <ol class="phrase-list">
+        <li class="phrase-item"><span class="phrase-num">01</span><span class="phrase-text">Financial utility should be permissionless.</span></li>
+        <li class="phrase-item"><span class="phrase-num">02</span><span class="phrase-text">Every asset deserves access.</span></li>
+        <li class="phrase-item"><span class="phrase-num">03</span><span class="phrase-text">Verify. Don't trust.</span></li>
+        <li class="phrase-item"><span class="phrase-num">04</span><span class="phrase-text">Built for the assets everyone else ignores.</span></li>
+        <li class="phrase-item"><span class="phrase-num">05</span><span class="phrase-text">Open markets win.</span></li>
+        <li class="phrase-item"><span class="phrase-num">06</span><span class="phrase-text">No approvals. No gatekeepers. No waiting.</span></li>
+        <li class="phrase-item"><span class="phrase-num">07</span><span class="phrase-text">The infrastructure layer for open markets.</span></li>
+        <li class="phrase-item"><span class="phrase-num">08</span><span class="phrase-text">One market. More utility.</span></li>
+        <li class="phrase-item"><span class="phrase-num">09</span><span class="phrase-text">Built by builders. Verified by anyone.</span></li>
+        <li class="phrase-item"><span class="phrase-num">10</span><span class="phrase-text">The future of finance is permissionless.</span></li>
+      </ol>
+    </section>
+
+    <section class="sect" id="templates">
+      <h2 class="sect-title">Example Copy <span class="wip-pill">work in progress</span></h2>
+      <p class="prose">Ready-to-use structures for common contexts. Fill in the specifics — the voice is already set.</p>
+
+      <div class="template">
+        <div class="template-head">Hero headline</div>
+        <div class="template-body">
+          <span class="formula">[Specific capability], without [the thing it removes].</span>
+          <span class="example">"On-chain execution at institutional speed, without the intermediary."</span>
+          <span class="note">State the real capability + name what it replaces. No adjectives in the lead.</span>
+        </div>
+      </div>
+      <div class="template">
+        <div class="template-head">Hero subheadline</div>
+        <div class="template-body">
+          <span class="formula">[What you actually get] + [why it's different in one clause].</span>
+          <span class="example">"Infrastructure designed for non-custodial trading. The architecture is open — read it, verify it, run it."</span>
+          <span class="note">Two short sentences work better than one long one. The second sentence does the work.</span>
+        </div>
+      </div>
+      <div class="template">
+        <div class="template-head">Feature description</div>
+        <div class="template-body">
+          <span class="formula">[Feature name] — [one-line functional description].</span>
+          <span class="example">"Non-custodial routing — your positions stay on-chain, every step of the execution."</span>
+          <span class="note">No marketing prefix. Name it, define it, done.</span>
+        </div>
+      </div>
+      <div class="template">
+        <div class="template-head">UI error / status</div>
+        <div class="template-body">
+          <span class="formula">State what happened. Say what to do next.</span>
+          <span class="example">"Transaction failed — insufficient liquidity in this pool at this size. Try a smaller position or a different pair."</span>
+          <span class="note">No apologies. No vagueness. Name the reason, provide the path forward.</span>
+        </div>
+      </div>
+      <div class="template">
+        <div class="template-head">Social — announcement</div>
+        <div class="template-body">
+          <span class="formula">[What was built]. [Why it matters in one sentence]. [Where to verify it.]</span>
+          <span class="example">"Omnipair now supports [X]. It means [concrete change for the user]. Contracts here: [link]."</span>
+          <span class="note">Never announce that you're announcing. Start with the thing.</span>
+        </div>
+      </div>
+      <div class="template">
+        <div class="template-head">Long-form / docs opening</div>
+        <div class="template-body">
+          <span class="formula">State the problem precisely. Then say what this document addresses.</span>
+          <span class="example">"Non-custodial execution across fragmented liquidity sources introduces three routing challenges. This document covers how Omnipair handles each."</span>
+          <span class="note">Skip the preamble. Start with the problem.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sect" id="verbal-wip">
+      <h2 class="sect-title">In Progress <span class="wip-pill">wip</span></h2>
+      <div class="wip-block">
+        <div class="wip-block-title">Verbal identity pages to come</div>
+        <div class="wip-block-desc">Reserved per the master page list.</div>
+        <div class="wip-tags">
+          <span class="wip-tag">core message</span><span class="wip-tag">messaging hierarchy</span><span class="wip-tag">elevator pitch</span><span class="wip-tag">brand descriptions 25/50/100</span><span class="wip-tag">tagline</span><span class="wip-tag">value propositions</span><span class="wip-tag">message by audience</span><span class="wip-tag">headline style</span><span class="wip-tag">body copy style</span><span class="wip-tag">capitalisation & naming</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── 03 LOGO SYSTEM ─── -->
+    <section class="chapter" id="logo">
+      <div class="chapter-head"><span class="chapter-num">03</span><span class="done-pill">primary lockups done</span></div>
+      <h1 class="chapter-title">logo system</h1>
+      <p class="chapter-intro">The Omnipair star and wordmark. Primary lockups are final; specifications and usage rules are in production.</p>
+    </section>
+
+    <section class="sect" id="lockups">
+      <h2 class="sect-title">Primary Lockups <span class="done-pill">done</span></h2>
+      <p class="prose">The primary horizontal lockup is the default expression of the brand. Stacked lockups pair the app-icon tile with the wordmark for vertical compositions.</p>
+
+      <div class="lockup-hero">
+        <img src="assets/lockups/horizontal-shaded-light.png" alt="Omnipair primary horizontal lockup — shaded, on light">
+      </div>
+
+      <h4 class="sub">Horizontal</h4>
+      <div class="lockup-grid">
+        <div class="lockup-card"><img src="assets/lockups/horizontal-black-light.png" alt="Horizontal lockup, black on light"><div class="lockup-cap">Flat · on light</div></div>
+        <div class="lockup-card"><img src="assets/lockups/horizontal-white-dark.png" alt="Horizontal lockup, white on dark"><div class="lockup-cap">Flat · on dark</div></div>
+        <div class="lockup-card"><img src="assets/lockups/horizontal-shaded-light.png" alt="Horizontal lockup, shaded on light"><div class="lockup-cap">Shaded · on light</div></div>
+        <div class="lockup-card"><img src="assets/lockups/horizontal-silver-dark.png" alt="Horizontal lockup, silver on dark"><div class="lockup-cap">Silver · on dark</div></div>
+      </div>
+
+      <h4 class="sub">Stacked</h4>
+      <div class="lockup-grid">
+        <div class="lockup-card"><img src="assets/lockups/stacked-gradient-light.png" alt="Stacked lockup, gradient tile on light"><div class="lockup-cap">Gradient tile · on light</div></div>
+        <div class="lockup-card"><img src="assets/lockups/stacked-white-tile-dark.png" alt="Stacked lockup, white tile on dark"><div class="lockup-cap">White tile · on dark</div></div>
+        <div class="lockup-card"><img src="assets/lockups/stacked-black-tile-light.png" alt="Stacked lockup, black tile on light"><div class="lockup-cap">Black tile · on light</div></div>
+        <div class="lockup-card"><img src="assets/lockups/stacked-dark-tile-light.png" alt="Stacked lockup, dark tile on light"><div class="lockup-cap">Dark tile · on light</div></div>
+      </div>
+    </section>
+
+    <section class="sect" id="symbol">
+      <h2 class="sect-title">The Symbol</h2>
+      <p class="prose">The Omnipair star — one point radiating outward. Shown standalone for app icons, favicons, avatars, and watermarks.</p>
+      <div class="lockup-grid three">
+        <div class="lockup-card"><img src="assets/lockups/symbol-black-light.png" alt="Symbol, black on light"><div class="lockup-cap">On light</div></div>
+        <div class="lockup-card"><img src="assets/lockups/symbol-white-dark.png" alt="Symbol, white on dark"><div class="lockup-cap">On dark</div></div>
+        <div class="lockup-card"><img src="assets/lockups/symbol-shaded-light.png" alt="Symbol, shaded on light"><div class="lockup-cap">Shaded</div></div>
+      </div>
+      <div class="lockup-grid three">
+        <div class="lockup-card"><img src="assets/lockups/symbol-silver-dark.png" alt="Symbol, silver on dark"><div class="lockup-cap">Silver · on dark</div></div>
+        <div class="lockup-card"><img src="assets/lockups/icon-gradient-dark.png" alt="App icon, gradient tile on dark"><div class="lockup-cap">App icon · gradient</div></div>
+        <div class="lockup-card"><img src="assets/lockups/symbol-construction.png" alt="Symbol construction specification"><div class="lockup-cap">Construction · spec</div></div>
+      </div>
+    </section>
+
+    <section class="sect" id="logo-wip">
+      <h2 class="sect-title">Still Required <span class="wip-pill">wip</span></h2>
+      <div class="wip-block">
+        <div class="wip-block-title">Logo system pages to come</div>
+        <div class="wip-block-desc">The lockups above act as the overview page. Detailed specifications will follow.</div>
+        <div class="wip-tags">
+          <span class="wip-tag">logo anatomy</span><span class="wip-tag">wordmark rationale</span><span class="wip-tag">lockup hierarchy</span><span class="wip-tag">construction & optical alignment</span><span class="wip-tag">clear space</span><span class="wip-tag">minimum size</span><span class="wip-tag">responsive logo</span><span class="wip-tag">colourways</span><span class="wip-tag">backgrounds</span><span class="wip-tag">misuse</span><span class="wip-tag">placement & scale</span><span class="wip-tag">co-branding</span><span class="wip-tag">file formats</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── WIP CHAPTERS ─── -->
+    <section class="chapter" id="colour">
+      <div class="chapter-head"><span class="chapter-num">04</span></div>
+      <h1 class="chapter-title">colour</h1>
+      <p class="chapter-intro">Primary, secondary and gradient palettes with hierarchy, ratios and accessibility rules.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Colour system — in progress</div>
+        <div class="wip-block-desc">Palette, values and usage rules will be documented here once finalised. No colours on this page are official until then.</div>
+        <div class="wip-tags">
+          <span class="wip-tag">primary palette</span><span class="wip-tag">secondary palette</span><span class="wip-tag">gradients</span><span class="wip-tag">colour hierarchy & ratios</span><span class="wip-tag">light & dark mode</span><span class="wip-tag">functional colours</span><span class="wip-tag">accessibility</span><span class="wip-tag">misuse</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="typography">
+      <div class="chapter-head"><span class="chapter-num">05</span></div>
+      <h1 class="chapter-title">typography</h1>
+      <p class="chapter-intro">Typefaces, hierarchy, scale, and rules for numerals and data.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Typography system — in progress</div>
+        <div class="wip-block-desc">Primary, secondary and monospace typefaces with full hierarchy and scale, pending final selection.</div>
+        <div class="wip-tags">
+          <span class="wip-tag">primary typeface</span><span class="wip-tag">monospace</span><span class="wip-tag">hierarchy</span><span class="wip-tag">type scale</span><span class="wip-tag">numerals & data</span><span class="wip-tag">typography on colour</span><span class="wip-tag">misuse</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="layout">
+      <div class="chapter-head"><span class="chapter-num">06</span></div>
+      <h1 class="chapter-title">layout system</h1>
+      <p class="chapter-intro">Grids, spacing, composition principles and responsive behaviour.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Layout system — in progress</div>
+        <div class="wip-tags">
+          <span class="wip-tag">grid system</span><span class="wip-tag">spacing scale</span><span class="wip-tag">container widths</span><span class="wip-tag">composition</span><span class="wip-tag">asymmetry</span><span class="wip-tag">edge behaviour</span><span class="wip-tag">layout examples</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="graphic">
+      <div class="chapter-head"><span class="chapter-num">07</span></div>
+      <h1 class="chapter-title">core graphic system</h1>
+      <p class="chapter-intro">The visual devices beyond the logo — the star as a graphic device, pairing and convergence, frames, lines and connections.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Graphic system — in progress</div>
+        <div class="wip-block-desc">One of the most important Omnipair sections. Without it the identity depends too heavily on the logo alone.</div>
+        <div class="wip-tags">
+          <span class="wip-tag">core visual idea</span><span class="wip-tag">star as graphic device</span><span class="wip-tag">pairing & convergence</span><span class="wip-tag">frames & containers</span><span class="wip-tag">lines & connections</span><span class="wip-tag">primary metaphor</span><span class="wip-tag">cropping · scale · density</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="glass">
+      <div class="chapter-head"><span class="chapter-num">08</span></div>
+      <h1 class="chapter-title">engineered glass</h1>
+      <p class="chapter-intro">A recognisable Omnipair asset, not merely a rendering style — precision, refraction, one system revealed as several outcomes.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Engineered glass system — in progress</div>
+        <div class="wip-tags">
+          <span class="wip-tag">purpose of glass</span><span class="wip-tag">material properties</span><span class="wip-tag">colour reflections</span><span class="wip-tag">light & dark mode glass</span><span class="wip-tag">glass logo</span><span class="wip-tag">lighting rules</span><span class="wip-tag">when to use / not use</span><span class="wip-tag">misuse</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="diagrams">
+      <div class="chapter-head"><span class="chapter-num">09</span></div>
+      <h1 class="chapter-title">technical diagrams</h1>
+      <p class="chapter-intro">The diagram language that explains the system and establishes technical credibility.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Diagram system — in progress</div>
+        <div class="wip-tags">
+          <span class="wip-tag">diagram types</span><span class="wip-tag">grid · nodes · connectors</span><span class="wip-tag">labels & icons</span><span class="wip-tag">colour coding</span><span class="wip-tag">states</span><span class="wip-tag">complexity levels</span><span class="wip-tag">animation</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="iconography">
+      <div class="chapter-head"><span class="chapter-num">10</span></div>
+      <h1 class="chapter-title">iconography</h1>
+      <p class="chapter-intro">Icon style, grid, stroke and usage across product and marketing.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Iconography — in progress</div>
+        <div class="wip-tags">
+          <span class="wip-tag">icon style</span><span class="wip-tag">grid & stroke</span><span class="wip-tag">corner & terminal treatment</span><span class="wip-tag">UI / product / feature icons</span><span class="wip-tag">sizes & containers</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="photography">
+      <div class="chapter-head"><span class="chapter-num">11</span></div>
+      <h1 class="chapter-title">photography</h1>
+      <p class="chapter-intro">Environmental imagery with strict rules — scale, clarity, atmosphere. No generic premium-tech landscapes.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Photography direction — in progress</div>
+        <div class="wip-tags">
+          <span class="wip-tag">role of photography</span><span class="wip-tag">landscape imagery</span><span class="wip-tag">infrastructure imagery</span><span class="wip-tag">human photography</span><span class="wip-tag">grading & atmosphere</span><span class="wip-tag">photography with UI / glass / logo</span><span class="wip-tag">misuse</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="motion">
+      <div class="chapter-head"><span class="chapter-num">12</span></div>
+      <h1 class="chapter-title">motion</h1>
+      <p class="chapter-intro">Controlled, precise, smooth, systematic. Motion with informational purpose.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Motion system — in progress</div>
+        <div class="wip-tags">
+          <span class="wip-tag">motion personality</span><span class="wip-tag">logo & symbol motion</span><span class="wip-tag">convergence motion</span><span class="wip-tag">glass motion</span><span class="wip-tag">UI motion</span><span class="wip-tag">easing & duration</span><span class="wip-tag">loops & loading</span><span class="wip-tag">misuse</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="product">
+      <div class="chapter-head"><span class="chapter-num">13</span></div>
+      <h1 class="chapter-title">product identity</h1>
+      <p class="chapter-intro">The visible relationship between brand and product — detailed components live in the product design system.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Product identity — in progress</div>
+        <div class="wip-tags">
+          <span class="wip-tag">brand-to-product relationship</span><span class="wip-tag">product colour & type</span><span class="wip-tag">buttons & controls</span><span class="wip-tag">cards · panels · tables</span><span class="wip-tag">charts</span><span class="wip-tag">states</span><span class="wip-tag">screenshots in marketing</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="applications">
+      <div class="chapter-head"><span class="chapter-num">14</span></div>
+      <h1 class="chapter-title">applications</h1>
+      <p class="chapter-intro">Proof the system works — website, product, docs, social, presentations, events.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Applications — in progress</div>
+        <div class="wip-tags">
+          <span class="wip-tag">website</span><span class="wip-tag">product interface</span><span class="wip-tag">documentation</span><span class="wip-tag">social system</span><span class="wip-tag">presentation system</span><span class="wip-tag">events</span><span class="wip-tag">merchandise</span><span class="wip-tag">launch campaign</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="assets">
+      <div class="chapter-head"><span class="chapter-num">15</span></div>
+      <h1 class="chapter-title">asset library</h1>
+      <p class="chapter-intro">Downloads, naming, version control and governance.</p>
+    </section>
+    <section class="sect">
+      <div class="wip-block">
+        <div class="wip-block-title">Asset library — in progress</div>
+        <div class="wip-tags">
+          <span class="wip-tag">downloads</span><span class="wip-tag">folder structure</span><span class="wip-tag">file naming</span><span class="wip-tag">version control</span><span class="wip-tag">approval process</span><span class="wip-tag">changelog</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="wrap foot-inner">
+      <div class="foot-logo"><img src="assets/lockups/horizontal-black-light.png" alt="omnipair"></div>
+      <div class="foot-meta">omnipair.fi · brand guidelines v3.0 · living document</div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  const links = [...document.querySelectorAll('.side-nav a')];
+  const ids = links.map(a => a.getAttribute('href').slice(1));
+  const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+
+  function spy() {
+    let current = sections[0];
+    for (const s of sections) {
+      if (s.getBoundingClientRect().top <= 130) current = s;
+    }
+    if (!current) return;
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+  }
+  window.addEventListener('scroll', spy, { passive: true });
+  spy();
+
+  // lightbox
+  (function(){
+    const lb = document.createElement('div');
+    lb.className = 'lb';
+    lb.innerHTML = '<img alt=""><span class="lb-hint">click anywhere or press esc to close</span>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    document.querySelectorAll('.lockup-card img, .lockup-hero img').forEach(img => {
+      img.classList.add('zoomable');
+      img.addEventListener('click', e => {
+        e.preventDefault(); e.stopPropagation();
+        lbImg.src = img.src;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+    lb.addEventListener('click', closeLb);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  })();
+</script>
+
+</body>
+</html>
