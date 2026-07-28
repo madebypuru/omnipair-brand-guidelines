@@ -5,11 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>omnipair — brand guidelines</title>
 <meta name="description" content="Omnipair brand guidelines — foundation, verbal identity, logo system, and the full visual system in progress.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/lockups/symbol-black-light.png">
 <style>
+  @font-face {
+    font-family: 'Aeonik';
+    src: url('assets/fonts/AeonikVF.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Aeonik';
+    src: url('assets/fonts/AeonikVF-Italic.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'M Saans';
+    src: url('assets/fonts/MSaansVF.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -29,9 +48,8 @@
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 380;
+    font-family: 'M Saans', system-ui, sans-serif;
+        font-weight: 380;
     font-size: 15px;
     line-height: 1.7;
     color: var(--ink);
@@ -42,7 +60,7 @@
   ::selection { background: var(--accent); color: #fff; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  .mono { font-family: 'JetBrains Mono', monospace; }
+  .mono { font-family: 'M Saans', system-ui, sans-serif; }
   img { max-width: 100%; display: block; }
 
   /* ─── SIDEBAR ─── */
@@ -90,7 +108,7 @@
   .side-item > a.active { background: var(--surface); color: var(--ink); font-weight: 550; box-shadow: 0 0 0 1px var(--line); }
 
   .side-num {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9.5px;
     color: var(--muted-light);
     min-width: 18px;
@@ -98,7 +116,7 @@
 
   .side-item .side-wip {
     margin-left: auto;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 8px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -143,7 +161,7 @@
   }
 
   .hero-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 11px;
     letter-spacing: 0.08em;
     color: var(--muted);
@@ -170,20 +188,20 @@
     max-width: 560px;
   }
   .hero-meta-item {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--muted-light);
   }
-  .hero-meta-item strong { display: block; font-size: 12px; color: var(--ink); font-weight: 500; margin-bottom: 3px; letter-spacing: 0; text-transform: none; font-family: 'Inter', sans-serif; }
+  .hero-meta-item strong { display: block; font-size: 12px; color: var(--ink); font-weight: 500; margin-bottom: 3px; letter-spacing: 0; text-transform: none; font-family: 'M Saans', sans-serif; }
 
   /* ─── CHAPTERS & SECTIONS ─── */
   .chapter { padding: 5.5rem 0 1.5rem; scroll-margin-top: 1rem; }
 
   .chapter-head { display: flex; align-items: center; gap: 12px; margin-bottom: 0.75rem; }
   .chapter-num {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 11px;
     color: var(--accent);
     letter-spacing: 0.06em;
@@ -216,7 +234,7 @@
   }
 
   .wip-pill {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -228,7 +246,7 @@
     background: var(--surface);
   }
   .done-pill {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -268,7 +286,7 @@
   .wip-block-desc { font-size: 12.5px; color: var(--muted); max-width: 420px; margin: 0 auto; line-height: 1.65; }
   .wip-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 1.1rem; }
   .wip-tag {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9.5px;
     letter-spacing: 0.04em;
     color: var(--muted);
@@ -284,7 +302,7 @@
   .stance-col.is { background: var(--surface); border: 1px solid var(--line); }
   .stance-col.against { background: var(--ink); color: #fff; }
   .stance-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -305,7 +323,7 @@
     margin: 1.5rem 0;
   }
   .persona-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -318,7 +336,7 @@
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.5rem 0; }
   .tile { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem 1.35rem; }
   .tile-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9.5px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -338,7 +356,7 @@
     border-left: 3px solid var(--accent);
   }
   .callout-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9.5px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -370,7 +388,7 @@
   /* examples */
   .example-pair { margin: 1.25rem 0 1.75rem 15px; max-width: 600px; }
   .ex-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9.5px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -412,7 +430,7 @@
   .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.5rem 0; }
   .vocab-block { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem; }
   .vocab-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9.5px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -433,7 +451,7 @@
     border-bottom: 1px solid var(--line-soft);
   }
   .phrase-item:last-child { border-bottom: none; }
-  .phrase-num { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted-light); min-width: 22px; }
+  .phrase-num { font-family: 'M Saans', system-ui, sans-serif; font-size: 10.5px; color: var(--muted-light); min-width: 22px; }
   .phrase-text { font-size: 15px; font-weight: 460; letter-spacing: -0.015em; }
 
   /* templates */
@@ -441,7 +459,7 @@
   .template-head {
     padding: 0.65rem 1.25rem;
     border-bottom: 1px solid var(--line-soft);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -475,7 +493,7 @@
   .lockup-card img { width: 100%; height: auto; }
   .lockup-cap {
     padding: 0.7rem 1rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9.5px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -501,7 +519,7 @@
   footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; }
   .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .foot-logo img { width: 110px; height: auto; }
-  .foot-meta { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted-light); }
+  .foot-meta { font-family: 'M Saans', system-ui, sans-serif; font-size: 10.5px; color: var(--muted-light); }
 
   /* mobile */
   .mobile-bar { display: none; }
@@ -523,7 +541,7 @@
       gap: 10px;
     }
     .mobile-bar img { width: 96px; height: auto; }
-    .mobile-bar span { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-light); }
+    .mobile-bar span { font-family: 'M Saans', system-ui, sans-serif; font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-light); }
     .hero { min-height: 60vh; }
     .hero-lockup { margin-left: -1rem; }
     .stance, .grid2, .vocab-grid, .lockup-grid, .lockup-grid.three { grid-template-columns: 1fr; }
@@ -555,11 +573,12 @@
   .lb.open img { transform: scale(1); }
   .lb-hint {
     position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
-    font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+    font-family: 'M Saans', system-ui, sans-serif; font-size: 9.5px;
     letter-spacing: 0.14em; text-transform: uppercase;
     color: rgba(255,255,255,0.5);
   }
   .zoomable { cursor: zoom-in; }
+  .chapter-title, .sect-title, .hero-tag, .stance-item, .phrase-text, .persona-text, .tile-value, .gp-big, .wip-block-title, .opt-title { font-family: 'Aeonik', 'M Saans', sans-serif; }
 </style>
 </head>
 <body>

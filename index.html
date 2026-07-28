@@ -5,11 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>omnipair — brand guidelines</title>
 <meta name="description" content="Omnipair brand guidelines — choose your reading experience.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/lockups/symbol-black-light.png">
 <style>
+  @font-face {
+    font-family: 'Aeonik';
+    src: url('assets/fonts/AeonikVF.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Aeonik';
+    src: url('assets/fonts/AeonikVF-Italic.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'M Saans';
+    src: url('assets/fonts/MSaansVF.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --ink: #0B0B0D;
@@ -18,7 +37,7 @@
     --orange: #F08A12;
   }
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'M Saans', system-ui, sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -26,7 +45,7 @@
     color: #fff;
     -webkit-font-smoothing: antialiased;
   }
-  .mono { font-family: 'JetBrains Mono', monospace; }
+  .mono { font-family: 'M Saans', system-ui, sans-serif; }
   a { text-decoration: none; color: inherit; }
   :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
 
@@ -38,7 +57,7 @@
   }
   header img { width: 116px; }
   .head-tag {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9.5px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -93,7 +112,7 @@
   .opt.expressive:hover::before { opacity: 0.55; }
 
   .opt-num {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0.14em;
     margin-bottom: auto;
@@ -107,7 +126,7 @@
   .opt.expressive .opt-desc { color: rgba(255,255,255,0.55); }
 
   .opt-cta {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -131,7 +150,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'M Saans', system-ui, sans-serif;
     font-size: 9.5px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -140,7 +159,7 @@
     user-select: none;
   }
   .remember input { accent-color: var(--orange); }
-  .foot-meta { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+  .foot-meta { font-family: 'M Saans', system-ui, sans-serif; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
 
   @media (max-width: 800px) {
     .choose { grid-template-columns: 1fr; }
@@ -150,6 +169,7 @@
   @media (prefers-reduced-motion: reduce) {
     * { transition-duration: 0.001s !important; }
   }
+  .opt-title { font-family: 'Aeonik', 'M Saans', sans-serif; }
 </style>
 </head>
 <body>
