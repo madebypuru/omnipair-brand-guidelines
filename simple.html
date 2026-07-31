@@ -516,6 +516,13 @@
   .rule-list .ok { color: #178A5E; flex-shrink: 0; }
   .rule-list .no { color: #C25353; flex-shrink: 0; }
 
+
+  .spec-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 13px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .spec-table th { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-light); text-align: left; font-weight: 500; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--paper); }
+  .spec-table td { padding: 9px 14px; border-bottom: 1px solid var(--line-soft); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .spec-table tr:last-child td { border-bottom: none; }
+  .formula-box { background: var(--ink); color: #fff; border-radius: 14px; padding: 1.5rem 1.75rem; margin: 1.25rem 0; font-size: 14px; line-height: 2; letter-spacing: 0.01em; }
+  .formula-box .fl { color: rgba(255,255,255,0.5); }
   footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; }
   .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .foot-logo img { width: 110px; height: auto; }
@@ -630,6 +637,7 @@
         <li><a href="#wordmark">Wordmark Rationale</a></li>
         <li><a href="#hierarchy">Lockup Hierarchy</a></li>
         <li><a href="#construction">Construction</a></li>
+        <li><a href="#optical">Optical Centring</a></li>
         <li><a href="#clearspace">Clear Space</a></li>
         <li><a href="#minsize">Minimum Size</a></li>
         <li><a href="#misuse">Misuse</a></li>
@@ -1094,6 +1102,58 @@
       </div>
     </section>
 
+
+    <section class="sect" id="optical">
+      <h2 class="sect-title">Optical Centring</h2>
+      <p class="prose">The Omnipair logo is centred using an <strong>optical bounding box</strong>, not its visible bounds alone. Add an invisible top allowance equal to <strong>7.5% of the logo height</strong>, then centre this expanded optical box within the container. This compensates for the uneven visual weight of the mark and makes the logo appear centred.</p>
+      <p class="prose">The logo remains horizontally centred at 50% of the container width.</p>
+
+      <div class="formula-box">
+        <span class="fl">Optical allowance</span> = Logo height × 7.5%<br>
+        <span class="fl">Optical box height</span> = Logo height + Optical allowance<br>
+        <span class="fl">Logo top position</span> = (Container height − Optical box height) ÷ 2 + Optical allowance
+      </div>
+
+      <h4 class="sub">Worked examples</h4>
+      <div class="grid2">
+        <div class="tile">
+          <div class="tile-label">01 · Large frame</div>
+          <div class="tile-value">1080px container · 494px logo</div>
+          <div class="tile-desc">Allowance 494 × 7.5% = 37.05px · optical box 531.05px · box top (1080 − 531.05) ÷ 2 = 274.48px · final top 274.48 + 37.05 = <strong>≈312px</strong>.<br>Geometric position would be 293px — the correction moves the logo 18.5px downward.</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">02 · Presentation frame</div>
+          <div class="tile-value">720px container · 320px logo</div>
+          <div class="tile-desc">Allowance 320 × 7.5% = 24px · optical box 344px · box top (720 − 344) ÷ 2 = 188px · final top 188 + 24 = <strong>212px</strong>.<br>Geometric position would be 200px — the logo moves 12px downward.</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">03 · Square graphic</div>
+          <div class="tile-value">400px container · 200px logo</div>
+          <div class="tile-desc">Allowance 200 × 7.5% = 15px · optical box 215px · box top (400 − 215) ÷ 2 = 92.5px · final top 92.5 + 15 = <strong>≈108px</strong>.<br>Geometric position would be 100px — the logo moves 7.5px downward.</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">04 · Compact application</div>
+          <div class="tile-value">256px container · 96px logo</div>
+          <div class="tile-desc">Allowance 96 × 7.5% = 7.2px · optical box 103.2px · box top (256 − 103.2) ÷ 2 = 76.4px · final top 76.4 + 7.2 = <strong>≈84px</strong>.<br>Geometric position would be 80px — the logo moves 3.6px downward.</div>
+        </div>
+      </div>
+
+      <h4 class="sub">Quick reference</h4>
+      <table class="spec-table">
+        <thead><tr><th>Container height</th><th>Logo height</th><th>7.5% allowance</th><th>Final top position</th></tr></thead>
+        <tbody>
+          <tr><td>1080px</td><td>494px</td><td>37.1px</td><td>311.5px</td></tr>
+          <tr><td>720px</td><td>320px</td><td>24px</td><td>212px</td></tr>
+          <tr><td>400px</td><td>200px</td><td>15px</td><td>107.5px</td></tr>
+          <tr><td>256px</td><td>96px</td><td>7.2px</td><td>83.6px</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Implementation note</div>
+        <div class="callout-text">Round the final position to the nearest whole pixel for digital applications. In Figma, create a frame that is 107.5% of the logo height, place the invisible 7.5% allowance above the logo, and centre the complete frame inside the parent container.</div>
+      </div>
+    </section>
     <section class="sect" id="clearspace">
       <h2 class="sect-title">Clear Space</h2>
       <p class="prose">Protect the logo with consistent breathing room. A minimum clear space must always surround the Omnipair logo — it keeps the logo readable, recognizable, and free from visual clutter.</p>
