@@ -562,6 +562,37 @@
   .dl-get:hover { color: var(--ink); border-color: var(--ink); }
   @media (max-width: 980px) { .dl-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 640px) { .dl-grid { grid-template-columns: 1fr; } }
+
+  .side-logo.brand { display: flex; align-items: center; gap: 9px; margin-bottom: 2rem; }
+  .brand-icon { width: 30px; height: 30px; transition: transform 0.7s cubic-bezier(0.22,1,0.36,1); will-change: transform; }
+  .side-logo.brand:hover .brand-icon { transform: rotate(360deg); }
+  .brand-word { overflow: hidden; width: 104px; display: block; }
+  .brand-word img { width: 128%; margin-left: -26%; display: block; }
+
+  .side-dl {
+    position: sticky;
+    bottom: -1.5rem;
+    background: var(--paper);
+    padding: 0.9rem 0;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .side-dl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--ink);
+    color: #fff;
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .side-dl-btn:hover { transform: translateY(-1px); background: #000; }
+  .side-dl-ic { color: var(--accent); font-weight: 600; }
   footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; }
   .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .foot-logo img { width: 110px; height: auto; }
@@ -630,16 +661,19 @@
 <body>
 
 <div class="mobile-bar">
-  <img loading="lazy" src="assets/lockups/horizontal-black-light.png" alt="omnipair">
-  <span>brand guidelines</span>
+  <a href="#top" class="side-logo brand" style="margin:0;">
+    <img class="brand-icon" src="assets/downloads/Omnipair-Icon-Gradient-SVG.svg" alt="" style="width:24px;height:24px;">
+    <span class="brand-word" style="width:88px;"><img src="assets/downloads/Omnipair-Horizontal-Gradient-SVG.svg" alt="omnipair"></span>
+  </a>
+  <a href="#downloads" style="margin-left:auto; font-size:11px; font-weight:500; color:var(--accent); text-decoration:none;">↓ assets</a>
 </div>
 
 <!-- ─── SIDEBAR ─── -->
 <aside class="side">
-  <a href="#top" class="side-logo">
-    <img loading="lazy" src="assets/lockups/horizontal-black-light.png" alt="omnipair">
+  <a href="#top" class="side-logo brand">
+    <img class="brand-icon" src="assets/downloads/Omnipair-Icon-Gradient-SVG.svg" alt="">
+    <span class="brand-word"><img src="assets/downloads/Omnipair-Horizontal-Gradient-SVG.svg" alt="omnipair"></span>
   </a>
-  <div class="side-tagline">everything your money can do,<br>radiating from one point.</div>
 
   <nav class="side-nav">
     <div class="side-item"><a href="#introduction"><span class="side-num">00</span>Introduction<span class="side-wip">wip</span></a></div>
@@ -698,11 +732,16 @@
     <div class="side-item" style="margin-top:10px; padding-top:10px; border-top:1px solid var(--line);"><a href="roadmap.html"><span class="side-num">→</span>Roadmap & Future Additions</a></div>
   </nav>
 
+  <div class="side-dl">
+    <a href="#downloads" class="side-dl-btn">
+      <span class="side-dl-ic">↓</span> Download assets
+    </a>
+  </div>
+
   <div class="side-foot">
     omnipair.fi<br>
     brand guidelines · v3.0<br>
-    living document<br><br>
-    <a href="index.html?choose" style="color:var(--accent); text-decoration:none;">switch ui →</a>
+    living document
   </div>
 </aside>
 
@@ -1454,7 +1493,7 @@
 
   <footer>
     <div class="wrap foot-inner">
-      <div class="foot-logo"><img loading="lazy" src="assets/lockups/horizontal-black-light.png" alt="omnipair"></div>
+      <div class="foot-logo"><img src="assets/downloads/Omnipair-Horizontal-Gradient-SVG.svg" alt="omnipair" style="width:130px;"></div>
       <div class="foot-meta">omnipair.fi · brand guidelines v3.0 · living document</div>
     </div>
   </footer>

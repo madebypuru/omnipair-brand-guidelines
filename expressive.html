@@ -133,6 +133,12 @@
   }
   .menu-btn:hover { background: rgba(255,255,255,0.12); transform: translateY(-1px); }
 
+
+  .bar-logo.brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+  .brand-icon { width: 28px; height: 28px; transition: transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+  .bar-logo.brand:hover .brand-icon { transform: rotate(360deg); }
+  .brand-word { overflow: hidden; width: 98px; display: block; }
+  .brand-word img { width: 128%; margin-left: -26%; display: block; }
   /* ─── overlay menu ─── */
   .menu {
     position: fixed;
@@ -592,9 +598,12 @@
 
 <!-- top bar -->
 <nav class="bar">
-  <a class="bar-logo" href="#top"><img loading="lazy" src="assets/lockups/horizontal-white-dark.png" alt="omnipair"></a>
+  <a class="bar-logo brand" href="#top">
+    <img class="brand-icon" src="assets/downloads/Omnipair-Icon-DarkWhite-SVG.svg" alt="">
+    <span class="brand-word"><img src="assets/downloads/Omnipair-Horizontal-DarkWhite-SVG.svg" alt="omnipair"></span>
+  </a>
   <div class="bar-right">
-    <a class="bar-link" href="index.html">switch ui</a>
+    <a class="bar-link" href="simple.html#downloads">↓ assets</a>
     <button class="menu-btn" id="menuBtn" aria-haspopup="true" aria-expanded="false">Index</button>
   </div>
 </nav>
@@ -811,8 +820,8 @@
   </section>
 
   <footer class="foot">
-    <img loading="lazy" src="assets/lockups/horizontal-white-dark.png" alt="omnipair">
-    <div class="foot-meta">omnipair.fi · brand guidelines v3.0 · living document · <a href="index.html" style="color:inherit;">switch ui</a></div>
+    <img src="assets/downloads/Omnipair-Horizontal-DarkWhite-SVG.svg" alt="omnipair" style="width:150px;margin:0 auto 1.5rem;">
+    <div class="foot-meta">omnipair.fi · brand guidelines v3.0 · living document</div>
   </footer>
 
 </main>
