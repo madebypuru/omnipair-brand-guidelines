@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>omnipair — guideline roadmap</title>
+<meta name="description" content="Omnipair brand guidelines — still required pages and future additions.">
+<link rel="icon" href="assets/lockups/symbol-black-light.png">
+<style>
+  @font-face {
+    font-family: 'Aeonik';
+    src: url('assets/fonts/AeonikVF.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'M Saans';
+    src: url('assets/fonts/MSaansVF.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #F7F7F5;
+    --surface: #FFFFFF;
+    --ink: #121214;
+    --muted: #70707A;
+    --muted-light: #A3A3AA;
+    --line: #E7E7E3;
+    --line-soft: #EFEFEB;
+    --accent: #F08A12;
+  }
+
+  body {
+    font-family: 'M Saans', system-ui, sans-serif;
+    font-weight: 380;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent); color: #fff; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(247,247,245,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.85rem 1.75rem;
+  }
+  .topbar img { width: 104px; }
+  .topbar-links { display: flex; gap: 1.25rem; }
+  .topbar a {
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; font-weight: 500;
+  }
+  .topbar a:hover { color: var(--ink); }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 2rem; }
+
+  .head { padding: 5rem 0 3rem; border-bottom: 1px solid var(--line); }
+  .head-eyebrow { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 550; margin-bottom: 1rem; }
+  .head h1 { font-family: 'Aeonik', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 500; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 1rem; }
+  .head p { color: var(--muted); max-width: 560px; }
+
+  .group { padding: 2.75rem 0; border-bottom: 1px solid var(--line-soft); }
+  .group:last-child { border-bottom: none; }
+  .group-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 1rem; }
+  .group-num { font-size: 11px; letter-spacing: 0.08em; color: var(--muted-light); font-weight: 500; }
+  .group-title { font-family: 'Aeonik', sans-serif; font-size: 21px; font-weight: 520; letter-spacing: -0.02em; }
+  .group-status {
+    margin-left: auto;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 999px; font-weight: 500;
+  }
+  .group-status.wip { color: var(--muted); border: 1px solid var(--line); background: var(--surface); }
+  .group-status.partial { color: #fff; background: var(--ink); }
+  .group-status.done { color: #fff; background: var(--accent); }
+  .group-desc { font-size: 13px; color: var(--muted); max-width: 560px; margin-bottom: 1rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 11px; letter-spacing: 0.03em;
+    color: var(--muted);
+    padding: 4px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+  }
+  .tag.done-tag { color: var(--accent); border-color: var(--accent); text-decoration: line-through; text-decoration-color: rgba(240,138,18,0.5); }
+
+  footer { border-top: 1px solid var(--line); padding: 2.5rem 2rem; text-align: center; }
+  .foot-meta { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-light); }
+
+  @media (max-width: 700px) {
+    .wrap { padding: 0 1.25rem; }
+    .group-head { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="index.html?choose"><img src="assets/lockups/horizontal-black-light.png" alt="omnipair"></a>
+  <div class="topbar-links">
+    <a href="simple.html">document</a>
+    <a href="expressive.html">experience</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="head">
+    <div class="head-eyebrow">Roadmap</div>
+    <h1>still required &<br>future additions</h1>
+    <p>Everything the guideline will grow into. Items move out of this page and into the guideline as copy and assets are approved — nothing here is official until it ships.</p>
+  </header>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">00</span><span class="group-title">Introduction</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Cover</span><span class="tag">Welcome to Omnipair</span><span class="tag">How to use this guide — fixed vs adaptable</span><span class="tag">Asset download locations</span><span class="tag">Contents / navigation</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">01</span><span class="group-title">Brand Foundation</span><span class="group-status partial">partial</span></div>
+    <div class="group-desc">Hero & Enemy, Core Narrative, Problem, Positioning and Brand Character are live. Still to come:</div>
+    <div class="tags">
+      <span class="tag">What is Omnipair — one-liner + expanded</span><span class="tag">Brand belief</span><span class="tag">Mission</span><span class="tag">Vision</span><span class="tag">Brand promise</span><span class="tag">Audience — founders · DeFi users · traders/LPs/whales · developers</span><span class="tag">Audience priorities</span><span class="tag">Brand essence</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">02</span><span class="group-title">Verbal Identity</span><span class="group-status partial">partial</span></div>
+    <div class="group-desc">Tone of voice, voice spectrum, terminology, signature phrases and example copy are live. Still to come:</div>
+    <div class="tags">
+      <span class="tag">Core message</span><span class="tag">Messaging hierarchy — brand · product · feature · proof</span><span class="tag">Elevator pitch</span><span class="tag">Brand descriptions — 25 / 50 / 100 words</span><span class="tag">Tagline + usage rules</span><span class="tag">Value propositions</span><span class="tag">Message by audience</span><span class="tag">Headline · body · product · docs · social styles</span><span class="tag">Capitalisation & naming</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">03</span><span class="group-title">Logo System</span><span class="group-status done">mostly done</span></div>
+    <div class="group-desc">Lockups, hierarchy, wordmark rationale, construction, clear space, minimum size and misuse are live. Still to come:</div>
+    <div class="tags">
+      <span class="tag">Responsive logo sequence</span><span class="tag">Colourways page</span><span class="tag">Backgrounds — photography · gradients · complex</span><span class="tag">Placement & scale in layout</span><span class="tag">Logo cropping as graphic device</span><span class="tag">Co-branding lockups</span><span class="tag">Powered by / Built on Omnipair</span><span class="tag">Asset naming & file formats</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">04</span><span class="group-title">Colour</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Primary palette — Omnipair orange · dark · light</span><span class="tag">Secondary — teal · blue · neutrals</span><span class="tag">Gradient palette + directions</span><span class="tag">Values — HEX · RGB · CMYK</span><span class="tag">Hierarchy & ratios</span><span class="tag">Light / dark mode palettes</span><span class="tag">Functional colours</span><span class="tag">Accessibility</span><span class="tag">Misuse</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">05</span><span class="group-title">Typography</span><span class="group-status partial">partial</span></div>
+    <div class="group-desc">Aeonik (display) and M Saans (body/UI) are in use across this guideline. Full documentation to come:</div>
+    <div class="tags">
+      <span class="tag">Typeface roles & character</span><span class="tag">Weights</span><span class="tag">Hierarchy — display → data</span><span class="tag">Type scale — desktop · tablet · mobile</span><span class="tag">Line height · tracking · paragraph width</span><span class="tag">Numerals & data — tabular · currency · token values</span><span class="tag">Monospace decision</span><span class="tag">Pairings</span><span class="tag">Typography on colour</span><span class="tag">Misuse</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">06</span><span class="group-title">Layout System</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Grid — desktop · tablet · mobile · presentation · social</span><span class="tag">Columns & margins</span><span class="tag">Spacing scale</span><span class="tag">Container widths</span><span class="tag">Composition principles</span><span class="tag">Asymmetry</span><span class="tag">Content density</span><span class="tag">Edge behaviour</span><span class="tag">Layout examples</span><span class="tag">Misuse</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">07</span><span class="group-title">Core Graphic System</span><span class="group-status wip">wip</span></div>
+    <div class="group-desc">The most important differentiator — without it the identity depends too heavily on the logo and colour.</div>
+    <div class="tags">
+      <span class="tag">Core visual idea — unified systems · convergence</span><span class="tag">The star as graphic device — full · cropped · repeated · negative space</span><span class="tag">Pairing & convergence</span><span class="tag">Frames & containers</span><span class="tag">Lines & connections</span><span class="tag">One primary metaphor — orbit / lens / convergence</span><span class="tag">Cropping · scale · density · layering</span><span class="tag">Colour application</span><span class="tag">Misuse</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">08</span><span class="group-title">Engineered Glass</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Purpose — precision, not decoration</span><span class="tag">Material properties</span><span class="tag">Colour reflections — orange · teal · blue</span><span class="tag">Light / dark mode glass</span><span class="tag">Glass logo · objects · interfaces</span><span class="tag">Glass & typography / photography</span><span class="tag">Lighting rules</span><span class="tag">Camera & realism</span><span class="tag">When to use / when not</span><span class="tag">Misuse</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">09</span><span class="group-title">Technical Diagrams</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Diagram types — architecture · liquidity flow · borrow · lend · leverage · lifecycle</span><span class="tag">Grid · nodes · connectors · arrows</span><span class="tag">Containers · labels · icons</span><span class="tag">Colour coding & states</span><span class="tag">Complexity levels</span><span class="tag">Animation</span><span class="tag">Misuse</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">10</span><span class="group-title">Iconography</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Style — stroke vs filled</span><span class="tag">Grid · stroke width · corners · terminals</span><span class="tag">UI · product · feature · token icons</span><span class="tag">Colour & containers</span><span class="tag">Sizes</span><span class="tag">Misuse</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">11</span><span class="group-title">Photography</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Role of photography</span><span class="tag">Landscape imagery — scale · clarity · atmosphere</span><span class="tag">Observatory & infrastructure imagery</span><span class="tag">Human photography</span><span class="tag">Composition · lighting · grading</span><span class="tag">Photography with UI / glass / logo</span><span class="tag">Misuse — no clichés</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">12</span><span class="group-title">Motion</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Personality — controlled · precise · smooth · systematic</span><span class="tag">Logo & symbol construction motion</span><span class="tag">Convergence motion</span><span class="tag">Glass motion</span><span class="tag">Diagram & UI motion</span><span class="tag">Easing · duration · loops · loading</span><span class="tag">Social motion</span><span class="tag">Misuse</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">13</span><span class="group-title">Product Identity</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Brand-to-product relationship</span><span class="tag">Product colour & typography</span><span class="tag">Navigation · buttons · cards · panels</span><span class="tag">Data tables · charts · market cards</span><span class="tag">Token representation</span><span class="tag">States — empty · loading · error · wallet</span><span class="tag">Screenshots in marketing</span><span class="tag">Do's & don'ts</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">14</span><span class="group-title">Applications</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Website · product · docs</span><span class="tag">Social media system</span><span class="tag">Presentation system</span><span class="tag">Editorial & documentation</span><span class="tag">Data visualisation</span><span class="tag">Events · signage · booth</span><span class="tag">Merchandise</span><span class="tag">Digital advertising</span><span class="tag">Launch campaign</span>
+    </div>
+  </section>
+
+  <section class="group">
+    <div class="group-head"><span class="group-num">15</span><span class="group-title">Asset Library & Governance</span><span class="group-status wip">wip</span></div>
+    <div class="tags">
+      <span class="tag">Downloads — logo · fonts · colours · templates · icons</span><span class="tag">Folder structure & file naming</span><span class="tag">Version control & changelog</span><span class="tag">Master asset rules</span><span class="tag">Who can modify the brand</span><span class="tag">Approval process</span><span class="tag">Contact</span>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="foot-meta">omnipair.fi · brand guidelines v3.1 · roadmap</div>
+</footer>
+
+</body>
+</html>
