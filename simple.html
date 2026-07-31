@@ -72,7 +72,7 @@
     background: var(--paper);
     display: flex;
     flex-direction: column;
-    padding: 2rem 1.5rem 1.5rem;
+    padding: 2rem 1.5rem 90px;
     z-index: 50;
     overflow-y: auto;
   }
@@ -593,6 +593,99 @@
   }
   .side-dl-btn:hover { transform: translateY(-1px); background: #000; }
   .side-dl-ic { color: var(--accent); font-weight: 600; }
+
+  /* brand kit widget */
+  .kit {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    width: calc(var(--side-w) - 2rem);
+    z-index: 120;
+    font-family: 'M Saans', system-ui, sans-serif;
+  }
+  .kit-panel {
+    background: #fff;
+    border: 1px solid var(--line, #E7E7E3);
+    border-radius: 20px;
+    padding: 1.1rem 1.1rem 0.9rem;
+    box-shadow: 0 24px 60px -18px rgba(0,0,0,0.25);
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  }
+  .kit.open .kit-panel { opacity: 1; transform: none; pointer-events: auto; }
+  .kit-title { font-size: 14px; font-weight: 600; color: #121214; letter-spacing: -0.01em; }
+  .kit-sub { font-size: 11.5px; color: #70707A; line-height: 1.5; margin: 2px 0 0.9rem; }
+  .kit-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #F7F7F5;
+    border: 1px solid #EFEFEB;
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 7px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .kit-row:hover { border-color: #d9d9d3; }
+  .kit-row.sel { border-color: #F08A12; }
+  .kit-row input { accent-color: #F08A12; width: 15px; height: 15px; cursor: pointer; }
+  .kit-row-name { font-size: 12.5px; font-weight: 500; color: #121214; flex: 1; }
+  .kit-row-name span { color: #A3A3AA; font-weight: 400; font-size: 10.5px; margin-left: 4px; }
+  .kit-row-dl {
+    color: #F08A12;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1;
+    padding: 4px 6px;
+    border-radius: 6px;
+  }
+  .kit-row-dl:hover { background: rgba(240,138,18,0.12); }
+  .kit-cta {
+    display: flex;
+    width: 100%;
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: 0 14px 34px -12px rgba(0,0,0,0.4);
+  }
+  .kit-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #121214;
+    color: #fff;
+    border: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 550;
+    padding: 13px 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .kit-main:hover { background: #000; }
+  .kit-main .dl-ic { color: #F08A12; }
+  .kit-toggle {
+    background: #121214;
+    color: rgba(255,255,255,0.75);
+    border: none;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    font-family: inherit;
+    font-size: 11px;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .kit-toggle:hover { background: #000; color: #fff; }
+  .kit-toggle .chev { display: inline-block; transition: transform 0.25s; }
+  .kit.open .kit-toggle .chev { transform: rotate(180deg); }
+  @media (max-width: 980px) {
+    .kit { left: 50%; transform: translateX(-50%); width: min(340px, calc(100vw - 2rem)); }
+  }
   footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; }
   .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .foot-logo img { width: 110px; height: auto; }
@@ -665,7 +758,7 @@
     <img class="brand-icon" src="assets/downloads/Omnipair-Icon-Gradient-SVG.svg" alt="" style="width:24px;height:24px;">
     <span class="brand-word" style="width:88px;"><img src="assets/downloads/Omnipair-Horizontal-Gradient-SVG.svg" alt="omnipair"></span>
   </a>
-  <a href="#downloads" style="margin-left:auto; font-size:11px; font-weight:500; color:var(--accent); text-decoration:none;">↓ assets</a>
+  
 </div>
 
 <!-- ─── SIDEBAR ─── -->
@@ -731,12 +824,6 @@
     <div class="side-item"><a href="#assets"><span class="side-num">15</span>Asset Library<span class="side-done">●</span></a></div>
     <div class="side-item" style="margin-top:10px; padding-top:10px; border-top:1px solid var(--line);"><a href="roadmap.html"><span class="side-num">→</span>Roadmap & Future Additions</a></div>
   </nav>
-
-  <div class="side-dl">
-    <a href="#downloads" class="side-dl-btn">
-      <span class="side-dl-ic">↓</span> Download assets
-    </a>
-  </div>
 
   <div class="side-foot">
     omnipair.fi<br>
@@ -1452,37 +1539,7 @@
     </section>
     <section class="sect" id="downloads">
       <h2 class="sect-title">Logo Downloads <span class="done-pill">live</span></h2>
-      <p class="prose">Official logo files. Filter to what you need, tick the assets, and download — or grab the complete pack.</p>
-
-      <div class="dl-bar">
-        <div class="dl-filters" id="dlFilters">
-          <div class="dl-group" data-key="lockup">
-            <span class="dl-group-label">Lockup</span>
-            <button class="dl-f on" data-v="Horizontal">Horizontal</button>
-            <button class="dl-f on" data-v="Vertical">Vertical</button>
-            <button class="dl-f on" data-v="Icon">Icon</button>
-          </div>
-          <div class="dl-group" data-key="colour">
-            <span class="dl-group-label">Colourway</span>
-            <button class="dl-f on" data-v="DarkWhite">White · for dark</button>
-            <button class="dl-f on" data-v="DarkSilver">Silver · for dark</button>
-            <button class="dl-f on" data-v="Gradient">Gradient</button>
-          </div>
-          <div class="dl-group" data-key="format">
-            <span class="dl-group-label">Format</span>
-            <button class="dl-f on" data-v="SVG">SVG</button>
-            <button class="dl-f on" data-v="PNG">PNG</button>
-            <button class="dl-f on" data-v="JPG">JPG</button>
-          </div>
-        </div>
-        <div class="dl-actions">
-          <button class="dl-btn" id="dlSelected" disabled>Download selected (0)</button>
-          <a class="dl-btn primary" href="assets/downloads/Omnipair-Logo-Pack.zip" download>Complete pack · zip · 6.6&nbsp;MB</a>
-        </div>
-      </div>
-
-      <div class="dl-grid" id="dlGrid"></div>
-
+      <p class="prose">Official logo files ship as bundles — horizontal lockup, vertical lockup, icon, or the complete pack. Use the <strong>Download Brand Kit</strong> panel at the bottom-left, available on every page: download one bundle at a time, or select several and export them together.</p>
       <div class="callout">
         <div class="callout-label">File naming</div>
         <div class="callout-text">Omnipair-[Lockup]-[Colourway]-[Format] · SVG for product and web, PNG for decks and docs, JPG only where transparency isn't supported. Always use these files — never recreate or re-export the mark.</div>
@@ -1499,6 +1556,22 @@
   </footer>
 
 </main>
+
+<!-- brand kit widget -->
+<div class="kit" id="kit">
+  <div class="kit-panel" role="dialog" aria-label="Brand kit assets">
+    <div class="kit-title">Brand kit assets</div>
+    <div class="kit-sub">Download one bundle at a time or select several bundles and export them together.</div>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Horizontal-Pack.zip"><span class="kit-row-name">Horizontal lockup <span>svg · png · jpg</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Horizontal-Pack.zip" download title="Download horizontal pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Vertical-Pack.zip"><span class="kit-row-name">Vertical lockup <span>svg · png · jpg</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Vertical-Pack.zip" download title="Download vertical pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Icon-Pack.zip"><span class="kit-row-name">Icon <span>svg · png · jpg</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Icon-Pack.zip" download title="Download icon pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Logo-Pack.zip"><span class="kit-row-name">Complete pack <span>all 27 files</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Logo-Pack.zip" download title="Download complete pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+  </div>
+  <div class="kit-cta">
+    <button class="kit-main" id="kitMain"><span class="dl-ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></span> Download Brand Kit</button>
+    <button class="kit-toggle" id="kitToggle" aria-expanded="false" aria-label="Choose bundles"><span class="chev">▲</span></button>
+  </div>
+</div>
 
 <script>
   const links = [...document.querySelectorAll('.side-nav a')];
@@ -1537,72 +1610,43 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
   })();
 
-  // asset library
-  (function(){
-    const LOCKUPS = ['Horizontal','Vertical','Icon'];
-    const COLOURS = ['DarkWhite','DarkSilver','Gradient'];
-    const FORMATS = ['SVG','PNG','JPG'];
-    const EXT = {SVG:'svg', PNG:'png', JPG:'jpg'};
-    const CLABEL = {DarkWhite:'White · for dark', DarkSilver:'Silver · for dark', Gradient:'Gradient'};
-    const grid = document.getElementById('dlGrid');
-    if (!grid) return;
-    const assets = [];
-    LOCKUPS.forEach(l => COLOURS.forEach(c => FORMATS.forEach(f => {
-      assets.push({l, c, f, file: `Omnipair-${l}-${c}-${f}.${EXT[f]}`});
-    })));
-    const state = { lockup: new Set(LOCKUPS), colour: new Set(COLOURS), format: new Set(FORMATS) };
-    const selected = new Set();
 
-    function render() {
-      grid.innerHTML = '';
-      assets.filter(a => state.lockup.has(a.l) && state.colour.has(a.c) && state.format.has(a.f)).forEach(a => {
-        const prevBg = a.c === 'Gradient' ? 'light' : 'dark';
-        const prevSrc = `assets/downloads/Omnipair-${a.l}-${a.c}-PNG.png`;
-        const card = document.createElement('div');
-        card.className = 'dl-card' + (selected.has(a.file) ? ' checked' : '');
-        card.innerHTML = `
-          <div class="dl-prev ${prevBg}"><img loading="lazy" src="${prevSrc}" alt="${a.l} ${a.c}"></div>
-          <div class="dl-meta">
-            <input type="checkbox" class="dl-check" ${selected.has(a.file) ? 'checked' : ''} aria-label="Select ${a.file}">
-            <div class="dl-name">${a.l} · ${CLABEL[a.c]}<span>${a.f}</span></div>
-            <a class="dl-get" href="assets/downloads/${a.file}" download>Get</a>
-          </div>`;
-        card.querySelector('.dl-check').addEventListener('change', e => {
-          e.target.checked ? selected.add(a.file) : selected.delete(a.file);
-          card.classList.toggle('checked', e.target.checked);
-          updateBtn();
-        });
-        grid.appendChild(card);
-      });
-    }
-    const btn = document.getElementById('dlSelected');
-    function updateBtn() {
-      btn.textContent = `Download selected (${selected.size})`;
-      btn.disabled = selected.size === 0;
-    }
-    btn.addEventListener('click', () => {
-      let i = 0;
-      selected.forEach(file => {
-        setTimeout(() => {
-          const a = document.createElement('a');
-          a.href = 'assets/downloads/' + file;
-          a.download = file;
-          document.body.appendChild(a); a.click(); a.remove();
-        }, i++ * 350);
-      });
+
+  // brand kit widget
+  (function(){
+    const kit = document.getElementById('kit');
+    if (!kit) return;
+    const toggle = document.getElementById('kitToggle');
+    const main = document.getElementById('kitMain');
+    const boxes = [...kit.querySelectorAll('input[type=checkbox]')];
+    toggle.addEventListener('click', () => {
+      kit.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', kit.classList.contains('open'));
     });
-    document.querySelectorAll('#dlFilters .dl-f').forEach(b => {
-      b.addEventListener('click', () => {
-        const key = b.closest('.dl-group').dataset.key;
-        const v = b.dataset.v;
-        b.classList.toggle('on');
-        b.classList.contains('on') ? state[key].add(v) : state[key].delete(v);
-        render();
-      });
+    document.addEventListener('click', e => {
+      if (!kit.contains(e.target)) kit.classList.remove('open');
     });
-    render();
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') kit.classList.remove('open'); });
+    boxes.forEach(b => b.addEventListener('change', () => {
+      b.closest('.kit-row').classList.toggle('sel', b.checked);
+      const n = boxes.filter(x => x.checked).length;
+      main.innerHTML = n > 0
+        ? `<span class="dl-ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></span> Download selected (${n})`
+        : `<span class="dl-ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></span> Download Brand Kit`;
+    }));
+    main.addEventListener('click', () => {
+      const sel = boxes.filter(b => b.checked).map(b => b.dataset.zip);
+      const files = sel.length ? sel : ['Omnipair-Logo-Pack.zip'];
+      files.forEach((f, i) => setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = 'assets/downloads/' + f;
+        a.download = f;
+        document.body.appendChild(a); a.click(); a.remove();
+      }, i * 400));
+    });
   })();
 </script>
+
 
 </body>
 </html>
