@@ -227,7 +227,7 @@
     transition: background 0.2s;
   }
   .kit-toggle:hover { background: #000; color: #fff; }
-  .kit-toggle .chev { display: inline-block; transition: transform 0.25s; }
+  .kit-toggle .chev { display: inline-flex; align-items: center; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1); }
   .kit.open .kit-toggle .chev { transform: rotate(180deg); }
   @media (max-width: 980px) {
     .kit { left: 50%; transform: translateX(-50%); width: min(340px, calc(100vw - 2rem)); }
@@ -927,11 +927,12 @@
     <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Horizontal-Pack.zip"><span class="kit-row-name">Horizontal lockup <span>svg · png · jpg</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Horizontal-Pack.zip" download title="Download horizontal pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
     <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Vertical-Pack.zip"><span class="kit-row-name">Vertical lockup <span>svg · png · jpg</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Vertical-Pack.zip" download title="Download vertical pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
     <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Icon-Pack.zip"><span class="kit-row-name">Icon <span>svg · png · jpg</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Icon-Pack.zip" download title="Download icon pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Fonts-Pack.zip"><span class="kit-row-name">Fonts <span>aeonik · m saans</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Fonts-Pack.zip" download title="Download fonts pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
     <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Logo-Pack.zip"><span class="kit-row-name">Complete pack <span>all 27 files</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Logo-Pack.zip" download title="Download complete pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
   </div>
   <div class="kit-cta">
     <button class="kit-main" id="kitMain"><span class="dl-ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></span> Download Brand Kit</button>
-    <button class="kit-toggle" id="kitToggle" aria-expanded="false" aria-label="Choose bundles"><span class="chev">▲</span></button>
+    <button class="kit-toggle" id="kitToggle" aria-expanded="false" aria-label="Choose bundles"><span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
   </div>
 </div>
 
