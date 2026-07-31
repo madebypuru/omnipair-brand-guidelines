@@ -222,9 +222,13 @@
     border-left: 1px solid rgba(255,255,255,0.15);
     font-family: inherit;
     font-size: 11px;
-    padding: 0 15px;
+    padding: 0 16px;
     cursor: pointer;
     transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
   }
   .kit-toggle:hover { background: #000; color: #fff; }
   .kit-toggle .chev { display: inline-flex; align-items: center; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1); }
@@ -691,9 +695,8 @@
 
 <!-- top bar -->
 <nav class="bar">
-  <a class="bar-logo brand" href="#top">
-    <img class="brand-icon" src="assets/downloads/Omnipair-Icon-DarkWhite-SVG.svg" alt="">
-    <span class="brand-word"><img src="assets/downloads/Omnipair-Horizontal-DarkWhite-SVG.svg" alt="omnipair"></span>
+  <a class="bar-logo" href="#top">
+    <img src="assets/downloads/Omnipair-Horizontal-DarkSilver-SVG.svg" alt="omnipair" style="width:118px;">
   </a>
   <div class="bar-right">
     
