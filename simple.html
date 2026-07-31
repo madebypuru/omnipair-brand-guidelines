@@ -523,6 +523,45 @@
   .spec-table tr:last-child td { border-bottom: none; }
   .formula-box { background: var(--ink); color: #fff; border-radius: 14px; padding: 1.5rem 1.75rem; margin: 1.25rem 0; font-size: 14px; line-height: 2; letter-spacing: 0.01em; }
   .formula-box .fl { color: rgba(255,255,255,0.5); }
+
+  .dl-bar { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+  .dl-filters { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  .dl-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .dl-group-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-light); font-weight: 500; margin-right: 4px; }
+  .dl-f {
+    font-family: inherit; font-size: 12px; padding: 5px 13px;
+    border-radius: 999px; border: 1px solid var(--line);
+    background: var(--surface); color: var(--muted); cursor: pointer;
+    transition: all 0.15s;
+  }
+  .dl-f.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .dl-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .dl-btn {
+    font-family: inherit; font-size: 12px; font-weight: 500;
+    padding: 9px 18px; border-radius: 999px;
+    border: 1px solid var(--ink); background: var(--surface); color: var(--ink);
+    cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;
+    transition: all 0.15s;
+  }
+  .dl-btn:hover:not(:disabled) { background: var(--line-soft); }
+  .dl-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .dl-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .dl-btn.primary:hover { filter: brightness(1.05); background: var(--accent); }
+  .dl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 1.25rem 0; }
+  .dl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; position: relative; }
+  .dl-card.checked { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .dl-prev { height: 120px; display: grid; place-items: center; padding: 1rem; }
+  .dl-prev.dark { background: var(--ink); }
+  .dl-prev.light { background: var(--paper); }
+  .dl-prev img { max-height: 70px; max-width: 85%; object-fit: contain; }
+  .dl-meta { padding: 0.75rem 1rem; display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--line-soft); }
+  .dl-name { font-size: 11.5px; font-weight: 500; line-height: 1.4; flex: 1; }
+  .dl-name span { display: block; font-weight: 400; color: var(--muted-light); font-size: 10px; letter-spacing: 0.04em; }
+  .dl-check { accent-color: var(--accent); width: 15px; height: 15px; cursor: pointer; }
+  .dl-get { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-decoration: none; font-weight: 500; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; }
+  .dl-get:hover { color: var(--ink); border-color: var(--ink); }
+  @media (max-width: 980px) { .dl-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .dl-grid { grid-template-columns: 1fr; } }
   footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; }
   .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .foot-logo img { width: 110px; height: auto; }
@@ -591,14 +630,14 @@
 <body>
 
 <div class="mobile-bar">
-  <img src="assets/lockups/horizontal-black-light.png" alt="omnipair">
+  <img loading="lazy" src="assets/lockups/horizontal-black-light.png" alt="omnipair">
   <span>brand guidelines</span>
 </div>
 
 <!-- ─── SIDEBAR ─── -->
 <aside class="side">
   <a href="#top" class="side-logo">
-    <img src="assets/lockups/horizontal-black-light.png" alt="omnipair">
+    <img loading="lazy" src="assets/lockups/horizontal-black-light.png" alt="omnipair">
   </a>
   <div class="side-tagline">everything your money can do,<br>radiating from one point.</div>
 
@@ -655,7 +694,7 @@
     <div class="side-item"><a href="#motion"><span class="side-num">12</span>Motion<span class="side-wip">wip</span></a></div>
     <div class="side-item"><a href="#product"><span class="side-num">13</span>Product Identity<span class="side-wip">wip</span></a></div>
     <div class="side-item"><a href="#applications"><span class="side-num">14</span>Applications<span class="side-wip">wip</span></a></div>
-    <div class="side-item"><a href="#assets"><span class="side-num">15</span>Asset Library<span class="side-wip">wip</span></a></div>
+    <div class="side-item"><a href="#assets"><span class="side-num">15</span>Asset Library<span class="side-done">●</span></a></div>
     <div class="side-item" style="margin-top:10px; padding-top:10px; border-top:1px solid var(--line);"><a href="roadmap.html"><span class="side-num">→</span>Roadmap & Future Additions</a></div>
   </nav>
 
@@ -1011,23 +1050,23 @@
       <p class="prose">The primary horizontal lockup is the default expression of the brand. Stacked lockups pair the app-icon tile with the wordmark for vertical compositions.</p>
 
       <div class="lockup-hero">
-        <img src="assets/lockups/horizontal-shaded-light.png" alt="Omnipair primary horizontal lockup — shaded, on light">
+        <img loading="lazy" src="assets/lockups/horizontal-shaded-light.png" alt="Omnipair primary horizontal lockup — shaded, on light">
       </div>
 
       <h4 class="sub">Horizontal</h4>
       <div class="lockup-grid">
-        <div class="lockup-card"><img src="assets/lockups/horizontal-black-light.png" alt="Horizontal lockup, black on light"><div class="lockup-cap">Flat · on light</div></div>
-        <div class="lockup-card"><img src="assets/lockups/horizontal-white-dark.png" alt="Horizontal lockup, white on dark"><div class="lockup-cap">Flat · on dark</div></div>
-        <div class="lockup-card"><img src="assets/lockups/horizontal-shaded-light.png" alt="Horizontal lockup, shaded on light"><div class="lockup-cap">Shaded · on light</div></div>
-        <div class="lockup-card"><img src="assets/lockups/horizontal-silver-dark.png" alt="Horizontal lockup, silver on dark"><div class="lockup-cap">Silver · on dark</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/horizontal-black-light.png" alt="Horizontal lockup, black on light"><div class="lockup-cap">Flat · on light</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/horizontal-white-dark.png" alt="Horizontal lockup, white on dark"><div class="lockup-cap">Flat · on dark</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/horizontal-shaded-light.png" alt="Horizontal lockup, shaded on light"><div class="lockup-cap">Shaded · on light</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/horizontal-silver-dark.png" alt="Horizontal lockup, silver on dark"><div class="lockup-cap">Silver · on dark</div></div>
       </div>
 
       <h4 class="sub">Stacked</h4>
       <div class="lockup-grid">
-        <div class="lockup-card"><img src="assets/lockups/stacked-gradient-light.png" alt="Stacked lockup, gradient tile on light"><div class="lockup-cap">Gradient tile · on light</div></div>
-        <div class="lockup-card"><img src="assets/lockups/stacked-white-tile-dark.png" alt="Stacked lockup, white tile on dark"><div class="lockup-cap">White tile · on dark</div></div>
-        <div class="lockup-card"><img src="assets/lockups/stacked-black-tile-light.png" alt="Stacked lockup, black tile on light"><div class="lockup-cap">Black tile · on light</div></div>
-        <div class="lockup-card"><img src="assets/lockups/stacked-dark-tile-light.png" alt="Stacked lockup, dark tile on light"><div class="lockup-cap">Dark tile · on light</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/stacked-gradient-light.png" alt="Stacked lockup, gradient tile on light"><div class="lockup-cap">Gradient tile · on light</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/stacked-white-tile-dark.png" alt="Stacked lockup, white tile on dark"><div class="lockup-cap">White tile · on dark</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/stacked-black-tile-light.png" alt="Stacked lockup, black tile on light"><div class="lockup-cap">Black tile · on light</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/stacked-dark-tile-light.png" alt="Stacked lockup, dark tile on light"><div class="lockup-cap">Dark tile · on light</div></div>
       </div>
     </section>
 
@@ -1035,14 +1074,14 @@
       <h2 class="sect-title">The Symbol</h2>
       <p class="prose">The Omnipair star — one point radiating outward. Shown standalone for app icons, favicons, avatars, and watermarks.</p>
       <div class="lockup-grid three">
-        <div class="lockup-card"><img src="assets/lockups/symbol-black-light.png" alt="Symbol, black on light"><div class="lockup-cap">On light</div></div>
-        <div class="lockup-card"><img src="assets/lockups/symbol-white-dark.png" alt="Symbol, white on dark"><div class="lockup-cap">On dark</div></div>
-        <div class="lockup-card"><img src="assets/lockups/symbol-shaded-light.png" alt="Symbol, shaded on light"><div class="lockup-cap">Shaded</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/symbol-black-light.png" alt="Symbol, black on light"><div class="lockup-cap">On light</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/symbol-white-dark.png" alt="Symbol, white on dark"><div class="lockup-cap">On dark</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/symbol-shaded-light.png" alt="Symbol, shaded on light"><div class="lockup-cap">Shaded</div></div>
       </div>
       <div class="lockup-grid three">
-        <div class="lockup-card"><img src="assets/lockups/symbol-silver-dark.png" alt="Symbol, silver on dark"><div class="lockup-cap">Silver · on dark</div></div>
-        <div class="lockup-card"><img src="assets/lockups/icon-gradient-dark.png" alt="App icon, gradient tile on dark"><div class="lockup-cap">App icon · gradient</div></div>
-        <div class="lockup-card"><img src="assets/lockups/symbol-construction.png" alt="Symbol construction specification"><div class="lockup-cap">Construction · spec</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/symbol-silver-dark.png" alt="Symbol, silver on dark"><div class="lockup-cap">Silver · on dark</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/icon-gradient-dark.png" alt="App icon, gradient tile on dark"><div class="lockup-cap">App icon · gradient</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/lockups/symbol-construction.png" alt="Symbol construction specification"><div class="lockup-cap">Construction · spec</div></div>
       </div>
     </section>
 
@@ -1089,7 +1128,7 @@
       <h2 class="sect-title">Construction & Optical Alignment</h2>
       <p class="prose">Built on geometry, corrected for perception. The proportion system for the horizontal lockup: symbol height <strong>1x</strong>, gap spacing <strong>0.35x</strong>, wordmark width <strong>5.05x</strong>.</p>
       <div class="lockup-hero">
-        <img src="assets/lockups/symbol-construction.png" alt="Symbol construction — 7.5% overshoot specification">
+        <img loading="lazy" src="assets/lockups/symbol-construction.png" alt="Symbol construction — 7.5% overshoot specification">
       </div>
       <ul class="rule-list">
         <li><span class="ok">✓</span><strong>Visual centering</strong> — the symbol is adjusted slightly upward for perceived balance. Avoid true geometric dead-center alignment.</li>
@@ -1159,11 +1198,11 @@
       <p class="prose">Protect the logo with consistent breathing room. A minimum clear space must always surround the Omnipair logo — it keeps the logo readable, recognizable, and free from visual clutter.</p>
       <p class="prose">The unit <strong>"x"</strong> equals the height of the symbol in the lockup. This relative metric guarantees proportional breathing room regardless of output resolution or size. Maintain at least <strong>1x on all sides</strong> of every lockup.</p>
       <div class="lockup-grid">
-        <div class="lockup-card"><img src="assets/logo-spec/clearspace-horizontal.png" alt="Clear space — horizontal lockup"><div class="lockup-cap">Horizontal lockup · 1x all sides</div></div>
-        <div class="lockup-card"><img src="assets/logo-spec/clearspace-stacked.png" alt="Clear space — centered lockup"><div class="lockup-cap">Centered lockup · 1x all sides</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/logo-spec/clearspace-horizontal.png" alt="Clear space — horizontal lockup"><div class="lockup-cap">Horizontal lockup · 1x all sides</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/logo-spec/clearspace-stacked.png" alt="Clear space — centered lockup"><div class="lockup-cap">Centered lockup · 1x all sides</div></div>
       </div>
       <div class="lockup-grid">
-        <div class="lockup-card"><img src="assets/logo-spec/clearspace-symbol.png" alt="Clear space — symbol-only mark"><div class="lockup-cap">Symbol-only mark · 1x all sides</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/logo-spec/clearspace-symbol.png" alt="Clear space — symbol-only mark"><div class="lockup-cap">Symbol-only mark · 1x all sides</div></div>
       </div>
       <div class="callout">
         <div class="callout-label">Rule</div>
@@ -1175,7 +1214,7 @@
       <h2 class="sect-title">Minimum Size</h2>
       <p class="prose">Maintain legibility at every scale. Always use the Omnipair logo at or above the minimum sizes below — never reduce it further.</p>
       <div class="lockup-hero">
-        <img src="assets/logo-spec/minimum-size.png" alt="Minimum size specification for all lockups">
+        <img loading="lazy" src="assets/logo-spec/minimum-size.png" alt="Minimum size specification for all lockups">
       </div>
       <div class="grid2" style="grid-template-columns:1fr 1fr 1fr;">
         <div class="tile"><div class="tile-label">Horizontal lockup</div><div class="tile-value">Digital 20px · Print 6mm</div><div class="tile-desc">Primary logo for most applications.</div></div>
@@ -1192,7 +1231,7 @@
       <h2 class="sect-title">Misuse</h2>
       <p class="prose">What never to do with the Omnipair logo.</p>
       <div class="lockup-hero">
-        <img src="assets/logo-spec/misuse.png" alt="Logo misuse examples">
+        <img loading="lazy" src="assets/logo-spec/misuse.png" alt="Logo misuse examples">
       </div>
       <ul class="rule-list">
         <li><span class="no">✕</span>Do not stretch the logo horizontally or vertically.</li>
@@ -1370,14 +1409,44 @@
     <section class="chapter" id="assets">
       <div class="chapter-head"><span class="chapter-num">15</span></div>
       <h1 class="chapter-title">asset library</h1>
-      <p class="chapter-intro">Downloads, naming, version control and governance.</p>
+      <p class="chapter-intro">Official downloadable logo files. Naming, version control and governance rules to follow.</p>
     </section>
-    <section class="sect">
-      <div class="wip-block">
-        <div class="wip-block-title">Asset library — in progress</div>
-        <div class="wip-tags">
-          <span class="wip-tag">downloads</span><span class="wip-tag">folder structure</span><span class="wip-tag">file naming</span><span class="wip-tag">version control</span><span class="wip-tag">approval process</span><span class="wip-tag">changelog</span>
+    <section class="sect" id="downloads">
+      <h2 class="sect-title">Logo Downloads <span class="done-pill">live</span></h2>
+      <p class="prose">Official logo files. Filter to what you need, tick the assets, and download — or grab the complete pack.</p>
+
+      <div class="dl-bar">
+        <div class="dl-filters" id="dlFilters">
+          <div class="dl-group" data-key="lockup">
+            <span class="dl-group-label">Lockup</span>
+            <button class="dl-f on" data-v="Horizontal">Horizontal</button>
+            <button class="dl-f on" data-v="Vertical">Vertical</button>
+            <button class="dl-f on" data-v="Icon">Icon</button>
+          </div>
+          <div class="dl-group" data-key="colour">
+            <span class="dl-group-label">Colourway</span>
+            <button class="dl-f on" data-v="DarkWhite">White · for dark</button>
+            <button class="dl-f on" data-v="DarkSilver">Silver · for dark</button>
+            <button class="dl-f on" data-v="Gradient">Gradient</button>
+          </div>
+          <div class="dl-group" data-key="format">
+            <span class="dl-group-label">Format</span>
+            <button class="dl-f on" data-v="SVG">SVG</button>
+            <button class="dl-f on" data-v="PNG">PNG</button>
+            <button class="dl-f on" data-v="JPG">JPG</button>
+          </div>
         </div>
+        <div class="dl-actions">
+          <button class="dl-btn" id="dlSelected" disabled>Download selected (0)</button>
+          <a class="dl-btn primary" href="assets/downloads/Omnipair-Logo-Pack.zip" download>Complete pack · zip · 6.6&nbsp;MB</a>
+        </div>
+      </div>
+
+      <div class="dl-grid" id="dlGrid"></div>
+
+      <div class="callout">
+        <div class="callout-label">File naming</div>
+        <div class="callout-text">Omnipair-[Lockup]-[Colourway]-[Format] · SVG for product and web, PNG for decks and docs, JPG only where transparency isn't supported. Always use these files — never recreate or re-export the mark.</div>
       </div>
     </section>
 
@@ -1385,7 +1454,7 @@
 
   <footer>
     <div class="wrap foot-inner">
-      <div class="foot-logo"><img src="assets/lockups/horizontal-black-light.png" alt="omnipair"></div>
+      <div class="foot-logo"><img loading="lazy" src="assets/lockups/horizontal-black-light.png" alt="omnipair"></div>
       <div class="foot-meta">omnipair.fi · brand guidelines v3.0 · living document</div>
     </div>
   </footer>
@@ -1427,6 +1496,72 @@
     function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
     lb.addEventListener('click', closeLb);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  })();
+
+  // asset library
+  (function(){
+    const LOCKUPS = ['Horizontal','Vertical','Icon'];
+    const COLOURS = ['DarkWhite','DarkSilver','Gradient'];
+    const FORMATS = ['SVG','PNG','JPG'];
+    const EXT = {SVG:'svg', PNG:'png', JPG:'jpg'};
+    const CLABEL = {DarkWhite:'White · for dark', DarkSilver:'Silver · for dark', Gradient:'Gradient'};
+    const grid = document.getElementById('dlGrid');
+    if (!grid) return;
+    const assets = [];
+    LOCKUPS.forEach(l => COLOURS.forEach(c => FORMATS.forEach(f => {
+      assets.push({l, c, f, file: `Omnipair-${l}-${c}-${f}.${EXT[f]}`});
+    })));
+    const state = { lockup: new Set(LOCKUPS), colour: new Set(COLOURS), format: new Set(FORMATS) };
+    const selected = new Set();
+
+    function render() {
+      grid.innerHTML = '';
+      assets.filter(a => state.lockup.has(a.l) && state.colour.has(a.c) && state.format.has(a.f)).forEach(a => {
+        const prevBg = a.c === 'Gradient' ? 'light' : 'dark';
+        const prevSrc = `assets/downloads/Omnipair-${a.l}-${a.c}-PNG.png`;
+        const card = document.createElement('div');
+        card.className = 'dl-card' + (selected.has(a.file) ? ' checked' : '');
+        card.innerHTML = `
+          <div class="dl-prev ${prevBg}"><img loading="lazy" src="${prevSrc}" alt="${a.l} ${a.c}"></div>
+          <div class="dl-meta">
+            <input type="checkbox" class="dl-check" ${selected.has(a.file) ? 'checked' : ''} aria-label="Select ${a.file}">
+            <div class="dl-name">${a.l} · ${CLABEL[a.c]}<span>${a.f}</span></div>
+            <a class="dl-get" href="assets/downloads/${a.file}" download>Get</a>
+          </div>`;
+        card.querySelector('.dl-check').addEventListener('change', e => {
+          e.target.checked ? selected.add(a.file) : selected.delete(a.file);
+          card.classList.toggle('checked', e.target.checked);
+          updateBtn();
+        });
+        grid.appendChild(card);
+      });
+    }
+    const btn = document.getElementById('dlSelected');
+    function updateBtn() {
+      btn.textContent = `Download selected (${selected.size})`;
+      btn.disabled = selected.size === 0;
+    }
+    btn.addEventListener('click', () => {
+      let i = 0;
+      selected.forEach(file => {
+        setTimeout(() => {
+          const a = document.createElement('a');
+          a.href = 'assets/downloads/' + file;
+          a.download = file;
+          document.body.appendChild(a); a.click(); a.remove();
+        }, i++ * 350);
+      });
+    });
+    document.querySelectorAll('#dlFilters .dl-f').forEach(b => {
+      b.addEventListener('click', () => {
+        const key = b.closest('.dl-group').dataset.key;
+        const v = b.dataset.v;
+        b.classList.toggle('on');
+        b.classList.contains('on') ? state[key].add(v) : state[key].delete(v);
+        render();
+      });
+    });
+    render();
   })();
 </script>
 
