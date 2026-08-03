@@ -516,6 +516,7 @@
   .rule-list .no { color: #C25353; flex-shrink: 0; }
 
 
+  .sw { display:inline-block; width:22px; height:22px; border-radius:7px; vertical-align:middle; border:1px solid rgba(0,0,0,0.06); }
   .spec-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 13px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
   .spec-table th { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-light); text-align: left; font-weight: 500; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--paper); }
   .spec-table td { padding: 9px 14px; border-bottom: 1px solid var(--line-soft); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
@@ -753,6 +754,10 @@
   }
   .zoomable { cursor: zoom-in; }
   .chapter-title, .sect-title, .hero-tag, .stance-item, .phrase-text, .persona-text, .tile-value, .gp-big, .wip-block-title, .opt-title { font-family: 'Aeonik', 'M Saans', sans-serif; }
+  [data-copy] { cursor: pointer; transition: color 0.15s; }
+  [data-copy]:hover { color: var(--accent); }
+  .copy-toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--ink); color: #fff; font-size: 11px; letter-spacing: 0.04em; padding: 7px 16px; border-radius: 999px; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 300; }
+  .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
@@ -816,7 +821,15 @@
       </ul>
     </div>
 
-    <div class="side-item"><a href="#colour"><span class="side-num">04</span>Colour<span class="side-wip">wip</span></a></div>
+    <div class="side-item">
+      <a href="#colour"><span class="side-num">04</span>Colour<span class="side-done">●</span></a>
+      <ul class="side-sub">
+        <li><a href="#sky-axis">The Sky Axis</a></li>
+        <li><a href="#palette-sky">Sky Palette</a></li>
+        <li><a href="#palette-dawn">Dawn Palette</a></li>
+        <li><a href="#palette-aqua">Aqua Palette</a></li>
+      </ul>
+    </div>
     <div class="side-item"><a href="#typography"><span class="side-num">05</span>Typography<span class="side-wip">wip</span></a></div>
     <div class="side-item"><a href="#layout"><span class="side-num">06</span>Layout System<span class="side-wip">wip</span></a></div>
     <div class="side-item"><a href="#graphic"><span class="side-num">07</span>Graphic System<span class="side-wip">wip</span></a></div>
@@ -1401,14 +1414,115 @@
     <section class="chapter" id="colour">
       <div class="chapter-head"><span class="chapter-num">04</span></div>
       <h1 class="chapter-title">colour</h1>
-      <p class="chapter-intro">Primary, secondary and gradient palettes with hierarchy, ratios and accessibility rules.</p>
+      <p class="chapter-intro">One source, every color. The palette is sampled from the horizon at first light — the Sky Axis — and every ramp and gradient is a slice of it.</p>
     </section>
-    <section class="sect">
+    <section class="sect" id="sky-axis">
+      <h2 class="sect-title">The Sky Axis <span class="done-pill">live</span></h2>
+      <p class="prose"><strong>Where everything comes from.</strong> The Omnipair palette is sampled from the horizon at first light — one continuous gradient from deep blue to warm orange. Every color in the system is a stop on this axis; every gradient is a contiguous slice of it. One source, every color — the way one pool produces every function.</p>
+      <div class="lockup-hero"><img loading="lazy" src="assets/colour/sky-axis.jpg" alt="The Sky Axis — master gradient from deep blue to warm orange"></div>
+
+      <h4 class="sub">Palette breakdown — sky/100–700</h4>
+      <p class="prose" style="font-size:13px; color:var(--muted);">The master axis. Primaries are stops 200, 300 & 600 — bindable in <span class="mono" data-copy="omnipair/color">omnipair/color</span>. Click any value to copy.</p>
+      <table class="spec-table">
+        <thead><tr><th></th><th>Stop</th><th>Hex</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><span class="sw" style="background:#003B6A"></span></td><td>sky/100</td><td class="mono" data-copy="#003B6A">#003B6A</td><td>Deep night blue</td></tr>
+          <tr><td><span class="sw" style="background:#0979E9"></span></td><td>sky/200</td><td class="mono" data-copy="#0979E9">#0979E9</td><td><strong>primary/blue</strong></td></tr>
+          <tr><td><span class="sw" style="background:#30E7D7"></span></td><td>sky/300</td><td class="mono" data-copy="#30E7D7">#30E7D7</td><td><strong>primary/turquoise</strong></td></tr>
+          <tr><td><span class="sw" style="background:#BFF3E8"></span></td><td>sky/400</td><td class="mono" data-copy="#BFF3E8">#BFF3E8</td><td>Horizon light</td></tr>
+          <tr><td><span class="sw" style="background:#F7C563"></span></td><td>sky/500</td><td class="mono" data-copy="#F7C563">#F7C563</td><td>First-light gold</td></tr>
+          <tr><td><span class="sw" style="background:#EF8332"></span></td><td>sky/600</td><td class="mono" data-copy="#EF8332">#EF8332</td><td><strong>primary/orange</strong></td></tr>
+          <tr><td><span class="sw" style="background:#CB782A"></span></td><td>sky/700</td><td class="mono" data-copy="#CB782A">#CB782A</td><td>Deep amber</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sect" id="palette-sky">
+      <h2 class="sect-title">Sky Palette <span class="done-pill">live</span></h2>
+      <p class="prose">The protocol's core voice — <strong>infrastructure confidence, never cold</strong>. Anchored on primary/blue, it lightens along its ramp: through open sky into blue light, never toward flat white.</p>
+      <div class="lockup-hero"><img loading="lazy" src="assets/colour/palette-sky.jpg" alt="Sky palette — primary/blue ramp and gradient"></div>
+      <h4 class="sub">Ramp — primary/blue</h4>
+      <table class="spec-table">
+        <tbody>
+          <tr><td><span class="sw" style="background:#0979E9"></span></td><td>base</td><td class="mono" data-copy="#0979E9">#0979E9</td><td>primary/blue · sky/200</td></tr>
+          <tr><td><span class="sw" style="background:#3A94ED"></span></td><td>80</td><td class="mono" data-copy="#3A94ED">#3A94ED</td><td></td></tr>
+          <tr><td><span class="sw" style="background:#37A9FB"></span></td><td>60</td><td class="mono" data-copy="#37A9FB">#37A9FB</td><td>open sky</td></tr>
+          <tr><td><span class="sw" style="background:#69BFFC"></span></td><td>40</td><td class="mono" data-copy="#69BFFC">#69BFFC</td><td></td></tr>
+          <tr><td><span class="sw" style="background:#9BD4FE"></span></td><td>20</td><td class="mono" data-copy="#9BD4FE">#9BD4FE</td><td></td></tr>
+        </tbody>
+      </table>
+      <h4 class="sub">Gradient breakdown</h4>
+      <table class="spec-table">
+        <tbody>
+          <tr><td><span class="sw" style="background:#0979E9"></span></td><td>0%</td><td class="mono" data-copy="#0979E9">#0979E9</td><td>sky/200 · primary/blue</td></tr>
+          <tr><td><span class="sw" style="background:#37A9FB"></span></td><td>55%</td><td class="mono" data-copy="#37A9FB">#37A9FB</td><td>blue/60 · open sky</td></tr>
+          <tr><td><span class="sw" style="background:#E1F3FF"></span></td><td>100%</td><td class="mono" data-copy="#E1F3FF">#E1F3FF</td><td>blue light</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sect" id="palette-dawn">
+      <h2 class="sect-title">Dawn Palette <span class="done-pill">live</span></h2>
+      <p class="prose">Carries the brand's warmth — <strong>the trust signal</strong>. Anchored on primary/orange, it lightens along the axis: through gold into yellow light, never toward white.</p>
+      <div class="lockup-hero"><img loading="lazy" src="assets/colour/palette-dawn.jpg" alt="Dawn palette — primary/orange ramp and gradient"></div>
+      <h4 class="sub">Ramp — primary/orange</h4>
+      <table class="spec-table">
+        <tbody>
+          <tr><td><span class="sw" style="background:#EF8332"></span></td><td>base</td><td class="mono" data-copy="#EF8332">#EF8332</td><td>primary/orange · sky/600</td></tr>
+          <tr><td><span class="sw" style="background:#F29C5B"></span></td><td>80</td><td class="mono" data-copy="#F29C5B">#F29C5B</td><td></td></tr>
+          <tr><td><span class="sw" style="background:#FFC652"></span></td><td>60</td><td class="mono" data-copy="#FFC652">#FFC652</td><td>gold</td></tr>
+          <tr><td><span class="sw" style="background:#FFDB66"></span></td><td>40</td><td class="mono" data-copy="#FFDB66">#FFDB66</td><td></td></tr>
+          <tr><td><span class="sw" style="background:#FFEF7A"></span></td><td>20</td><td class="mono" data-copy="#FFEF7A">#FFEF7A</td><td></td></tr>
+        </tbody>
+      </table>
+      <h4 class="sub">Gradient breakdown</h4>
+      <table class="spec-table">
+        <tbody>
+          <tr><td><span class="sw" style="background:#EF8332"></span></td><td>0%</td><td class="mono" data-copy="#EF8332">#EF8332</td><td>sky/600 · primary/orange</td></tr>
+          <tr><td><span class="sw" style="background:#FFC652"></span></td><td>55%</td><td class="mono" data-copy="#FFC652">#FFC652</td><td>orange/60 · gold</td></tr>
+          <tr><td><span class="sw" style="background:#FFF6D6"></span></td><td>100%</td><td class="mono" data-copy="#FFF6D6">#FFF6D6</td><td>orange light</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sect" id="palette-aqua">
+      <h2 class="sect-title">Aqua Palette <span class="done-pill">live</span></h2>
+      <p class="prose">Sits mid-axis — the day zone between dusk and dawn. <strong>Clarity, liquidity, movement.</strong> Anchored on primary/turquoise, it lightens along its ramp into aqua light, never toward flat white.</p>
+      <div class="lockup-hero"><img loading="lazy" src="assets/colour/palette-aqua.jpg" alt="Aqua palette — primary/turquoise ramp and gradient"></div>
+      <h4 class="sub">Ramp — primary/turquoise</h4>
+      <table class="spec-table">
+        <tbody>
+          <tr><td><span class="sw" style="background:#30E7D7"></span></td><td>base</td><td class="mono" data-copy="#30E7D7">#30E7D7</td><td>primary/turquoise · sky/300</td></tr>
+          <tr><td><span class="sw" style="background:#59ECDF"></span></td><td>80</td><td class="mono" data-copy="#59ECDF">#59ECDF</td><td></td></tr>
+          <tr><td><span class="sw" style="background:#83F1E7"></span></td><td>60</td><td class="mono" data-copy="#83F1E7">#83F1E7</td><td></td></tr>
+          <tr><td><span class="sw" style="background:#ACF5EF"></span></td><td>40</td><td class="mono" data-copy="#ACF5EF">#ACF5EF</td><td></td></tr>
+          <tr><td><span class="sw" style="background:#D6FAF7"></span></td><td>20</td><td class="mono" data-copy="#D6FAF7">#D6FAF7</td><td></td></tr>
+        </tbody>
+      </table>
+      <h4 class="sub">Gradient breakdown</h4>
+      <table class="spec-table">
+        <tbody>
+          <tr><td><span class="sw" style="background:#30E7D7"></span></td><td>0%</td><td class="mono" data-copy="#30E7D7">#30E7D7</td><td>sky/300 · primary/turquoise</td></tr>
+          <tr><td><span class="sw" style="background:#83F1E7"></span></td><td>55%</td><td class="mono" data-copy="#83F1E7">#83F1E7</td><td>turquoise/60</td></tr>
+          <tr><td><span class="sw" style="background:#EDFDFB"></span></td><td>100%</td><td class="mono" data-copy="#EDFDFB">#EDFDFB</td><td>aqua light</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-label">Render rule — all palettes</div>
+        <div class="callout-text">Gradients render radial and soft-focus with grain + halftone fade, dissolving to light — <strong>never to flat white</strong>. All ramps are bindable variables in <span class="mono" data-copy="omnipair/color">omnipair/color</span>.</div>
+      </div>
+
+      <h4 class="sub">The palettes in use</h4>
+      <div class="lockup-grid">
+        <div class="lockup-card"><img loading="lazy" src="assets/colour/palette-tiles.jpg" alt="Dawn, Sky and Aqua gradient tiles with the mark"><div class="lockup-cap">Gradient tiles · dawn / sky / aqua</div></div>
+        <div class="lockup-card"><img loading="lazy" src="assets/colour/icon-suite.jpg" alt="App icon suite across the three palettes"><div class="lockup-cap">Icon suite · palette applications</div></div>
+      </div>
+
       <div class="wip-block">
-        <div class="wip-block-title">Colour system — in progress</div>
-        <div class="wip-block-desc">Palette, values and usage rules will be documented here once finalised. No colours on this page are official until then.</div>
+        <div class="wip-block-title">Colour pages still to come</div>
         <div class="wip-tags">
-          <span class="wip-tag">primary palette</span><span class="wip-tag">secondary palette</span><span class="wip-tag">gradients</span><span class="wip-tag">colour hierarchy & ratios</span><span class="wip-tag">light & dark mode</span><span class="wip-tag">functional colours</span><span class="wip-tag">accessibility</span><span class="wip-tag">misuse</span>
+          <span class="wip-tag">neutrals</span><span class="wip-tag">values — RGB · CMYK</span><span class="wip-tag">hierarchy & ratios</span><span class="wip-tag">light & dark mode</span><span class="wip-tag">functional colours</span><span class="wip-tag">accessibility</span><span class="wip-tag">misuse</span>
         </div>
       </div>
     </section>
@@ -1650,6 +1764,22 @@
         a.download = f;
         document.body.appendChild(a); a.click(); a.remove();
       }, i * 400));
+    });
+  })();
+
+  // click-to-copy
+  (function(){
+    const t = document.createElement('div'); t.className = 'copy-toast'; document.body.appendChild(t);
+    let timer;
+    document.addEventListener('click', e => {
+      const el = e.target.closest('[data-copy]');
+      if (!el) return;
+      navigator.clipboard.writeText(el.dataset.copy).then(() => {
+        t.textContent = 'copied · ' + el.dataset.copy;
+        t.classList.add('show');
+        clearTimeout(timer);
+        timer = setTimeout(() => t.classList.remove('show'), 1400);
+      });
     });
   })();
 </script>
