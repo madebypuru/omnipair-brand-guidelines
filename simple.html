@@ -691,6 +691,15 @@
   @media (max-width: 980px) {
     .kit { position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%); width: min(340px, calc(100vw - 2rem)); margin-top: 0; padding-top: 0; background: transparent; }
   }
+  .statement-lead {
+    font-size: clamp(18px, 2.2vw, 23px);
+    font-weight: 480;
+    letter-spacing: -0.025em;
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 680px;
+    margin-bottom: 1.25rem;
+  }
   footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; }
   .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
   .foot-logo img { width: 110px; height: auto; }
@@ -786,23 +795,40 @@
       <a href="#foundation"><span class="side-num">01</span>Brand Foundation</a>
       <ul class="side-sub">
         <li><a href="#hero-enemy">Hero & Enemy</a></li>
+        <li><a href="#what">What is Omnipair?</a></li>
         <li><a href="#narrative">Core Narrative</a></li>
         <li><a href="#problem">The Problem</a></li>
+        <li><a href="#idea">The Omnipair Idea</a></li>
+        <li><a href="#belief">Brand Belief</a></li>
+        <li><a href="#mission">Mission & Vision</a></li>
         <li><a href="#positioning">Positioning</a></li>
-        <li><a href="#character">Brand Character</a></li>
-        <li><a href="#foundation-wip">In Progress</a></li>
+        <li><a href="#promise">Brand Promise</a></li>
+        <li><a href="#audience">Audience</a></li>
+        <li><a href="#character">Personality & Character</a></li>
+        <li><a href="#stand-against">What We Stand Against</a></li>
+        <li><a href="#principles">Brand Principles</a></li>
       </ul>
     </div>
 
     <div class="side-item">
       <a href="#verbal"><span class="side-num">02</span>Verbal Identity</a>
       <ul class="side-sub">
+        <li><a href="#verbal-intro">Introduction</a></li>
+        <li><a href="#core-message">Core Message</a></li>
+        <li><a href="#messaging">Messaging Hierarchy</a></li>
+        <li><a href="#pitch">Elevator Pitch</a></li>
+        <li><a href="#descriptions">Brand Description</a></li>
+        <li><a href="#tagline">Tagline</a></li>
+        <li><a href="#value-props">Value Propositions</a></li>
+        <li><a href="#by-audience">Message by Audience</a></li>
         <li><a href="#tone">Tone of Voice</a></li>
+        <li><a href="#writing-principles">Writing Principles</a></li>
         <li><a href="#calibration">Voice Spectrum</a></li>
+        <li><a href="#copy-styles">Copy Styles</a></li>
         <li><a href="#vocabulary">Terminology</a></li>
+        <li><a href="#naming">Capitalisation & Naming</a></li>
         <li><a href="#phrases">Signature Phrases</a></li>
         <li><a href="#templates">Example Copy</a></li>
-        <li><a href="#verbal-wip">In Progress</a></li>
       </ul>
     </div>
 
@@ -909,10 +935,10 @@
     <section class="chapter" id="foundation">
       <div class="chapter-head"><span class="chapter-num">01</span></div>
       <h1 class="chapter-title">brand foundation</h1>
-      <p class="chapter-intro">The logic behind the identity. Who Omnipair is, what it stands against, and the character behind every word.</p>
+      <p class="chapter-intro">The logic behind the identity — what Omnipair is, the gap it fills, and the character behind every word.</p>
     </section>
 
-    <section class="sect" id="hero-enemy">
+<section class="sect" id="hero-enemy">
       <h2 class="sect-title">Hero & Enemy</h2>
       <p class="prose">Every strong brand stands for something — and against something. Omnipair's identity is defined by what it builds and what it refuses to accept.</p>
       <div class="stance">
@@ -931,7 +957,18 @@
       </div>
     </section>
 
-    <section class="sect" id="narrative">
+    <section class="sect" id="what">
+      <h2 class="sect-title">What is Omnipair?</h2>
+      <p class="statement-lead">Omnipair is an oracleless margin protocol on Solana that transforms every SPL pair into a unified market — swaps, lending, leverage, and liquidations inside one isolated pool.</p>
+      <p class="prose">In DeFi today, trading and lending are separate apps. Lending apps have a hard requirement: an external price feed (an oracle) to know what collateral is worth — and only a few dozen tokens have reliable ones.</p>
+      <p class="prose">Omnipair merges trading and lending into one system that needs no external price feed. <strong>Each pool is its own tiny bank:</strong> it sets the price, holds the liquidity, funds the loans, and handles the failures — all locally.</p>
+      <div class="callout">
+        <div class="callout-label">The architecture</div>
+        <div class="callout-text">The <strong>GAMM</strong> — Generalized Automated Market Maker. Where an AMM only trades, a GAMM trades, lends, and levers.</div>
+      </div>
+    </section>
+
+<section class="sect" id="narrative">
       <h2 class="sect-title">Core Narrative</h2>
       <p class="prose">The financial system is full of gatekeepers. Listings. Oracles. Governance committees. Approvals.</p>
       <p class="prose"><strong>Omnipair removes them.</strong></p>
@@ -943,79 +980,308 @@
     </section>
 
     <section class="sect" id="problem">
-      <h2 class="sect-title">The Problem <span class="wip-pill">draft copy</span></h2>
-      <p class="prose"><strong>Most assets have no financial utility.</strong> Listings decide what can be traded. Oracles decide what can be priced. Committees decide what can be collateral. Liquidity fragments across separate protocols and use cases — and the user experience fragments with it.</p>
-      <div class="stance">
-        <div class="stance-col against">
-          <div class="stance-label">Before Omnipair</div>
-          <div class="stance-hint" style="margin-top:0; font-size:13.5px; color:rgba(255,255,255,0.75); line-height:1.75;">Apply for a listing. Wait for an oracle. Petition governance. Capital spread thin across disconnected protocols.</div>
-        </div>
-        <div class="stance-col is">
-          <div class="stance-label">With Omnipair</div>
-          <div class="stance-hint" style="margin-top:0; font-size:13.5px; color:var(--ink-soft); line-height:1.75;">Any pair, permissionless. Pricing derived from the market itself. Spot, lending and leverage from one unified pool.</div>
-        </div>
+      <h2 class="sect-title">The Problem</h2>
+      <div class="grid2">
+        <div class="tile"><div class="tile-label">01</div><div class="tile-value">Fragmented markets</div><div class="tile-desc">What should be one market takes three protocols — a DEX to swap, a lending app to borrow, a perp venue for leverage. Users juggle all of them.</div></div>
+        <div class="tile"><div class="tile-label">02</div><div class="tile-value">Gatekept access</div><div class="tile-desc">Lending is oracle-gated and governance-whitelisted. Out of tens of thousands of actively traded tokens, only a few dozen qualify.</div></div>
+        <div class="tile"><div class="tile-label">03</div><div class="tile-value">Dead capital</div><div class="tile-desc">Tokens sit idle. Holders can't borrow against them, LP them profitably, or do anything but sell.</div></div>
+        <div class="tile"><div class="tile-label">04</div><div class="tile-value">Exhausting experience</div><div class="tile-desc">Even sophisticated users are worn out by DeFi's fragmentation — bridging, juggling apps, decoding oracle risk, fearing liquidation cascades.</div></div>
+      </div>
+      <div class="callout">
+        <div class="callout-label">The scale of the lockout</div>
+        <div class="callout-text"><strong>~78%</strong> of Solana DEX volume is in tokens under $100M market cap. <strong>~95%</strong> under $1B — all locked out of lending, borrowing, and leverage entirely.</div>
+      </div>
+    </section>
+
+    <section class="sect" id="idea">
+      <h2 class="sect-title">The Omnipair Idea</h2>
+      <p class="statement-lead">Every asset. Every use case. One unified pool.</p>
+      <p class="prose"><strong>One engine for every use case:</strong> unified money markets for every asset on Solana. Each pool prices its own assets, funds its own loans, and absorbs its own failures.</p>
+    </section>
+
+    <section class="sect" id="belief">
+      <h2 class="sect-title">Brand Belief</h2>
+      <div class="persona" style="margin-top:0.5rem;">
+        <div class="persona-label">The belief Omnipair operates from</div>
+        <div class="persona-text" style="font-size:24px; letter-spacing:-0.03em; line-height:1.35;">"If liquidity exists, the market exists."</div>
+      </div>
+      <p class="prose">A market shouldn't wait on an oracle integration, a listing committee, or a governance vote. Liquidity is the only prerequisite.</p>
+    </section>
+
+    <section class="sect" id="mission">
+      <h2 class="sect-title">Mission &amp; Vision</h2>
+      <div class="grid2">
+        <div class="tile"><div class="tile-label">Mission</div><div class="tile-desc" style="font-size:14px; color:var(--ink-soft);">Give every asset on Solana a full financial ecosystem — collateral, borrowing, leverage, and yield — permissionlessly. Unlock the long tail no other venue can serve.</div></div>
+        <div class="tile"><div class="tile-label">Vision</div><div class="tile-desc" style="font-size:14px; color:var(--ink-soft);">The margin layer for internet capital markets. The new standard for DeFi: powerful underneath, calm on the surface.</div></div>
       </div>
     </section>
 
     <section class="sect" id="positioning">
-      <h2 class="sect-title">Positioning <span class="wip-pill">draft copy</span></h2>
-      <div class="persona" style="margin-top:0.5rem;">
-        <div class="persona-label">The one-line position</div>
-        <div class="persona-text" style="font-size:20px; letter-spacing:-0.02em;">"Every asset. Every use case. One unified pool."</div>
+      <h2 class="sect-title">Positioning</h2>
+      <div class="grid2">
+        <div class="tile"><div class="tile-label">What Omnipair is</div><div class="tile-value">The GAMM — one pool that trades, lends, and levers.</div></div>
+        <div class="tile"><div class="tile-label">Category</div><div class="tile-value">A new primitive</div><div class="tile-desc">Not another DEX, not another lending market. GAMM is the category-defining term, treated the way early Uniswap treated "AMM."</div></div>
       </div>
-      <h4 class="sub">What makes it defensible</h4>
+      <h4 class="sub">How it differs from conventional money markets</h4>
+      <table class="spec-table">
+        <thead><tr><th>Conventional money markets</th><th>Omnipair</th></tr></thead>
+        <tbody>
+          <tr><td>Require oracles</td><td>No oracles, anywhere in the system</td></tr>
+          <tr><td>Gatekeep via listing committees and whitelists</td><td>Markets created permissionlessly, for any SPL pair</td></tr>
+          <tr><td>Pool risk, so failures spread</td><td>Markets are isolated — failures stay local</td></tr>
+          <tr><td>Value collateral at theoretical oracle prices</td><td>Values it at what the market could actually recover by selling</td></tr>
+          <tr><td>Structurally cannot serve sub-$1B assets</td><td>That market is the beachhead — nobody else can serve it</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sect" id="promise">
+      <h2 class="sect-title">Brand Promise</h2>
+      <p class="prose">What users can consistently expect:</p>
       <ul class="rule-list">
-        <li><span class="ok">✓</span><strong>Unified market structure</strong> — spot, lending and leverage in one pool, not stitched across protocols.</li>
-        <li><span class="ok">✓</span><strong>No gatekeepers</strong> — no listings, no oracles, no governance approvals between an asset and its utility.</li>
-        <li><span class="ok">✓</span><strong>Built for the long tail</strong> — the assets everyone else ignores are the ones Omnipair is designed for.</li>
+        <li><span class="ok">✓</span>Any SPL token pair, permissionlessly — no gatekeepers, no waiting.</li>
+        <li><span class="ok">✓</span>No oracles anywhere in the system.</li>
+        <li><span class="ok">✓</span>Isolated markets — one failure can never spread.</li>
+        <li><span class="ok">✓</span>Honest pricing — real costs upfront, collateral valued at real recoverable depth, no fake liquidation prices.</li>
+        <li><span class="ok">✓</span>Risk made local and explicit — <strong>we promise containment, not the absence of risk.</strong></li>
       </ul>
+    </section>
+
+    <section class="sect" id="audience">
+      <h2 class="sect-title">Audience</h2>
+      <div class="grid2">
+        <div class="tile"><div class="tile-label">Token teams &amp; projects</div><div class="tile-desc">Long-tail Solana tokens locked out of listings; want collateral and leverage utility for their token, today.</div></div>
+        <div class="tile"><div class="tile-label">Whales &amp; LPs</div><div class="tile-desc">Deep bags and yield seekers; want dual yield (swap fees + borrow interest) from one deposit, without selling.</div></div>
+        <div class="tile"><div class="tile-label">Holders &amp; borrowers</div><div class="tile-desc">Conviction holders who need liquidity without selling, or want to long/short tokens no other venue supports.</div></div>
+        <div class="tile"><div class="tile-label">Traders &amp; degens</div><div class="tile-desc">Want leverage on the long tail, where no perp exists.</div></div>
+        <div class="tile"><div class="tile-label">DeFi power users &amp; analysts</div><div class="tile-desc">Skeptics who read everything critically; need proof the design is sound.</div></div>
+        <div class="tile" style="background:var(--ink); border-color:var(--ink);"><div class="tile-label" style="color:rgba(255,255,255,0.45);">Cross-cutting — the DeFi-overwhelmed</div><div class="tile-desc" style="color:rgba(255,255,255,0.72);">Not a segment but a posture that applies to everyone — one pool, one position, one surface.</div></div>
+      </div>
+
+      <h4 class="sub">Audience priorities</h4>
+      <ul class="rule-list">
+        <li><span class="ok">✓</span><strong>Supply side first.</strong> Token teams, whales, and LPs seed and deepen markets — demand has nowhere to go without liquid markets. BD leads with token teams; one team unlocks many users.</li>
+        <li><span class="ok">✓</span><strong>Analysts are the amplifiers.</strong> Winning them over is how the brand wins every other segment at scale. Content for them is precise, whitepaper-linked, and never overclaims.</li>
+      </ul>
+      <div class="callout">
+        <div class="callout-label">The flywheel</div>
+        <div class="callout-text">Teams deploy markets → whales and LPs deepen them → borrowing and leverage become viable → interest and fees attract more capital → live, useful markets recruit the next token.</div>
+      </div>
     </section>
 
     <section class="sect" id="character">
-      <h2 class="sect-title">Brand Character</h2>
-      <p class="prose">Before a single word is written, understand who Omnipair is. Personality: <strong>Rational · Confident · Visionary</strong>. Character: <strong>Technical · Refined · Independent</strong>.</p>
+      <h2 class="sect-title">Brand Personality &amp; Character</h2>
+      <div class="grid2">
+        <div class="tile"><div class="tile-label">Personality</div><div class="tile-value" style="font-size:16px;">Rational. Confident. Visionary.</div></div>
+        <div class="tile"><div class="tile-label">Character</div><div class="tile-value" style="font-size:16px;">Technical. Refined. Independent.</div></div>
+      </div>
 
-      <div class="persona">
+      <h4 class="sub">The brand prism</h4>
+      <table class="spec-table">
+        <thead><tr><th>Facet</th><th>Traits</th></tr></thead>
+        <tbody>
+          <tr><td>Physique</td><td>Technical, Refined, Supreme</td></tr>
+          <tr><td>Personality</td><td>Rational, Confident, Visionary</td></tr>
+          <tr><td>Culture</td><td>Inventive, Ownership, Transparency</td></tr>
+          <tr><td>Relationship</td><td>Control, Reliability, Opportunity</td></tr>
+          <tr><td>Reflection</td><td>Strategists, Long-Term Thinkers, Early Adopters</td></tr>
+          <tr><td>Self-image</td><td>Independent, Confident, Capable</td></tr>
+        </tbody>
+      </table>
+      <div class="callout" style="border-left-color:var(--muted);">
+        <div class="callout-label">Open question</div>
+        <div class="callout-text">The workshop slide reads "Insentive" under Culture — rendered here as <strong>Inventive</strong>. Confirm the intended word.</div>
+      </div>
+
+<div class="persona">
         <div class="persona-label">The Omnipair person — your north star</div>
         <div class="persona-text">"A sharp, self-assured architect in their early 30s. Shows up in a Porsche wearing a well-cut jacket and unbranded designer pants — premium, but no logos. Calm and precise, never loud. Has strong opinions about how on-chain finance should work and voices them as reasoned arguments, not insults. A quiet rebel rejecting the status quo through what they build rather than how loudly they complain. Doesn't ask for your trust — would rather you verify everything yourself. Ships only what matters."</div>
       </div>
+    </section>
 
-      <h4 class="sub">How Omnipair challenges the market</h4>
+    <section class="sect" id="stand-against">
+      <h2 class="sect-title">What We Stand Against</h2>
       <ul class="rule-list">
-        <li><span class="ok">✓</span>Not rebellious for attention.</li>
-        <li><span class="ok">✓</span>Finds structural gaps.</li>
-        <li><span class="ok">✓</span>Quietly builds what others assume cannot work.</li>
+        <li><span class="no">✕</span><strong>Oracles</strong> — external price feeds as a condition for a market to exist.</li>
+        <li><span class="no">✕</span><strong>Gatekeepers</strong> — listing committees, governance whitelists, risk committees that never prioritize the long tail.</li>
+        <li><span class="no">✕</span><strong>Fragmented capital</strong> — value split across single-purpose protocols.</li>
+        <li><span class="no">✕</span><strong>Hidden risk</strong> — shared pools where one failure bleeds everywhere, fake liquidation prices, systems that pretend liquidity exists when it doesn't.</li>
+        <li><span class="no">✕</span><strong>Intermediaries</strong> — trusted third parties the system doesn't need.</li>
+        <li><span class="no">✕</span><strong>Hype</strong> — "no risk," guaranteed returns, safety-certainty language.</li>
       </ul>
 
-      <h4 class="sub">Brand principles</h4>
-      <div class="grid2">
-        <div class="tile"><div class="tile-value">Make complexity legible</div><div class="tile-desc">The system is sophisticated; the explanation never should be.</div></div>
-        <div class="tile"><div class="tile-value">Let engineering create confidence</div><div class="tile-desc">Proof over adjectives. The architecture is the argument.</div></div>
-        <div class="tile"><div class="tile-value">Show the system, not merely the interface</div><div class="tile-desc">Omnipair's depth is a feature. Reveal how it works.</div></div>
-        <div class="tile"><div class="tile-value">Be ambitious without sounding inflated</div><div class="tile-desc">Big claims, stated plainly, backed by structure.</div></div>
+      <h4 class="sub">How Omnipair challenges the market</h4>
+      <div class="grid2" style="grid-template-columns:1fr 1fr 1fr;">
+        <div class="tile"><div class="tile-value">It finds the structural gap</div><div class="tile-desc">The 95% of tokens that oracle-gated money markets structurally cannot provide for — the market nobody else can serve.</div></div>
+        <div class="tile"><div class="tile-value">It builds what the market assumes is unsafe</div><div class="tile-desc">Oracleless lending has a rocky history; skeptics assume it can't work until shown otherwise. The answer is mechanical: one auditable equation, impact-aware collateral, isolated risk.</div></div>
+        <div class="tile"><div class="tile-value">Confident, never hypey</div><div class="tile-desc">The credibility asset is unusual honesty about limitations. In a post-exploit market, the brand markets containment — risk made local and explicit — not the absence of risk.</div></div>
       </div>
     </section>
 
-    <section class="sect" id="foundation-wip">
-      <h2 class="sect-title">In Progress <span class="wip-pill">wip</span></h2>
-      <div class="wip-block">
-        <div class="wip-block-title">Foundation pages to come</div>
-        <div class="wip-block-desc">Reserved per the master page list — content will be added as it's approved.</div>
-        <div class="wip-tags">
-          <span class="wip-tag">what is omnipair</span><span class="wip-tag">brand belief</span><span class="wip-tag">mission</span><span class="wip-tag">vision</span><span class="wip-tag">brand promise</span><span class="wip-tag">audience</span><span class="wip-tag">audience priorities</span><span class="wip-tag">brand essence</span>
+    <section class="sect" id="principles">
+      <h2 class="sect-title">Brand Principles</h2>
+      <div class="principle">
+        <div class="principle-name">Lead with the outcome, not the machinery</div>
+        <div class="principle-desc">"Get liquidity without selling" before GAMM, EMA, or virtual reserves. Save deep mechanics for docs and the audience that asks.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-name">Trust through simplicity</div>
+        <div class="principle-desc">Powerful underneath, calm on the surface — complexity handled by the machine, not the user.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-name">Prefer proof over adjectives</div>
+        <div class="principle-desc">Precise language, whitepaper-linked, never overclaim. What you see is what you get.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-name">Risk made local and explicit</div>
+        <div class="principle-desc">Market containment, not the absence of risk. Never pretend liquidity exists when it doesn't.</div>
+      </div>
+    </section>
+
+    <section class="chapter" id="verbal">
+      <div class="chapter-head"><span class="chapter-num">02</span></div>
+      <h1 class="chapter-title">verbal identity</h1>
+      <p class="chapter-intro">Omnipair's voice is its personality made audible — delivered with the character of the brand.</p>
+    </section>
+
+    <section class="sect" id="verbal-intro">
+      <h2 class="sect-title">Introduction</h2>
+      <p class="prose">Omnipair's voice is its personality made audible: <strong>rational, confident, visionary</strong> — delivered with the character of the brand: <strong>technical, refined, independent</strong>.</p>
+      <div class="callout">
+        <div class="callout-label">The governing rule</div>
+        <div class="callout-text">Confident but never hypey. The credibility asset is unusual honesty about limitations. <strong>We market containment, not the absence of risk.</strong></div>
+      </div>
+    </section>
+
+    <section class="sect" id="core-message">
+      <h2 class="sect-title">Core Message</h2>
+      <p class="prose">The one line every communication ladders up to:</p>
+      <div class="persona" style="margin-top:0.5rem;">
+        <div class="persona-label">Core message</div>
+        <div class="persona-text" style="font-size:19px; letter-spacing:-0.02em; line-height:1.5;">"Every pair is its own bank. Omnipair turns any token pair into a self-contained market with trading, lending, and spot leverage in one — no oracles, no gatekeepers."</div>
+      </div>
+    </section>
+
+    <section class="sect" id="messaging">
+      <h2 class="sect-title">Messaging Hierarchy</h2>
+      <table class="spec-table">
+        <thead><tr><th>Level</th><th>Message</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Brand</strong></td><td>Every pair is its own bank.</td></tr>
+          <tr><td><strong>Product</strong></td><td>Trade, borrow and leverage any asset without permission.<br>Unified money markets for every asset on Solana.</td></tr>
+          <tr><td><strong>Feature</strong></td><td><strong>hLP:</strong> Deposit one token. Keep your exposure. Earn fees and interest.<br><strong>Spot margin:</strong> Long or short any token. Leverage where no perp exists.<br><strong>Rates:</strong> Markets run themselves.</td></tr>
+          <tr><td><strong>Technical proof</strong></td><td>Every unit of value in the system is accounted for by one auditable equation. Risk is local, explicit, and mechanically bounded.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sect" id="pitch">
+      <h2 class="sect-title">Elevator Pitch</h2>
+      <div class="template">
+        <div class="template-head">One sentence</div>
+        <div class="template-body">Omnipair is an oracleless margin protocol on Solana that transforms every SPL pair into a unified market with swaps, lending, leverage, and liquidations inside one isolated pool.</div>
+      </div>
+      <div class="template">
+        <div class="template-head">Short paragraph</div>
+        <div class="template-body">In crypto, trading and lending are separate apps — and lending needs a trusted external price feed, which only a few dozen tokens have. Omnipair merges trading and lending into one system that needs no external price feed. Each pool is its own bank: it sets the price, holds the liquidity, funds the loans, and handles the failures — all locally.</div>
+      </div>
+      <div class="template">
+        <div class="template-head">Longer description</div>
+        <div class="template-body">Trading apps let people swap tokens; lending apps let people deposit and borrow against them — but lending requires an oracle, and out of tens of thousands of actively traded tokens, only a few dozen qualify. Everything else is locked out of lending, borrowing, and leverage entirely. Omnipair merges trading and lending into one oracleless system. The architecture is the GAMM — Generalized Automated Market Maker: where an AMM only trades, a GAMM trades, lends, and levers. Any SPL pair gets a full market permissionlessly, with isolated, per-pair risk. ~78% of Solana DEX volume sits in tokens under $100M — the market this unlocks, which nobody else can serve.</div>
+      </div>
+    </section>
+
+    <section class="sect" id="descriptions">
+      <h2 class="sect-title">Approved Brand Description</h2>
+      <p class="prose" style="font-size:13px; color:var(--muted);">Use verbatim. Click to copy.</p>
+      <div class="template">
+        <div class="template-head">~25 words</div>
+        <div class="template-body" data-copy="Omnipair is an oracleless margin protocol on Solana that transforms every SPL pair into a unified market — swaps, lending, leverage, and liquidations inside one isolated pool.">Omnipair is an oracleless margin protocol on Solana that transforms every SPL pair into a unified market — swaps, lending, leverage, and liquidations inside one isolated pool.</div>
+      </div>
+      <div class="template">
+        <div class="template-head">~50 words</div>
+        <div class="template-body" data-copy="Omnipair is an oracleless margin protocol on Solana that transforms every SPL pair into a unified market — swaps, lending, leverage, and liquidations inside one isolated pool. A single GAMM pool does what previously took three protocols, giving long-tail Solana assets the collateral, borrow, and leverage utility no other venue offers.">Omnipair is an oracleless margin protocol on Solana that transforms every SPL pair into a unified market — swaps, lending, leverage, and liquidations inside one isolated pool. A single GAMM pool does what previously took three protocols, giving long-tail Solana assets the collateral, borrow, and leverage utility no other venue offers.</div>
+      </div>
+      <div class="template">
+        <div class="template-head">~100 words</div>
+        <div class="template-body">Omnipair is an oracleless margin protocol on Solana that transforms every SPL pair into a unified market — swaps, lending, leverage, and liquidations inside one isolated pool. A single GAMM (Generalized Automated Market Maker) pool does what previously took three protocols — swap, lend, and lever — with no oracles, no governance whitelist, and isolated per-pair risk. Each pool is its own bank: it sets the price, holds the liquidity, funds the loans, and handles the failures, all locally. That unlocks the long tail: ~78% of Solana DEX volume sits in assets under $100M that no other venue can serve.</div>
+      </div>
+    </section>
+
+    <section class="sect" id="tagline">
+      <h2 class="sect-title">Tagline <span class="wip-pill">needs sign-off</span></h2>
+      <div class="grid2">
+        <div class="tile"><div class="tile-label">Primary</div><div class="tile-value" style="font-size:18px;">"Every pair is its own bank."</div></div>
+        <div class="tile"><div class="tile-label">Supporting</div><div class="tile-value" style="font-size:18px;">"One engine, every use case."</div></div>
+      </div>
+      <h4 class="sub">Approved alternates by context</h4>
+      <ol class="phrase-list">
+        <li class="phrase-item"><span class="phrase-num">01</span><span class="phrase-text">Trade, borrow and leverage any asset without permission.</span></li>
+        <li class="phrase-item"><span class="phrase-num">02</span><span class="phrase-text">Unified money markets for every asset on Solana.</span></li>
+        <li class="phrase-item"><span class="phrase-num">03</span><span class="phrase-text">Solana's Permissionless Margin Layer</span></li>
+        <li class="phrase-item"><span class="phrase-num">04</span><span class="phrase-text">The margin layer for internet capital markets</span></li>
+        <li class="phrase-item"><span class="phrase-num">05</span><span class="phrase-text">Capital That Never Sits Still. <span style="color:var(--muted-light); font-weight:400; font-size:12px;">— LP-facing</span></span></li>
+      </ol>
+      <div class="callout">
+        <div class="callout-label">Usage rules</div>
+        <div class="callout-text">The primary line always pairs with its explanation on first use (the core message). Persona-specific lines stay in their lane — see Message by Audience.<br><br><strong>Needs sign-off:</strong> the source docs list these as a candidate set without ranking one. The primary/supporting split above follows the brief's master narrative and requires confirmation.</div>
+      </div>
+    </section>
+
+    <section class="sect" id="value-props">
+      <h2 class="sect-title">Value Propositions</h2>
+      <div class="grid2">
+        <div class="tile"><div class="tile-label">Unified liquidity</div><div class="tile-desc">Unified money markets for every asset on Solana. One engine, every use case.</div></div>
+        <div class="tile"><div class="tile-label">Capital efficiency</div><div class="tile-desc">Capital that never sits still: two yield streams, one deposit. Higher effective LTVs without lowering safety standards. Idle liquidity is automatically lent.</div></div>
+        <div class="tile"><div class="tile-label">Permissionless markets</div><div class="tile-desc">Any SPL token pair. No listing committee, no oracle requirement, no waiting. Pick any pair, launch a full money market for it.</div></div>
+        <div class="tile"><div class="tile-label">Oracleless architecture</div><div class="tile-desc">No oracles anywhere in the system. Collateral valued at what the market could actually recover. No oracle games.</div></div>
+        <div class="tile" style="grid-column:1/-1;"><div class="tile-label">Spot, lending and leverage from one pool</div><div class="tile-desc">Where an AMM only trades, a GAMM trades, lends, and levers. One pool, one position, one surface.</div></div>
+      </div>
+    </section>
+
+    <section class="sect" id="by-audience">
+      <h2 class="sect-title">Message by Audience</h2>
+      <div class="template">
+        <div class="template-head">Traders</div>
+        <div class="template-body">
+          <span class="formula">"Long or short any token. Leverage where no perp exists."</span>
+          <span class="note">Open leverage positions on any pair instantly. Leverage the tokens perps won't list — one click, isolated risk. You pay real market impact upfront — no fake liquidation prices later.</span>
+        </div>
+      </div>
+      <div class="template">
+        <div class="template-head">LPs</div>
+        <div class="template-body">
+          <span class="formula">"Deposit one token. Keep your exposure. Earn fees and interest."</span>
+          <span class="note">Earn like a Raydium LP and a Kamino lender — from one deposit. Two yield streams, one deposit. Isolated pools to protect your capital.</span>
+        </div>
+      </div>
+      <div class="template">
+        <div class="template-head">Token founders</div>
+        <div class="template-body">
+          <span class="formula">"Give your token a full financial ecosystem in one transaction: lending, borrowing, leverage, and yield — permissionlessly."</span>
+          <span class="note">No listing, no oracle, no waiting. A market failing elsewhere can never hurt your community.</span>
+        </div>
+      </div>
+      <div class="template">
+        <div class="template-head">Borrowers / holders</div>
+        <div class="template-body">
+          <span class="formula">"Get liquidity without selling. Long or short any token — only on Omnipair."</span>
+          <span class="note">Instantly unlock liquidity using any asset as collateral. Borrowing as effortless as trading.</span>
+        </div>
+      </div>
+      <div class="template">
+        <div class="template-head">Developers / analysts / partners</div>
+        <div class="template-body">
+          <span class="formula">"Every unit of value in the system is accounted for by one auditable equation. Risk is local, explicit, and mechanically bounded."</span>
+          <span class="note">Precise language, whitepaper-linked, never overclaims. Impact-aware collateral valuation.</span>
         </div>
       </div>
     </section>
 
-    <!-- ─── 02 VERBAL IDENTITY ─── -->
-    <section class="chapter" id="verbal">
-      <div class="chapter-head"><span class="chapter-num">02</span></div>
-      <h1 class="chapter-title">verbal identity</h1>
-      <p class="chapter-intro">How Omnipair sounds — the principles, the register, the words it reaches for, and the words it never uses.</p>
-    </section>
-
     <section class="sect" id="tone">
       <h2 class="sect-title">Tone of Voice</h2>
+      <p class="prose">Rational. Direct. Assured. Technically literate. Forward-looking. The five named principles below are how that reads in practice.</p>
+
 
       <div class="principle">
         <div class="principle-name">Confident</div>
@@ -1059,67 +1325,139 @@
         <div class="principle-name">Visionary</div>
         <div class="principle-desc">Focused on where markets are heading. Not where they are today.</div>
       </div>
+    
+      <h4 class="sub">How we sound</h4>
+      <ul class="rule-list">
+        <li><span class="ok">✓</span>Confident but never hypey — especially on safety claims.</li>
+        <li><span class="ok">✓</span>Honest about limitations; risk made local and explicit.</li>
+        <li><span class="ok">✓</span>Precise — technical language used only where it earns its place.</li>
+        <li><span class="ok">✓</span>What you see is what you get.</li>
+      </ul>
+
+      <h4 class="sub">How we do not sound</h4>
+      <ul class="rule-list">
+        <li><span class="no">✕</span><strong>Hype on safety:</strong> "no risk," "risk-free yield," "can't lose money."</li>
+        <li><span class="no">✕</span><strong>Promises:</strong> guaranteed returns, APY promises.</li>
+        <li><span class="no">✕</span><strong>Overclaims:</strong> "impermanent loss eliminated," "every token is safe to leverage," audited/battle-tested language — Dusk is explicitly experimental and unaudited.</li>
+        <li><span class="no">✕</span><strong>Machinery-first:</strong> leading with GAMM, EMA, virtual reserves instead of the outcome.</li>
+        <li><span class="no">✕</span><strong>Pretending:</strong> the system never pretends liquidity exists when it doesn't — and neither does the copy.</li>
+      </ul>
+    </section>
+
+    <section class="sect" id="writing-principles">
+      <h2 class="sect-title">Writing Principles</h2>
+      <div class="principle">
+        <div class="principle-name">Lead with the outcome, not the machinery</div>
+        <div class="principle-desc">"Get liquidity without selling" before GAMM, EMA, or virtual reserves. Save deep mechanics for docs and the technical audience that asks.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-name">Explain category terms on first use</div>
+        <div class="principle-desc">GAMM always gets its plain meaning the first time it appears.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-name">Claims discipline is voice</div>
+        <div class="principle-desc"><strong>Free claims:</strong> any SPL pair permissionlessly, no oracles, isolated markets, one-token hLP exposure, collateral valued by real recoverable depth, rates that adapt automatically. <strong>Forbidden claims:</strong> see "How we do not sound."</div>
+      </div>
+      <div class="principle">
+        <div class="principle-name">Correct framings, verbatim</div>
+        <div class="principle-desc">hLP is designed to preserve one-sided exposure; costs are funding interest and small tracking friction instead of IL. Every token gets limits earned from its own liquidity history — thin markets get small limits.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-name">For analysts: precise, whitepaper-linked, never overclaim</div>
+        <div class="principle-desc">They're the amplifiers.</div>
+      </div>
     </section>
 
     <section class="sect" id="calibration">
       <h2 class="sect-title">Voice Spectrum</h2>
-      <p class="prose">Omnipair's tone doesn't shift wildly by context. Think of it as one person who knows which room they're in — never performing, always calibrated.</p>
+      <p class="prose">Four axes. Each has a default position and a defined reason to move.</p>
+      <table class="spec-table">
+        <thead><tr><th>Axis</th><th>Default position</th><th>Moves when</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Technical ↔ Accessible</strong></td><td>Accessible surface, technical depth on demand</td><td>Docs and analyst content go fully technical</td></tr>
+          <tr><td><strong>Confident ↔ Restrained</strong></td><td>Confident on capability</td><td>Restrained on safety — containment, never certainty</td></tr>
+          <tr><td><strong>Visionary ↔ Factual</strong></td><td>Factual, proof-led</td><td>Visionary at brand level ("margin layer for internet capital markets")</td></tr>
+          <tr><td><strong>Product-led ↔ Philosophical</strong></td><td>Product-led, outcome-first</td><td>Philosophical only in the category story (GAMM, "every pair is its own bank")</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-      <div class="spectrum-row">
-        <div class="row-label">Formal ↔ Casual</div>
-        <div class="track-wrap">
-          <span class="track-end">Clinical</span>
-          <div class="track"><div class="track-fill" style="width:38%"></div><div class="track-dot" style="left:38%"></div></div>
-          <span class="track-end r">Colloquial</span>
+    <section class="sect" id="copy-styles">
+      <h2 class="sect-title">Copy Styles</h2>
+      <div class="template">
+        <div class="template-head">Headlines</div>
+        <div class="template-body">
+          <span class="formula">Short, imperative, outcome-first — the punchline register.</span>
+          <span class="example">"Trade, borrow and leverage any asset without permission."<br>"Pick Any Pair. Launch a Full Money Market for it."</span>
         </div>
-        <div class="track-note">Professional and precise, but not stiff. Technical vocabulary used correctly, not wielded to impress.</div>
       </div>
-
-      <div class="spectrum-row">
-        <div class="row-label">Warm ↔ Cold</div>
-        <div class="track-wrap">
-          <span class="track-end">Friendly</span>
-          <div class="track"><div class="track-fill" style="width:58%"></div><div class="track-dot" style="left:58%"></div></div>
-          <span class="track-end r">Distant</span>
+      <div class="template">
+        <div class="template-head">Body copy</div>
+        <div class="template-body">
+          <span class="formula">Plain-language mechanism, controlled sentences, honest framing.</span>
+          <span class="note">The register of the 30-second explanation: problem, then how Omnipair resolves it, then the stat.</span>
         </div>
-        <div class="track-note">Slightly cool. Not cold — there's respect for the reader. Omnipair doesn't try to be likable. It tries to be useful and correct.</div>
       </div>
-
-      <div class="spectrum-row">
-        <div class="row-label">Certain ↔ Tentative</div>
-        <div class="track-wrap">
-          <span class="track-end">Declarative</span>
-          <div class="track"><div class="track-fill" style="width:18%"></div><div class="track-dot" style="left:18%"></div></div>
-          <span class="track-end r">Uncertain</span>
+      <div class="template">
+        <div class="template-head">Product copy</div>
+        <div class="template-body">
+          <span class="formula">Simple interfaces, clear actions — borrow, loop, long, trade, LP.</span>
+          <span class="note">Complexity visibly handled by the machine, not the user.</span>
         </div>
-        <div class="track-note">Very certain. Omnipair doesn't "try to" or "hope to." Weasel words undermine credibility. State the thing.</div>
+      </div>
+      <div class="template">
+        <div class="template-head">Technical &amp; documentation copy</div>
+        <div class="template-body">
+          <span class="formula">Reserve-invariant register: precise, whitepaper-linked, terms defined, limitations stated.</span>
+          <span class="note">Never ship safety-certainty language.</span>
+        </div>
+      </div>
+      <div class="template">
+        <div class="template-head">Social voice</div>
+        <div class="template-body">
+          <span class="formula">Persona lines in their lane; launch-thread register is the category story.</span>
+          <span class="example">Culture lane may use: "If it's on Solana, it can get a full money market." / "If liquidity exists, the market exists."</span>
+        </div>
       </div>
     </section>
 
     <section class="sect" id="vocabulary">
       <h2 class="sect-title">Terminology</h2>
-      <p class="prose">The words Omnipair reaches for — and the ones it avoids.</p>
-      <div class="vocab-grid">
-        <div class="vocab-block">
-          <div class="vocab-label">We say</div>
-          <div class="vocab-tags">
-            <span class="vtag">Open Markets</span><span class="vtag">Permissionless</span><span class="vtag">Verifiable</span><span class="vtag">Financial Utility</span><span class="vtag">Access</span><span class="vtag">Market Infrastructure</span><span class="vtag">Unified Liquidity</span><span class="vtag">Long-Tail Assets</span><span class="vtag">Builders</span><span class="vtag">Market Participants</span><span class="vtag">Open Finance</span>
-          </div>
-        </div>
-        <div class="vocab-block no">
-          <div class="vocab-label">We avoid</div>
-          <div class="vocab-tags">
-            <span class="vtag">Degen</span><span class="vtag">Moon</span><span class="vtag">100x</span><span class="vtag">Revolutionary</span><span class="vtag">Disruptive</span><span class="vtag">Trust Us</span><span class="vtag">Next Generation</span><span class="vtag">Yield Farming Paradise</span><span class="vtag">Guaranteed</span>
-          </div>
-        </div>
+      <table class="spec-table">
+        <thead><tr><th>Term</th><th>Plain meaning</th><th>Rule</th></tr></thead>
+        <tbody>
+          <tr><td><strong>GAMM</strong></td><td>The pool type that trades + lends + levers</td><td>Always explain on first use</td></tr>
+          <tr><td><strong>hLP</strong></td><td>One-sided leveraged liquidity vault</td><td>Flagship term</td></tr>
+          <tr><td><strong>yLP</strong></td><td>Two-sided liquidity position that also earns interest</td><td>Use with explanation</td></tr>
+          <tr><td><strong>Oracleless</strong></td><td>Needs no external price feed</td><td>Core differentiator</td></tr>
+          <tr><td><strong>Isolated</strong></td><td>Each market/position sealed off from others</td><td>Approved</td></tr>
+          <tr><td><strong>Impermanent loss (IL)</strong></td><td>LP underperformance vs. just holding</td><td>Use when marketing hLP</td></tr>
+        </tbody>
+      </table>
+      <div class="grid2">
+        <div class="tile"><div class="tile-label">Restricted</div><div class="tile-desc"><strong>Reserve invariant</strong> — analyst-facing content only.</div></div>
+        <div class="tile"><div class="tile-label">Avoid</div><div class="tile-desc">"No risk," "risk-free," "guaranteed," "eliminated" (for IL), "audited" / "battle-tested" (until true), generic superlatives that overclaim safety.</div></div>
       </div>
-      <div class="callout">
-        <div class="callout-label">The vocabulary test</div>
-        <div class="callout-text">If a word could appear on any DeFi protocol's homepage without anyone noticing, don't use it. Omnipair earns its adjectives through specificity, not assertion.</div>
+      <div class="callout" style="border-left-color:var(--muted);">
+        <div class="callout-label">Naming inconsistency to reconcile</div>
+        <div class="callout-text">The brief uses <strong>yLP</strong> for the two-sided LP position; the ICP doc calls it <strong>omLP</strong>. Pick one before the book ships.</div>
       </div>
     </section>
 
-    <section class="sect" id="phrases">
+    <section class="sect" id="naming">
+      <h2 class="sect-title">Capitalisation &amp; Naming</h2>
+      <table class="spec-table">
+        <tbody>
+          <tr><td><strong>Omnipair</strong></td><td>Capital O, one word</td></tr>
+          <tr><td><strong>Dusk</strong></td><td>The v2 product</td></tr>
+          <tr><td><strong>GAMM</strong></td><td>All caps; expand to "Generalized Automated Market Maker" on first use</td></tr>
+          <tr><td><strong>hLP / yLP</strong></td><td>Lowercase prefix, capital LP</td></tr>
+          <tr><td><strong>SPL</strong></td><td>All caps</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+<section class="sect" id="phrases">
       <h2 class="sect-title">Signature Phrases</h2>
       <p class="prose">Lines that capture how Omnipair sounds. Reuse, remix, or use as north stars when writing fresh copy.</p>
       <ol class="phrase-list">
@@ -1136,7 +1474,7 @@
       </ol>
     </section>
 
-    <section class="sect" id="templates">
+<section class="sect" id="templates">
       <h2 class="sect-title">Example Copy <span class="wip-pill">work in progress</span></h2>
       <p class="prose">Ready-to-use structures for common contexts. Fill in the specifics — the voice is already set.</p>
 
@@ -1190,18 +1528,6 @@
       </div>
     </section>
 
-    <section class="sect" id="verbal-wip">
-      <h2 class="sect-title">In Progress <span class="wip-pill">wip</span></h2>
-      <div class="wip-block">
-        <div class="wip-block-title">Verbal identity pages to come</div>
-        <div class="wip-block-desc">Reserved per the master page list.</div>
-        <div class="wip-tags">
-          <span class="wip-tag">core message</span><span class="wip-tag">messaging hierarchy</span><span class="wip-tag">elevator pitch</span><span class="wip-tag">brand descriptions 25/50/100</span><span class="wip-tag">tagline</span><span class="wip-tag">value propositions</span><span class="wip-tag">message by audience</span><span class="wip-tag">headline style</span><span class="wip-tag">body copy style</span><span class="wip-tag">capitalisation & naming</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── 03 LOGO SYSTEM ─── -->
     <section class="chapter" id="logo">
       <div class="chapter-head"><span class="chapter-num">03</span><span class="done-pill">done</span></div>
       <h1 class="chapter-title">logo system</h1>
