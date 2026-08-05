@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>omnipair — brand at a glance</title>
+<meta name="description" content="Omnipair brand — the essentials on one page.">
+<style>
+  @font-face {
+    font-family: 'Aeonik';
+    src: url('assets/fonts/AeonikVF.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'M Saans';
+    src: url('assets/fonts/MSaansVF.woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #F7F7F5;
+    --surface: #FFFFFF;
+    --ink: #121214;
+    --muted: #70707A;
+    --muted-light: #A3A3AA;
+    --line: #E7E7E3;
+    --accent: #F08A12;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'M Saans', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent); color: #fff; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  /* top bar */
+  .bar {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(247,247,245,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.8rem 1.5rem;
+  }
+  .brand { display: flex; align-items: center; text-decoration: none; }
+  .bar a.link {
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; font-weight: 500;
+  }
+  .bar a.link:hover { color: var(--ink); }
+
+  /* layout */
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 1.25rem; }
+
+  .lede {
+    text-align: center;
+    padding: 3.5rem 1.5rem 2.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .lede h1 {
+    font-family: 'Aeonik', sans-serif;
+    font-size: clamp(30px, 4.6vw, 52px);
+    font-weight: 520;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: 0.9rem;
+  }
+  .lede p { color: var(--muted); font-size: clamp(14px, 1.6vw, 17px); }
+  .lede p strong { color: var(--ink); font-weight: 550; }
+
+  /* image blocks */
+  .shot {
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    margin-bottom: 12px;
+  }
+  .shot img { width: 100%; height: auto; cursor: zoom-in; }
+
+  .cap {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 2.25rem 0.25rem 0.9rem;
+  }
+  .cap-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 550;
+    white-space: nowrap;
+  }
+  .cap-text {
+    font-family: 'Aeonik', sans-serif;
+    font-size: clamp(17px, 2.2vw, 24px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+  .grid-2 .shot, .grid-3 .shot { margin-bottom: 0; }
+
+  .micro {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding: 0 0.25rem 0.4rem;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 3.5rem;
+    padding: 2.5rem 1.5rem 7rem;
+    text-align: center;
+  }
+  .foot-logo { width: 130px; margin: 0 auto 1rem; }
+  .foot-meta { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-light); }
+  .foot-link { font-size: 12px; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .foot-link:hover { color: var(--ink); }
+
+  /* brand kit widget */
+  .kit {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem;
+    width: min(340px, calc(100vw - 2rem));
+    z-index: 120;
+    font-family: 'M Saans', system-ui, sans-serif;
+  }
+  .kit-panel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 1.1rem 1.1rem 0.9rem;
+    box-shadow: 0 24px 60px -18px rgba(0,0,0,0.25);
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  }
+  .kit.open .kit-panel { opacity: 1; transform: none; pointer-events: auto; }
+  .kit-title { font-size: 14px; font-weight: 600; color: #121214; letter-spacing: -0.01em; }
+  .kit-sub { font-size: 11.5px; color: #70707A; line-height: 1.5; margin: 2px 0 0.9rem; }
+  .kit-row {
+    display: flex; align-items: center; gap: 10px;
+    background: #F7F7F5; border: 1px solid #EFEFEB;
+    border-radius: 12px; padding: 10px 12px; margin-bottom: 7px;
+    cursor: pointer; transition: border-color 0.15s;
+  }
+  .kit-row:hover { border-color: #d9d9d3; }
+  .kit-row.sel { border-color: #F08A12; }
+  .kit-row input { accent-color: #F08A12; width: 15px; height: 15px; cursor: pointer; }
+  .kit-row-name { font-size: 12.5px; font-weight: 500; color: #121214; flex: 1; }
+  .kit-row-name span { color: #A3A3AA; font-weight: 400; font-size: 10.5px; margin-left: 4px; }
+  .kit-row-dl { color: #F08A12; text-decoration: none; font-size: 14px; line-height: 1; padding: 4px 6px; border-radius: 6px; }
+  .kit-row-dl:hover { background: rgba(240,138,18,0.12); }
+  .kit-cta { display: flex; width: 100%; border-radius: 999px; overflow: hidden; box-shadow: 0 14px 34px -12px rgba(0,0,0,0.4); }
+  .kit-main {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: #121214; color: #fff; border: none;
+    font-family: inherit; font-size: 13px; font-weight: 550;
+    padding: 13px 16px; cursor: pointer; transition: background 0.2s;
+  }
+  .kit-main:hover { background: #000; }
+  .kit-main .dl-ic { color: #F08A12; }
+  .kit-toggle {
+    background: #121214; color: rgba(255,255,255,0.75); border: none;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    font-family: inherit; padding: 0 16px; cursor: pointer;
+    transition: background 0.2s; display: flex; align-items: center; justify-content: center; line-height: 0;
+  }
+  .kit-toggle:hover { background: #000; color: #fff; }
+  .kit-toggle .chev { display: inline-flex; align-items: center; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1); }
+  .kit.open .kit-toggle .chev { transform: rotate(180deg); }
+
+  /* lightbox */
+  .lb {
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(10,10,12,0.82);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    display: grid; place-items: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.25s ease;
+    padding: 3vh 3vw;
+    cursor: zoom-out;
+  }
+  .lb.open { opacity: 1; pointer-events: auto; }
+  .lb img {
+    max-width: 94vw; max-height: 88vh; width: auto; height: auto;
+    border-radius: 14px;
+    box-shadow: 0 40px 120px -20px rgba(0,0,0,0.6);
+    transform: scale(0.96);
+    transition: transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  }
+  .lb.open img { transform: scale(1); }
+  .lb-hint {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  @media (max-width: 720px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .cap { flex-direction: column; gap: 4px; padding-top: 1.75rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition-duration: 0.001s !important; }
+  }
+</style>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#4D95FA">
+</head>
+<body>
+
+<nav class="bar">
+  <a href="#top" class="brand">
+    <img src="assets/downloads/Omnipair-Horizontal-DarkSilver-SVG.svg" alt="omnipair" style="width:118px;">
+  </a>
+  <a class="link" href="simple.html">full guideline →</a>
+</nav>
+
+<main id="top">
+
+  <header class="lede">
+    <h1>the brand, at a glance</h1>
+    <p><strong>Omnipair — every pair is its own bank.</strong> The essentials of the identity on one page. For the complete rules, open the <a href="simple.html" style="color:var(--accent); text-decoration:none;">full guideline</a>.</p>
+  </header>
+
+  <div class="wrap">
+
+    <!-- LOGO -->
+    <div class="cap"><span class="cap-label">Logo</span><span class="cap-text">The Omnipair star and custom wordmark. Never redraw either.</span></div>
+    <div class="shot"><img loading="lazy" src="assets/lockups/horizontal-shaded-light.png" alt="Omnipair primary horizontal lockup"></div>
+    <div class="grid-2">
+      <div class="shot"><img loading="lazy" src="assets/lockups/horizontal-white-dark.png" alt="Horizontal lockup on dark"></div>
+      <div class="shot"><img loading="lazy" src="assets/lockups/stacked-gradient-light.png" alt="Stacked lockup with gradient tile"></div>
+    </div>
+    <p class="micro">Horizontal is the default. Stacked for vertical space. Symbol alone for icons and avatars.</p>
+
+    <!-- RULES -->
+    <div class="cap"><span class="cap-label">Rules</span><span class="cap-text">Half the icon clear on all sides. Never below minimum size. Never modified.</span></div>
+    <div class="grid-3">
+      <div class="shot"><img loading="lazy" src="assets/logo-spec/clearspace-horizontal-v2.png" alt="Clear space — half the icon on all sides"></div>
+      <div class="shot"><img loading="lazy" src="assets/logo-spec/minimum-size.png" alt="Minimum sizes"></div>
+      <div class="shot"><img loading="lazy" src="assets/logo-spec/misuse.png" alt="Logo misuse"></div>
+    </div>
+
+    <!-- COLOUR -->
+    <div class="cap"><span class="cap-label">Colour</span><span class="cap-text">Every colour is sampled from one sky, dusk to dawn.</span></div>
+    <div class="shot"><img loading="lazy" src="assets/colour/inspiration-v2.jpg" alt="Palette inspiration — the sky from dusk to dawn"></div>
+    <div class="shot"><img loading="lazy" src="assets/colour/sky-axis.jpg" alt="The Sky Axis — master gradient"></div>
+    <div class="grid-3">
+      <div class="shot"><img loading="lazy" src="assets/colour/palette-sky.jpg" alt="Sky palette"></div>
+      <div class="shot"><img loading="lazy" src="assets/colour/palette-dawn.jpg" alt="Dawn palette"></div>
+      <div class="shot"><img loading="lazy" src="assets/colour/palette-aqua.jpg" alt="Aqua palette"></div>
+    </div>
+    <p class="micro">Sky is the core voice · Dawn is the warmth · Aqua is the clarity. Gradients dissolve to light — never flat white.</p>
+
+    <!-- IN USE -->
+    <div class="cap"><span class="cap-label">In use</span><span class="cap-text">One source, every colour — the way one pool produces every function.</span></div>
+    <div class="grid-2">
+      <div class="shot"><img loading="lazy" src="assets/colour/palette-tiles.jpg" alt="Gradient tiles — dawn, sky, aqua"></div>
+      <div class="shot"><img loading="lazy" src="assets/colour/icon-suite.jpg" alt="Icon suite — palette applications"></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <img class="foot-logo" src="assets/downloads/Omnipair-Horizontal-DarkSilver-SVG.svg" alt="omnipair">
+    <p style="margin-bottom:0.75rem;"><a class="foot-link" href="simple.html">Open the full guideline</a></p>
+    <div class="foot-meta">omnipair.fi · brand at a glance · living document</div>
+  </footer>
+
+</main>
+
+<!-- brand kit widget -->
+<div class="kit" id="kit">
+  <div class="kit-panel" role="dialog" aria-label="Brand kit assets">
+    <div class="kit-title">Brand kit assets</div>
+    <div class="kit-sub">Download one bundle at a time or select several bundles and export them together.</div>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Horizontal-Pack.zip"><span class="kit-row-name">Horizontal lockup <span>svg · png · jpg</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Horizontal-Pack.zip" download title="Download horizontal pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Vertical-Pack.zip"><span class="kit-row-name">Vertical lockup <span>svg · png · jpg</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Vertical-Pack.zip" download title="Download vertical pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Icon-Pack.zip"><span class="kit-row-name">Icon <span>svg · png · jpg</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Icon-Pack.zip" download title="Download icon pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Fonts-Pack.zip"><span class="kit-row-name">Fonts <span>aeonik · m saans</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Fonts-Pack.zip" download title="Download fonts pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Colours.md"><span class="kit-row-name">Colour tokens <span>.md</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Colours.md" download title="Download colour tokens"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+    <label class="kit-row"><input type="checkbox" data-zip="Omnipair-Logo-Pack.zip"><span class="kit-row-name">Complete pack <span>all 24 files</span></span><a class="kit-row-dl" href="assets/downloads/Omnipair-Logo-Pack.zip" download title="Download complete pack"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></a></label>
+  </div>
+  <div class="kit-cta">
+    <button class="kit-main" id="kitMain"><span class="dl-ic"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg></span> Download Brand Kit</button>
+    <button class="kit-toggle" id="kitToggle" aria-expanded="false" aria-label="Choose bundles"><span class="chev"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+  </div>
+</div>
+
+<script>
+  // brand kit widget
+  (function(){
+    const kit = document.getElementById('kit');
+    const toggle = document.getElementById('kitToggle');
+    const main = document.getElementById('kitMain');
+    const boxes = [...kit.querySelectorAll('input[type=checkbox]')];
+    const ICON = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>';
+    toggle.addEventListener('click', () => {
+      kit.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', kit.classList.contains('open'));
+    });
+    document.addEventListener('click', e => { if (!kit.contains(e.target)) kit.classList.remove('open'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') kit.classList.remove('open'); });
+    boxes.forEach(b => b.addEventListener('change', () => {
+      b.closest('.kit-row').classList.toggle('sel', b.checked);
+      const n = boxes.filter(x => x.checked).length;
+      main.innerHTML = n > 0
+        ? `<span class="dl-ic">${ICON}</span> Download selected (${n})`
+        : `<span class="dl-ic">${ICON}</span> Download Brand Kit`;
+    }));
+    main.addEventListener('click', () => {
+      const sel = boxes.filter(b => b.checked).map(b => b.dataset.zip);
+      const files = sel.length ? sel : ['Omnipair-Logo-Pack.zip'];
+      files.forEach((f, i) => setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = 'assets/downloads/' + f;
+        a.download = f;
+        document.body.appendChild(a); a.click(); a.remove();
+      }, i * 400));
+    });
+  })();
+
+  // lightbox
+  (function(){
+    const lb = document.createElement('div');
+    lb.className = 'lb';
+    lb.innerHTML = '<img alt=""><span class="lb-hint">click anywhere or press esc to close</span>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    document.querySelectorAll('.shot img').forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+    lb.addEventListener('click', closeLb);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  })();
+</script>
+
+</body>
+</html>

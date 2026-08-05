@@ -66,9 +66,13 @@
   .choose {
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 14px;
     padding: 0 2rem 2rem;
+  }
+  @media (max-width: 1100px) and (min-width: 801px) {
+    .choose { grid-template-columns: 1fr 1fr; }
+    .opt.marketing { grid-column: 1 / -1; min-height: 260px; }
   }
 
   .opt {
@@ -109,6 +113,12 @@
     bottom: -120px; left: -60px;
   }
   .opt.expressive:hover::before { opacity: 0.55; }
+
+  .opt.marketing {
+    background: linear-gradient(160deg, #E1F3FF 0%, #EDFDFB 48%, #FFF6D6 100%);
+    color: var(--ink);
+  }
+  .opt.marketing .opt-desc { color: rgba(0,0,0,0.55); }
 
   .opt-num {
     font-family: 'M Saans', system-ui, sans-serif;
@@ -196,6 +206,14 @@
     <img class="opt-star" src="assets/downloads/Omnipair-Icon-DarkWhite-SVG.svg" alt="">
     <span class="opt-title">the experience</span>
     <span class="opt-desc">Glass, glow, and motion. The brand demonstrated, not just described — full-bleed chapters that radiate from one point.</span>
+    <span class="opt-cta">Enter <span class="arrow">→</span></span>
+  </a>
+
+  <a class="opt marketing" href="marketing.html" data-choice="marketing">
+    <span class="opt-num">OPTION 03</span>
+    <img class="opt-star" src="assets/downloads/Omnipair-Icon-DarkSilver-SVG.svg" alt="">
+    <span class="opt-title">at a glance</span>
+    <span class="opt-desc">The essentials on one page — big images, one-line rules, zero depth. Made for marketing and quick shares.</span>
     <span class="opt-cta">Enter <span class="arrow">→</span></span>
   </a>
 </div>
