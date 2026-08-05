@@ -66,6 +66,9 @@
     color: var(--muted); text-decoration: none; font-weight: 500;
   }
   .bar a.link:hover { color: var(--ink); }
+  .bar-nav { display: flex; align-items: center; gap: 1.25rem; }
+  .bar a.link.accent { color: var(--accent); }
+  @media (max-width: 640px) { .bar-nav a:not(.accent) { display: none; } }
 
   /* layout */
   .wrap { max-width: 1280px; margin: 0 auto; padding: 0 1.25rem; }
@@ -243,7 +246,13 @@
   <a href="#top" class="brand">
     <img src="assets/downloads/Omnipair-Horizontal-DarkSilver-SVG.svg" alt="omnipair" style="width:118px;">
   </a>
-  <a class="link" href="simple.html">full guideline →</a>
+  <div class="bar-nav">
+    <a class="link" href="#logo">logo</a>
+    <a class="link" href="#rules">rules</a>
+    <a class="link" href="#colour">colour</a>
+    <a class="link" href="#in-use">in use</a>
+    <a class="link accent" href="simple.html">full guideline →</a>
+  </div>
 </nav>
 
 <main id="top">
@@ -256,7 +265,7 @@
   <div class="wrap">
 
     <!-- LOGO -->
-    <div class="cap"><span class="cap-label">Logo</span><span class="cap-text">The Omnipair star and custom wordmark. Never redraw either.</span></div>
+    <div class="cap" id="logo" style="scroll-margin-top:70px;"><span class="cap-label">Logo</span><span class="cap-text">The Omnipair star and custom wordmark. Never redraw either.</span></div>
     <div class="shot"><img loading="lazy" src="assets/lockups/horizontal-shaded-light.png" alt="Omnipair primary horizontal lockup"></div>
     <div class="grid-2">
       <div class="shot"><img loading="lazy" src="assets/lockups/horizontal-white-dark.png" alt="Horizontal lockup on dark"></div>
@@ -265,7 +274,7 @@
     <p class="micro">Horizontal is the default. Stacked for vertical space. Symbol alone for icons and avatars.</p>
 
     <!-- RULES -->
-    <div class="cap"><span class="cap-label">Rules</span><span class="cap-text">Half the icon clear on all sides. Never below minimum size. Never modified.</span></div>
+    <div class="cap" id="rules" style="scroll-margin-top:70px;"><span class="cap-label">Rules</span><span class="cap-text">Half the icon clear on all sides. Never below minimum size. Never modified.</span></div>
     <div class="grid-3">
       <div class="shot"><img loading="lazy" src="assets/logo-spec/clearspace-horizontal-v2.png" alt="Clear space — half the icon on all sides"></div>
       <div class="shot"><img loading="lazy" src="assets/logo-spec/minimum-size.png" alt="Minimum sizes"></div>
@@ -273,9 +282,9 @@
     </div>
 
     <!-- COLOUR -->
-    <div class="cap"><span class="cap-label">Colour</span><span class="cap-text">Every colour is sampled from one sky, dusk to dawn.</span></div>
+    <div class="cap" id="colour" style="scroll-margin-top:70px;"><span class="cap-label">Colour</span><span class="cap-text">Every colour is sampled from one sky, dusk to dawn.</span></div>
     <div class="shot"><img loading="lazy" src="assets/colour/inspiration-v2.jpg" alt="Palette inspiration — the sky from dusk to dawn"></div>
-    <div class="shot"><img loading="lazy" src="assets/colour/sky-axis.jpg" alt="The Sky Axis — master gradient"></div>
+    <div class="shot"><img loading="lazy" src="assets/colour/sky-axis-v2.jpg" alt="The Sky Axis — master gradient"></div>
     <div class="grid-3">
       <div class="shot"><img loading="lazy" src="assets/colour/palette-sky.jpg" alt="Sky palette"></div>
       <div class="shot"><img loading="lazy" src="assets/colour/palette-dawn.jpg" alt="Dawn palette"></div>
@@ -284,7 +293,7 @@
     <p class="micro">Sky is the core voice · Dawn is the warmth · Aqua is the clarity. Gradients dissolve to light — never flat white.</p>
 
     <!-- IN USE -->
-    <div class="cap"><span class="cap-label">In use</span><span class="cap-text">One source, every colour — the way one pool produces every function.</span></div>
+    <div class="cap" id="in-use" style="scroll-margin-top:70px;"><span class="cap-label">In use</span><span class="cap-text">One source, every colour — the way one pool produces every function.</span></div>
     <div class="grid-2">
       <div class="shot"><img loading="lazy" src="assets/colour/palette-tiles.jpg" alt="Gradient tiles — dawn, sky, aqua"></div>
       <div class="shot"><img loading="lazy" src="assets/colour/icon-suite.jpg" alt="Icon suite — palette applications"></div>

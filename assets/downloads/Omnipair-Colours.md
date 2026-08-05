@@ -21,17 +21,15 @@ Blue sits high, turquoise mid, orange low. That vertical order becomes the Sky A
 
 The master axis. One continuous gradient from deep blue to warm orange. Every colour in the system is a stop on this axis; every gradient is a contiguous slice of it. One source, every colour — the way one pool produces every function.
 
-Primaries are stops **200**, **300**, and **600**.
+Primaries are stops **100**, **200**, and **500**.
 
 | Stop | Hex | Role |
 | --- | --- | --- |
-| `sky/100` | `#003B6A` | Deep night blue |
-| `sky/200` | `#0979E9` | **primary/blue** |
-| `sky/300` | `#30E7D7` | **primary/turquoise** |
-| `sky/400` | `#BFF3E8` | Horizon light |
-| `sky/500` | `#F7C563` | First-light gold |
-| `sky/600` | `#EF8332` | **primary/orange** |
-| `sky/700` | `#CB782A` | Deep amber |
+| `sky/100` | `#0979E9` | **primary/blue** |
+| `sky/200` | `#30E7D7` | **primary/turquoise** |
+| `sky/300` | `#BFF3E8` | Horizon light |
+| `sky/400` | `#F7C563` | First-light gold |
+| `sky/500` | `#EF8332` | **primary/orange** |
 
 ---
 
@@ -43,7 +41,7 @@ The protocol's core voice — **infrastructure confidence, never cold**. Anchore
 
 | Step | Hex | Note |
 | --- | --- | --- |
-| `base` | `#0979E9` | primary/blue · sky/200 |
+| `base` | `#0979E9` | primary/blue · sky/100 |
 | `80` | `#3A94ED` | |
 | `60` | `#37A9FB` | open sky |
 | `40` | `#69BFFC` | |
@@ -53,7 +51,7 @@ The protocol's core voice — **infrastructure confidence, never cold**. Anchore
 
 | Position | Hex | Note |
 | --- | --- | --- |
-| 0% | `#0979E9` | sky/200 · primary/blue |
+| 0% | `#0979E9` | sky/100 · primary/blue |
 | 55% | `#37A9FB` | blue/60 · open sky |
 | 100% | `#E1F3FF` | blue light |
 
@@ -67,7 +65,7 @@ Carries the brand's warmth — **the trust signal**. Anchored on `primary/orange
 
 | Step | Hex | Note |
 | --- | --- | --- |
-| `base` | `#EF8332` | primary/orange · sky/600 |
+| `base` | `#EF8332` | primary/orange · sky/500 |
 | `80` | `#F29C5B` | |
 | `60` | `#FFC652` | gold |
 | `40` | `#FFDB66` | |
@@ -77,7 +75,7 @@ Carries the brand's warmth — **the trust signal**. Anchored on `primary/orange
 
 | Position | Hex | Note |
 | --- | --- | --- |
-| 0% | `#EF8332` | sky/600 · primary/orange |
+| 0% | `#EF8332` | sky/500 · primary/orange |
 | 55% | `#FFC652` | orange/60 · gold |
 | 100% | `#FFF6D6` | orange light |
 
@@ -91,7 +89,7 @@ Sits mid-axis — the day zone between dusk and dawn. **Clarity, liquidity, move
 
 | Step | Hex | Note |
 | --- | --- | --- |
-| `base` | `#30E7D7` | primary/turquoise · sky/300 |
+| `base` | `#30E7D7` | primary/turquoise · sky/200 |
 | `80` | `#59ECDF` | |
 | `60` | `#83F1E7` | |
 | `40` | `#ACF5EF` | |
@@ -101,7 +99,7 @@ Sits mid-axis — the day zone between dusk and dawn. **Clarity, liquidity, move
 
 | Position | Hex | Note |
 | --- | --- | --- |
-| 0% | `#30E7D7` | sky/300 · primary/turquoise |
+| 0% | `#30E7D7` | sky/200 · primary/turquoise |
 | 55% | `#83F1E7` | turquoise/60 |
 | 100% | `#EDFDFB` | aqua light |
 
@@ -121,18 +119,16 @@ Sits mid-axis — the day zone between dusk and dawn. **Clarity, liquidity, move
 ```css
 :root {
   /* Sky Axis — master */
-  --sky-100: #003B6A; /* deep night blue */
-  --sky-200: #0979E9; /* primary/blue */
-  --sky-300: #30E7D7; /* primary/turquoise */
-  --sky-400: #BFF3E8; /* horizon light */
-  --sky-500: #F7C563; /* first-light gold */
-  --sky-600: #EF8332; /* primary/orange */
-  --sky-700: #CB782A; /* deep amber */
+  --sky-100: #0979E9; /* primary/blue */
+  --sky-200: #30E7D7; /* primary/turquoise */
+  --sky-300: #BFF3E8; /* horizon light */
+  --sky-400: #F7C563; /* first-light gold */
+  --sky-500: #EF8332; /* primary/orange */
 
   /* Primaries */
-  --primary-blue:      var(--sky-200);
-  --primary-turquoise: var(--sky-300);
-  --primary-orange:    var(--sky-600);
+  --primary-blue:      var(--sky-100);
+  --primary-turquoise: var(--sky-200);
+  --primary-orange:    var(--sky-500);
 
   /* Sky ramp */
   --blue-base: #0979E9;
